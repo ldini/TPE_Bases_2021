@@ -1,0 +1,12 @@
+INSERT INTO persona (id_rol,nombre)
+VALUES
+  (1,'RECURSOS HUMANOS'),
+  (2,'MANTENIMIENTO'),
+  (3,'INSTALADOR'),
+  (4,'LIMPIEZA'),
+  (5,'PRESIDENTE'),
+  (6,'COBRADOR'),
+  (7,'GERENTE'),
+  (8,'SUPERVISOR'),
+  (9,'TECNICO'),
+  (10,'INGENIERO');
