@@ -1,4 +1,4 @@
-INSERT INTO persona (id_persona,carac,numero)
+INSERT INTO telefono (id_persona,carac,numero)
 VALUES
   (346,40,32233232),
   (248,49,32233239),
@@ -10,7 +10,7 @@ VALUES
   (402,14,32233281),
   (269,19,32233288),
   (156,14,32233295);
-INSERT INTO persona (id_persona,carac,numero)
+INSERT INTO telefono (id_persona,carac,numero)
 VALUES
   (515,58,32233302),
   (409,17,32233309),
@@ -22,7 +22,7 @@ VALUES
   (411,44,32233351),
   (118,37,32233358),
   (310,28,32233365);
-INSERT INTO persona (id_persona,carac,numero)
+INSERT INTO telefono (id_persona,carac,numero)
 VALUES
   (202,54,32233372),
   (298,21,32233379),
@@ -34,7 +34,7 @@ VALUES
   (198,14,32233421),
   (139,59,32233428),
   (476,51,32233435);
-INSERT INTO persona (id_persona,carac,numero)
+INSERT INTO telefono (id_persona,carac,numero)
 VALUES
   (105,58,32233442),
   (545,52,32233449),
@@ -46,7 +46,7 @@ VALUES
   (501,24,32233491),
   (139,32,32233498),
   (420,49,32233505);
-INSERT INTO persona (id_persona,carac,numero)
+INSERT INTO telefono (id_persona,carac,numero)
 VALUES
   (171,47,32233512),
   (122,54,32233519),
@@ -58,7 +58,7 @@ VALUES
   (426,24,32233561),
   (573,17,32233568),
   (193,11,32233575);
-INSERT INTO persona (id_persona,carac,numero)
+INSERT INTO telefono (id_persona,carac,numero)
 VALUES
   (500,41,32233582),
   (359,28,32233589),
@@ -70,7 +70,7 @@ VALUES
   (361,47,32233631),
   (586,19,32233638),
   (482,42,32233645);
-INSERT INTO persona (id_persona,carac,numero)
+INSERT INTO telefono (id_persona,carac,numero)
 VALUES
   (432,32,32233652),
   (427,41,32233659),
@@ -82,7 +82,7 @@ VALUES
   (274,31,32233701),
   (504,15,32233708),
   (423,40,32233715);
-INSERT INTO persona (id_persona,carac,numero)
+INSERT INTO telefono (id_persona,carac,numero)
 VALUES
   (180,25,32233722),
   (350,58,32233729),
@@ -94,7 +94,7 @@ VALUES
   (465,39,32233771),
   (117,30,32233778),
   (176,11,32233785);
-INSERT INTO persona (id_persona,carac,numero)
+INSERT INTO telefono (id_persona,carac,numero)
 VALUES
   (232,35,32233792),
   (154,48,32233799),
@@ -106,7 +106,7 @@ VALUES
   (517,16,32233841),
   (282,35,32233848),
   (453,26,32233855);
-INSERT INTO persona (id_persona,carac,numero)
+INSERT INTO telefono (id_persona,carac,numero)
 VALUES
   (358,58,32233862),
   (212,61,32233869),
@@ -118,7 +118,7 @@ VALUES
   (469,36,32233911),
   (540,26,32233918),
   (448,31,32233925);
-INSERT INTO persona (id_persona,carac,numero)
+INSERT INTO telefono (id_persona,carac,numero)
 VALUES
   (419,26,32233932),
   (195,60,32233939),
@@ -130,7 +130,7 @@ VALUES
   (329,52,32233981),
   (245,47,32233988),
   (122,42,32233995);
-INSERT INTO persona (id_persona,carac,numero)
+INSERT INTO telefono (id_persona,carac,numero)
 VALUES
   (324,58,32234002),
   (513,62,32234009),
@@ -142,7 +142,7 @@ VALUES
   (372,54,32234051),
   (354,46,32234058),
   (496,36,32234065);
-INSERT INTO persona (id_persona,carac,numero)
+INSERT INTO telefono (id_persona,carac,numero)
 VALUES
   (423,31,32234072),
   (111,36,32234079),
@@ -154,7 +154,7 @@ VALUES
   (317,30,32234121),
   (274,48,32234128),
   (126,25,32234135);
-INSERT INTO persona (id_persona,carac,numero)
+INSERT INTO telefono (id_persona,carac,numero)
 VALUES
   (132,55,32234142),
   (245,47,32234149),
@@ -166,7 +166,7 @@ VALUES
   (428,46,32234191),
   (459,28,32234198),
   (318,37,32234205);
-INSERT INTO persona (id_persona,carac,numero)
+INSERT INTO telefono (id_persona,carac,numero)
 VALUES
   (575,60,32234212),
   (426,54,32234219),
@@ -178,7 +178,7 @@ VALUES
   (454,47,32234261),
   (122,18,32234268),
   (320,41,32234275);
-INSERT INTO persona (id_persona,carac,numero)
+INSERT INTO telefono (id_persona,carac,numero)
 VALUES
   (590,49,32234282),
   (202,21,32234289),
@@ -190,7 +190,7 @@ VALUES
   (289,16,32234331),
   (360,23,32234338),
   (515,30,32234345);
-INSERT INTO persona (id_persona,carac,numero)
+INSERT INTO telefono (id_persona,carac,numero)
 VALUES
   (214,58,32234352),
   (408,13,32234359),
@@ -202,7 +202,7 @@ VALUES
   (391,57,32234401),
   (551,45,32234408),
   (590,47,32234415);
-INSERT INTO persona (id_persona,carac,numero)
+INSERT INTO telefono (id_persona,carac,numero)
 VALUES
   (256,49,32234422),
   (431,15,32234429),
@@ -214,7 +214,7 @@ VALUES
   (285,58,32234471),
   (101,13,32234478),
   (399,15,32234485);
-INSERT INTO persona (id_persona,carac,numero)
+INSERT INTO telefono (id_persona,carac,numero)
 VALUES
   (334,19,32234492),
   (348,19,32234499),
@@ -226,7 +226,7 @@ VALUES
   (231,34,32234541),
   (200,57,32234548),
   (283,35,32234555);
-INSERT INTO persona (id_persona,carac,numero)
+INSERT INTO telefono (id_persona,carac,numero)
 VALUES
   (433,60,32234562),
   (189,35,32234569),
@@ -238,7 +238,7 @@ VALUES
   (306,47,32234611),
   (526,22,32234618),
   (432,41,32234625);
-INSERT INTO persona (id_persona,carac,numero)
+INSERT INTO telefono (id_persona,carac,numero)
 VALUES
   (144,58,32234632),
   (173,50,32234639),
@@ -250,7 +250,7 @@ VALUES
   (206,31,32234681),
   (301,21,32234688),
   (354,56,32234695);
-INSERT INTO persona (id_persona,carac,numero)
+INSERT INTO telefono (id_persona,carac,numero)
 VALUES
   (275,16,32234702),
   (326,20,32234709),
@@ -262,7 +262,7 @@ VALUES
   (113,50,32234751),
   (267,21,32234758),
   (382,29,32234765);
-INSERT INTO persona (id_persona,carac,numero)
+INSERT INTO telefono (id_persona,carac,numero)
 VALUES
   (101,14,32234772),
   (416,35,32234779),
@@ -274,7 +274,7 @@ VALUES
   (593,23,32234821),
   (416,34,32234828),
   (523,39,32234835);
-INSERT INTO persona (id_persona,carac,numero)
+INSERT INTO telefono (id_persona,carac,numero)
 VALUES
   (323,61,32234842),
   (330,52,32234849),
@@ -286,7 +286,7 @@ VALUES
   (486,16,32234891),
   (376,54,32234898),
   (191,37,32234905);
-INSERT INTO persona (id_persona,carac,numero)
+INSERT INTO telefono (id_persona,carac,numero)
 VALUES
   (153,51,32234912),
   (468,56,32234919),
@@ -298,7 +298,7 @@ VALUES
   (546,16,32234961),
   (194,62,32234968),
   (514,57,32234975);
-INSERT INTO persona (id_persona,carac,numero)
+INSERT INTO telefono (id_persona,carac,numero)
 VALUES
   (200,44,32234982),
   (388,48,32234989),
@@ -310,7 +310,7 @@ VALUES
   (597,18,32235031),
   (450,57,32235038),
   (296,21,32235045);
-INSERT INTO persona (id_persona,carac,numero)
+INSERT INTO telefono (id_persona,carac,numero)
 VALUES
   (319,20,32235052),
   (258,44,32235059),
@@ -322,7 +322,7 @@ VALUES
   (145,22,32235101),
   (198,13,32235108),
   (501,31,32235115);
-INSERT INTO persona (id_persona,carac,numero)
+INSERT INTO telefono (id_persona,carac,numero)
 VALUES
   (385,22,32235122),
   (378,37,32235129),
@@ -334,7 +334,7 @@ VALUES
   (341,24,32235171),
   (378,29,32235178),
   (590,33,32235185);
-INSERT INTO persona (id_persona,carac,numero)
+INSERT INTO telefono (id_persona,carac,numero)
 VALUES
   (345,15,32235192),
   (345,14,32235199),
@@ -346,7 +346,7 @@ VALUES
   (129,34,32235241),
   (475,58,32235248),
   (264,36,32235255);
-INSERT INTO persona (id_persona,carac,numero)
+INSERT INTO telefono (id_persona,carac,numero)
 VALUES
   (404,15,32235262),
   (555,60,32235269),
@@ -358,7 +358,7 @@ VALUES
   (197,61,32235311),
   (516,32,32235318),
   (569,51,32235325);
-INSERT INTO persona (id_persona,carac,numero)
+INSERT INTO telefono (id_persona,carac,numero)
 VALUES
   (529,15,32235332),
   (209,27,32235339),
@@ -370,7 +370,7 @@ VALUES
   (208,60,32235381),
   (481,18,32235388),
   (594,32,32235395);
-INSERT INTO persona (id_persona,carac,numero)
+INSERT INTO telefono (id_persona,carac,numero)
 VALUES
   (101,54,32235402),
   (250,24,32235409),
@@ -382,7 +382,7 @@ VALUES
   (283,14,32235451),
   (246,57,32235458),
   (381,33,32235465);
-INSERT INTO persona (id_persona,carac,numero)
+INSERT INTO telefono (id_persona,carac,numero)
 VALUES
   (121,17,32235472),
   (404,36,32235479),
@@ -394,7 +394,7 @@ VALUES
   (498,32,32235521),
   (172,19,32235528),
   (123,30,32235535);
-INSERT INTO persona (id_persona,carac,numero)
+INSERT INTO telefono (id_persona,carac,numero)
 VALUES
   (586,53,32235542),
   (356,48,32235549),
@@ -406,7 +406,7 @@ VALUES
   (142,26,32235591),
   (326,15,32235598),
   (176,44,32235605);
-INSERT INTO persona (id_persona,carac,numero)
+INSERT INTO telefono (id_persona,carac,numero)
 VALUES
   (302,24,32235612),
   (509,52,32235619),
@@ -418,7 +418,7 @@ VALUES
   (132,23,32235661),
   (593,27,32235668),
   (144,55,32235675);
-INSERT INTO persona (id_persona,carac,numero)
+INSERT INTO telefono (id_persona,carac,numero)
 VALUES
   (467,33,32235682),
   (475,17,32235689),
@@ -430,7 +430,7 @@ VALUES
   (213,42,32235731),
   (337,41,32235738),
   (558,49,32235745);
-INSERT INTO persona (id_persona,carac,numero)
+INSERT INTO telefono (id_persona,carac,numero)
 VALUES
   (263,51,32235752),
   (194,54,32235759),
@@ -442,7 +442,7 @@ VALUES
   (120,49,32235801),
   (542,42,32235808),
   (541,19,32235815);
-INSERT INTO persona (id_persona,carac,numero)
+INSERT INTO telefono (id_persona,carac,numero)
 VALUES
   (170,52,32235822),
   (467,33,32235829),
@@ -454,7 +454,7 @@ VALUES
   (276,49,32235871),
   (233,38,32235878),
   (367,47,32235885);
-INSERT INTO persona (id_persona,carac,numero)
+INSERT INTO telefono (id_persona,carac,numero)
 VALUES
   (215,59,32235892),
   (126,35,32235899),
@@ -466,7 +466,7 @@ VALUES
   (109,52,32235941),
   (434,17,32235948),
   (488,29,32235955);
-INSERT INTO persona (id_persona,carac,numero)
+INSERT INTO telefono (id_persona,carac,numero)
 VALUES
   (399,18,32235962),
   (494,37,32235969),
@@ -478,7 +478,7 @@ VALUES
   (500,56,32236011),
   (150,17,32236018),
   (350,21,32236025);
-INSERT INTO persona (id_persona,carac,numero)
+INSERT INTO telefono (id_persona,carac,numero)
 VALUES
   (150,60,32236032),
   (588,56,32236039),
@@ -490,7 +490,7 @@ VALUES
   (446,29,32236081),
   (151,35,32236088),
   (311,59,32236095);
-INSERT INTO persona (id_persona,carac,numero)
+INSERT INTO telefono (id_persona,carac,numero)
 VALUES
   (394,36,32236102),
   (588,58,32236109),
@@ -502,7 +502,7 @@ VALUES
   (598,14,32236151),
   (336,15,32236158),
   (214,60,32236165);
-INSERT INTO persona (id_persona,carac,numero)
+INSERT INTO telefono (id_persona,carac,numero)
 VALUES
   (282,20,32236172),
   (463,19,32236179),
@@ -514,7 +514,7 @@ VALUES
   (299,41,32236221),
   (540,50,32236228),
   (286,31,32236235);
-INSERT INTO persona (id_persona,carac,numero)
+INSERT INTO telefono (id_persona,carac,numero)
 VALUES
   (484,17,32236242),
   (534,42,32236249),
@@ -526,7 +526,7 @@ VALUES
   (332,36,32236291),
   (452,21,32236298),
   (411,51,32236305);
-INSERT INTO persona (id_persona,carac,numero)
+INSERT INTO telefono (id_persona,carac,numero)
 VALUES
   (480,11,32236312),
   (547,40,32236319),
@@ -538,7 +538,7 @@ VALUES
   (599,36,32236361),
   (556,57,32236368),
   (318,44,32236375);
-INSERT INTO persona (id_persona,carac,numero)
+INSERT INTO telefono (id_persona,carac,numero)
 VALUES
   (234,40,32236382),
   (289,46,32236389),
@@ -550,7 +550,7 @@ VALUES
   (386,36,32236431),
   (292,36,32236438),
   (302,17,32236445);
-INSERT INTO persona (id_persona,carac,numero)
+INSERT INTO telefono (id_persona,carac,numero)
 VALUES
   (269,14,32236452),
   (437,47,32236459),
@@ -562,7 +562,7 @@ VALUES
   (397,15,32236501),
   (216,60,32236508),
   (346,11,32236515);
-INSERT INTO persona (id_persona,carac,numero)
+INSERT INTO telefono (id_persona,carac,numero)
 VALUES
   (437,17,32236522),
   (183,19,32236529),
@@ -574,7 +574,7 @@ VALUES
   (496,50,32236571),
   (166,16,32236578),
   (405,18,32236585);
-INSERT INTO persona (id_persona,carac,numero)
+INSERT INTO telefono (id_persona,carac,numero)
 VALUES
   (506,48,32236592),
   (496,51,32236599),
@@ -586,7 +586,7 @@ VALUES
   (203,28,32236641),
   (253,28,32236648),
   (239,21,32236655);
-INSERT INTO persona (id_persona,carac,numero)
+INSERT INTO telefono (id_persona,carac,numero)
 VALUES
   (216,28,32236662),
   (484,13,32236669),

@@ -1,4 +1,4 @@
-INSERT INTO persona (id_rol,nombre)
+INSERT INTO rol (id_rol,nombre)
 VALUES
   (1,'RECURSOS HUMANOS'),
   (2,'MANTENIMIENTO'),

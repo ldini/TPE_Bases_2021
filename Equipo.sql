@@ -1,4 +1,4 @@
-INSERT INTO persona (id_equipo,nombre,MAC,IP,AP,id_servicio,id_cliente,fecha_alta,fecha_baja,tipo_conexion,tipo_asignacion)
+INSERT INTO Equipo (id_equipo,nombre,MAC,IP,AP,id_servicio,id_cliente,fecha_alta,fecha_baja,tipo_conexion,tipo_asignacion)
 VALUES
   (0,'Woodward','XBQ63MYQ5ON','32251','43619',988,402,'Apr 20, 1969','Jun 3, 2021','PPTP','DHCP'),
   (5,'Rose','MMD34VLJ3TU','88774','16443',9719,582,'Feb 26, 2028','Oct 19, 2021','PPTP','DHCP'),
@@ -10,7 +10,7 @@ VALUES
   (35,'Benson','YVN03KXY3MY','38161','88292',1918,274,'Aug 14, 2000','Oct 31, 2021','PPPoE','DHCP'),
   (40,'Marshall','BVI34NKX3DG','94505','69416',4963,400,'May 27, 1971','Mar 5, 2022','PPTP','DHCP'),
   (45,'Fisher','GLB99BRS0TD','69461','57678',5028,597,'Feb 21, 2018','Oct 29, 2020','PPPoE','DHCP');
-INSERT INTO persona (id_equipo,nombre,MAC,IP,AP,id_servicio,id_cliente,fecha_alta,fecha_baja,tipo_conexion,tipo_asignacion)
+INSERT INTO Equipo (id_equipo,nombre,MAC,IP,AP,id_servicio,id_cliente,fecha_alta,fecha_baja,tipo_conexion,tipo_asignacion)
 VALUES
   (50,'Barnes','PMO84QHC2AV','57468','58317',6708,440,'Jul 20, 1977','Feb 3, 2022','PPPoE','DHCP'),
   (55,'Cain','EHL06PRD5YM','18278','41275',5153,376,'Jun 8, 1972','Jun 22, 2022','PPTP','IP FIJA'),
@@ -22,7 +22,7 @@ VALUES
   (85,'Conner','UVQ46TJS8MI','44538','48261',4914,188,'Dec 11, 2006','Oct 19, 2020','PPTP','IP FIJA'),
   (90,'Munoz','WRN64RQF4WN','82466','63541',566,274,'Apr 9, 2009','Apr 1, 2022','PPPoE','IP FIJA'),
   (95,'Graves','QLD16VRT3TL','78182','18551',8918,217,'Dec 2, 1975','May 17, 2021','PPPoE','DHCP');
-INSERT INTO persona (id_equipo,nombre,MAC,IP,AP,id_servicio,id_cliente,fecha_alta,fecha_baja,tipo_conexion,tipo_asignacion)
+INSERT INTO Equipo (id_equipo,nombre,MAC,IP,AP,id_servicio,id_cliente,fecha_alta,fecha_baja,tipo_conexion,tipo_asignacion)
 VALUES
   (100,'Stout','EEL46CKO6XS','27528','83044',1378,302,'May 23, 1954','Nov 19, 2021','PPTP','IP FIJA'),
   (105,'Wilder','TLW09YWD8SD','32420','55451',759,355,'Apr 25, 1986','Dec 24, 2021','PPTP','DHCP'),
@@ -34,7 +34,7 @@ VALUES
   (135,'Savage','NQY49LSU2MN','62862','26364',8940,408,'Oct 24, 1967','Sep 24, 2022','PPPoE','IP FIJA'),
   (140,'Christensen','TUJ15IUP3MD','95797','25326',2585,542,'Sep 13, 1954','Sep 8, 2022','PPPoE','IP FIJA'),
   (145,'England','IHC33UOV5SV','44207','58044',1462,241,'Aug 18, 1952','Feb 5, 2022','PPPoE','IP FIJA');
-INSERT INTO persona (id_equipo,nombre,MAC,IP,AP,id_servicio,id_cliente,fecha_alta,fecha_baja,tipo_conexion,tipo_asignacion)
+INSERT INTO Equipo (id_equipo,nombre,MAC,IP,AP,id_servicio,id_cliente,fecha_alta,fecha_baja,tipo_conexion,tipo_asignacion)
 VALUES
   (150,'Norris','GDK62RRG7AU','33323','06748',997,444,'Sep 6, 1956','Feb 21, 2022','PPPoE','DHCP'),
   (155,'Johnson','KRC68BDG6SE','29805','96245',3318,227,'Oct 23, 1980','May 12, 2021','PPTP','IP FIJA'),
@@ -46,7 +46,7 @@ VALUES
   (185,'Gillespie','PKP62HUW5NU','76858','08307',9460,217,'Aug 12, 1946','Feb 19, 2022','PPPoE','DHCP'),
   (190,'Parsons','TAX78SHB3ZK','11424','85565',2174,278,'Sep 5, 1968','Nov 17, 2020','PPTP','DHCP'),
   (195,'Coleman','ZMB27RGN4TJ','62303','81546',1554,250,'Jun 30, 1982','Feb 24, 2021','PPPoE','IP FIJA');
-INSERT INTO persona (id_equipo,nombre,MAC,IP,AP,id_servicio,id_cliente,fecha_alta,fecha_baja,tipo_conexion,tipo_asignacion)
+INSERT INTO Equipo (id_equipo,nombre,MAC,IP,AP,id_servicio,id_cliente,fecha_alta,fecha_baja,tipo_conexion,tipo_asignacion)
 VALUES
   (200,'Gonzales','QSG80NIV5PH','18278','95896',1869,206,'Nov 19, 1963','Dec 16, 2021','PPTP','DHCP'),
   (205,'Garza','JWW45ENL8LO','48062','98561',6469,103,'Jan 6, 1961','Feb 18, 2022','PPTP','DHCP'),
@@ -58,7 +58,7 @@ VALUES
   (235,'Hahn','GDV36XYO2SU','77720','14110',4754,296,'Jun 4, 1957','Oct 25, 2020','PPPoE','DHCP'),
   (240,'Delgado','HVR58FMX4GP','57643','87722',872,298,'Apr 16, 1984','Nov 22, 2020','PPTP','IP FIJA'),
   (245,'Garcia','IGI57SQJ3BV','61440','47127',9089,228,'Aug 15, 1974','May 1, 2022','PPPoE','IP FIJA');
-INSERT INTO persona (id_equipo,nombre,MAC,IP,AP,id_servicio,id_cliente,fecha_alta,fecha_baja,tipo_conexion,tipo_asignacion)
+INSERT INTO Equipo (id_equipo,nombre,MAC,IP,AP,id_servicio,id_cliente,fecha_alta,fecha_baja,tipo_conexion,tipo_asignacion)
 VALUES
   (250,'Bolton','WUQ55VBF5QM','78272','73605',1013,252,'Mar 20, 1951','Jun 18, 2021','PPTP','DHCP'),
   (255,'Carrillo','XVS48COL7OJ','46788','71192',3170,387,'Nov 14, 2015','Apr 11, 2021','PPTP','IP FIJA'),
@@ -70,7 +70,7 @@ VALUES
   (285,'Ross','CEE55OPZ4OM','87147','23976',8648,588,'Jan 13, 1998','Aug 4, 2021','PPPoE','IP FIJA'),
   (290,'Whitehead','UBS76TUG5FF','34238','73658',480,114,'Mar 11, 2000','Apr 2, 2022','PPTP','IP FIJA'),
   (295,'Garcia','NID74JCJ6QU','41633','71413',7933,470,'Nov 11, 1957','Mar 24, 2021','PPTP','IP FIJA');
-INSERT INTO persona (id_equipo,nombre,MAC,IP,AP,id_servicio,id_cliente,fecha_alta,fecha_baja,tipo_conexion,tipo_asignacion)
+INSERT INTO Equipo (id_equipo,nombre,MAC,IP,AP,id_servicio,id_cliente,fecha_alta,fecha_baja,tipo_conexion,tipo_asignacion)
 VALUES
   (300,'Blackwell','UYL14PKZ7RD','54752','51844',2243,455,'May 3, 2009','Sep 24, 2022','PPPoE','DHCP'),
   (305,'Giles','WKZ52AVW0MA','57104','37110',1300,308,'Dec 20, 1947','Jan 8, 2022','PPTP','IP FIJA'),
@@ -82,7 +82,7 @@ VALUES
   (335,'Norman','DNJ46WNS4OF','05457','16591',2328,240,'Oct 19, 1974','Oct 25, 2021','PPPoE','IP FIJA'),
   (340,'Pickett','PVY99IMM2GJ','78512','98127',6412,256,'Jul 24, 1949','Dec 26, 2020','PPTP','IP FIJA'),
   (345,'Boyer','EUN38OBE2YF','85368','21668',2206,101,'Jan 12, 2029','Jul 26, 2022','PPPoE','DHCP');
-INSERT INTO persona (id_equipo,nombre,MAC,IP,AP,id_servicio,id_cliente,fecha_alta,fecha_baja,tipo_conexion,tipo_asignacion)
+INSERT INTO Equipo (id_equipo,nombre,MAC,IP,AP,id_servicio,id_cliente,fecha_alta,fecha_baja,tipo_conexion,tipo_asignacion)
 VALUES
   (350,'Cooley','YPG74NDT8WS','24444','51265',7721,228,'Sep 27, 1945','Mar 6, 2022','PPTP','IP FIJA'),
   (355,'Trevino','KUE75LEK3KB','62512','98848',3181,203,'Jan 14, 1975','Feb 15, 2021','PPTP','DHCP'),
@@ -94,7 +94,7 @@ VALUES
   (385,'Solis','NNR37AXB3TI','97551','25621',24,192,'Apr 23, 2003','Jan 6, 2021','PPPoE','DHCP'),
   (390,'Calhoun','ZSD62KOY8JC','33314','26251',8525,289,'Jun 15, 2015','Mar 21, 2022','PPPoE','IP FIJA'),
   (395,'Larson','TQT83POI7GD','75711','37556',9816,446,'Mar 8, 1964','Mar 18, 2022','PPPoE','IP FIJA');
-INSERT INTO persona (id_equipo,nombre,MAC,IP,AP,id_servicio,id_cliente,fecha_alta,fecha_baja,tipo_conexion,tipo_asignacion)
+INSERT INTO Equipo (id_equipo,nombre,MAC,IP,AP,id_servicio,id_cliente,fecha_alta,fecha_baja,tipo_conexion,tipo_asignacion)
 VALUES
   (400,'Gates','GSJ74MKP8WV','56427','82951',8584,148,'May 22, 1989','Dec 18, 2021','PPTP','IP FIJA'),
   (405,'Hanson','ERQ51VRK1DR','81146','13123',2330,471,'May 18, 2026','Jan 25, 2021','PPTP','IP FIJA'),
@@ -106,7 +106,7 @@ VALUES
   (435,'Boyer','MPK64FQB5WS','95248','35613',5663,473,'May 23, 1991','Apr 28, 2021','PPPoE','IP FIJA'),
   (440,'Woods','VLZ67YNQ3GF','77012','76644',2381,552,'Jan 7, 1966','Dec 25, 2020','PPTP','DHCP'),
   (445,'Yang','MTD65JRD7MD','32243','10253',5306,581,'Mar 11, 1972','Oct 4, 2021','PPTP','DHCP');
-INSERT INTO persona (id_equipo,nombre,MAC,IP,AP,id_servicio,id_cliente,fecha_alta,fecha_baja,tipo_conexion,tipo_asignacion)
+INSERT INTO Equipo (id_equipo,nombre,MAC,IP,AP,id_servicio,id_cliente,fecha_alta,fecha_baja,tipo_conexion,tipo_asignacion)
 VALUES
   (450,'Mclean','GBU78KVX1LC','38471','31477',1078,402,'Sep 21, 1960','Feb 6, 2022','PPPoE','DHCP'),
   (455,'Robles','PRJ13KTY0FB','23623','03627',3090,563,'May 13, 1989','Mar 15, 2022','PPTP','DHCP'),

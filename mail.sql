@@ -1,4 +1,4 @@
-INSERT INTO persona (id_persona,mail,tipo)
+INSERT INTO mail (id_persona,mail,tipo)
 VALUES
   (484,'diam.dictum.sapien@nisl.co.uk','EMPRESARIAL'),
   (233,'magna.sed@massalobortis.edu','EMPRESARIAL'),
@@ -10,7 +10,7 @@ VALUES
   (476,'mus.proin@donectempor.org','INSTITUCIONAL'),
   (197,'velit@non.com','PERSONAL'),
   (179,'at.libero@vulputatedui.org','INSTITUCIONAL');
-INSERT INTO persona (id_persona,mail,tipo)
+INSERT INTO mail (id_persona,mail,tipo)
 VALUES
   (414,'nam.consequat.dolor@nullaintegervulputate.com','EMPRESARIAL'),
   (289,'est.nunc@augueeutellus.net','EMPRESARIAL'),
@@ -22,7 +22,7 @@ VALUES
   (282,'integer@ametconsectetueradipiscing.ca','INSTITUCIONAL'),
   (188,'donec.tempus@sociisnatoquepenatibus.net','INSTITUCIONAL'),
   (403,'et.commodo.at@aliquam.net','INSTITUCIONAL');
-INSERT INTO persona (id_persona,mail,tipo)
+INSERT INTO mail (id_persona,mail,tipo)
 VALUES
   (112,'libero.est@et.co.uk','PERSONAL'),
   (578,'malesuada.malesuada.integer@naminterdum.co.uk','INSTITUCIONAL'),
@@ -34,7 +34,7 @@ VALUES
   (442,'quis.accumsan.convallis@mollisvitae.co.uk','EMPRESARIAL'),
   (225,'vivamus.molestie@faucibusleoin.ca','EMPRESARIAL'),
   (285,'interdum.ligula@dictum.edu','PERSONAL');
-INSERT INTO persona (id_persona,mail,tipo)
+INSERT INTO mail (id_persona,mail,tipo)
 VALUES
   (215,'felis@rutrumlorem.org','EMPRESARIAL'),
   (217,'nec.metus.facilisis@aeneangravida.org','INSTITUCIONAL'),
@@ -46,7 +46,7 @@ VALUES
   (395,'sagittis.felis@ultrices.ca','PERSONAL'),
   (513,'ut.quam@vehicula.ca','EMPRESARIAL'),
   (305,'cursus.integer.mollis@aliquetnec.org','PERSONAL');
-INSERT INTO persona (id_persona,mail,tipo)
+INSERT INTO mail (id_persona,mail,tipo)
 VALUES
   (214,'lorem@noncursusnon.net','EMPRESARIAL'),
   (178,'ultricies.sem.magna@nullaintegervulputate.org','INSTITUCIONAL'),
@@ -58,7 +58,7 @@ VALUES
   (579,'sed.pharetra@tempusnon.ca','PERSONAL'),
   (193,'sed.turpis@semper.net','INSTITUCIONAL'),
   (300,'nullam.vitae.diam@sit.org','EMPRESARIAL');
-INSERT INTO persona (id_persona,mail,tipo)
+INSERT INTO mail (id_persona,mail,tipo)
 VALUES
   (477,'tempor.diam@urnanec.edu','EMPRESARIAL'),
   (307,'ac.feugiat.non@magnisdis.edu','EMPRESARIAL'),
@@ -70,7 +70,7 @@ VALUES
   (296,'mus.aenean@risusduisa.co.uk','INSTITUCIONAL'),
   (115,'tempus.non.lacinia@arcuvestibulum.net','PERSONAL'),
   (119,'et.euismod@at.ca','EMPRESARIAL');
-INSERT INTO persona (id_persona,mail,tipo)
+INSERT INTO mail (id_persona,mail,tipo)
 VALUES
   (570,'pretium.neque@luctus.com','INSTITUCIONAL'),
   (525,'lacus.cras.interdum@vulputatenisi.com','EMPRESARIAL'),
@@ -82,7 +82,7 @@ VALUES
   (546,'amet@sempernam.com','INSTITUCIONAL'),
   (257,'euismod.mauris.eu@pharetraquisqueac.net','PERSONAL'),
   (319,'fames.ac@eratnonummy.co.uk','INSTITUCIONAL');
-INSERT INTO persona (id_persona,mail,tipo)
+INSERT INTO mail (id_persona,mail,tipo)
 VALUES
   (111,'enim.suspendisse@elementum.net','INSTITUCIONAL'),
   (432,'a.odio.semper@dolortempusnon.ca','INSTITUCIONAL'),
@@ -94,7 +94,7 @@ VALUES
   (577,'elit.pharetra@felisnullatempor.org','INSTITUCIONAL'),
   (231,'laoreet.lectus.quis@a.edu','PERSONAL'),
   (308,'integer.eu@sitamet.com','EMPRESARIAL');
-INSERT INTO persona (id_persona,mail,tipo)
+INSERT INTO mail (id_persona,mail,tipo)
 VALUES
   (331,'orci@nullainteger.net','INSTITUCIONAL'),
   (449,'donec.fringilla@euodiotristique.ca','EMPRESARIAL'),
@@ -106,7 +106,7 @@ VALUES
   (287,'et.arcu@mollis.edu','INSTITUCIONAL'),
   (454,'augue.sed@donecsollicitudin.org','EMPRESARIAL'),
   (215,'gravida@nullam.com','PERSONAL');
-INSERT INTO persona (id_persona,mail,tipo)
+INSERT INTO mail (id_persona,mail,tipo)
 VALUES
   (253,'elit.elit@antelectusconvallis.com','INSTITUCIONAL'),
   (453,'sagittis.lobortis@interdumcurabiturdictum.ca','INSTITUCIONAL'),
@@ -118,7 +118,7 @@ VALUES
   (363,'elit.elit.fermentum@euismodest.co.uk','INSTITUCIONAL'),
   (532,'metus@nuncnullavulputate.org','INSTITUCIONAL'),
   (443,'ut.semper@pedeultrices.co.uk','EMPRESARIAL');
-INSERT INTO persona (id_persona,mail,tipo)
+INSERT INTO mail (id_persona,mail,tipo)
 VALUES
   (258,'faucibus.ut@enimmi.ca','INSTITUCIONAL'),
   (432,'libero.mauris.aliquam@quis.com','EMPRESARIAL'),
@@ -130,7 +130,7 @@ VALUES
   (280,'eu.dui.cum@orcidonec.org','INSTITUCIONAL'),
   (535,'donec.dignissim@nonmassa.edu','INSTITUCIONAL'),
   (127,'convallis.dolor@etmagnis.net','INSTITUCIONAL');
-INSERT INTO persona (id_persona,mail,tipo)
+INSERT INTO mail (id_persona,mail,tipo)
 VALUES
   (476,'fames@iaculisodionam.org','EMPRESARIAL'),
   (123,'integer.tincidunt@mauris.org','INSTITUCIONAL'),
@@ -142,7 +142,7 @@ VALUES
   (127,'dis.parturient@in.co.uk','PERSONAL'),
   (549,'nibh.dolor@euaugue.net','PERSONAL'),
   (378,'sit.amet@atiaculis.net','PERSONAL');
-INSERT INTO persona (id_persona,mail,tipo)
+INSERT INTO mail (id_persona,mail,tipo)
 VALUES
   (289,'velit.egestas.lacinia@ipsumsodales.com','EMPRESARIAL'),
   (291,'enim.suspendisse.aliquet@sollicitudincommodoipsum.org','INSTITUCIONAL'),
@@ -154,7 +154,7 @@ VALUES
   (472,'integer.mollis.integer@phasellusdapibus.edu','PERSONAL'),
   (204,'aliquam.vulputate@felisegetvarius.com','PERSONAL'),
   (495,'dictum@orciin.edu','PERSONAL');
-INSERT INTO persona (id_persona,mail,tipo)
+INSERT INTO mail (id_persona,mail,tipo)
 VALUES
   (300,'sem.magna@arcuvivamus.edu','EMPRESARIAL'),
   (286,'sociis.natoque@faucibusorci.co.uk','INSTITUCIONAL'),
@@ -166,7 +166,7 @@ VALUES
   (429,'erat.vel@cum.org','PERSONAL'),
   (520,'tincidunt.nunc.ac@ligulaaeneangravida.com','INSTITUCIONAL'),
   (343,'et.malesuada@vitaeodio.org','EMPRESARIAL');
-INSERT INTO persona (id_persona,mail,tipo)
+INSERT INTO mail (id_persona,mail,tipo)
 VALUES
   (436,'a.magna@vel.edu','INSTITUCIONAL'),
   (203,'elementum.dui@fringillaest.org','INSTITUCIONAL'),
@@ -178,7 +178,7 @@ VALUES
   (587,'feugiat.sed.nec@sagittisfelisdonec.net','PERSONAL'),
   (338,'elementum.dui@lectusnullam.com','EMPRESARIAL'),
   (351,'posuere.cubilia@cursuspurus.co.uk','PERSONAL');
-INSERT INTO persona (id_persona,mail,tipo)
+INSERT INTO mail (id_persona,mail,tipo)
 VALUES
   (372,'eget@molestiesed.org','EMPRESARIAL'),
   (144,'libero@nullasemper.org','INSTITUCIONAL'),
@@ -190,7 +190,7 @@ VALUES
   (192,'aenean.massa.integer@maurissuspendisse.co.uk','INSTITUCIONAL'),
   (412,'nec.leo@metusurna.ca','EMPRESARIAL'),
   (213,'scelerisque.lorem@convallisantelectus.co.uk','PERSONAL');
-INSERT INTO persona (id_persona,mail,tipo)
+INSERT INTO mail (id_persona,mail,tipo)
 VALUES
   (258,'pede@pharetraut.com','INSTITUCIONAL'),
   (328,'erat@iaculisaliquet.ca','INSTITUCIONAL'),
@@ -202,7 +202,7 @@ VALUES
   (235,'imperdiet.nec.leo@leoelementumsem.com','EMPRESARIAL'),
   (143,'tempor.est.ac@ligulaaeneangravida.net','PERSONAL'),
   (387,'tempor@facilisisvitaeorci.com','EMPRESARIAL');
-INSERT INTO persona (id_persona,mail,tipo)
+INSERT INTO mail (id_persona,mail,tipo)
 VALUES
   (430,'euismod@atpedecras.edu','EMPRESARIAL'),
   (261,'vivamus.nibh.dolor@euodio.edu','INSTITUCIONAL'),
@@ -214,7 +214,7 @@ VALUES
   (245,'egestas@turpisnulla.edu','INSTITUCIONAL'),
   (516,'dolor@sapien.edu','EMPRESARIAL'),
   (231,'ipsum@sedmolestie.co.uk','EMPRESARIAL');
-INSERT INTO persona (id_persona,mail,tipo)
+INSERT INTO mail (id_persona,mail,tipo)
 VALUES
   (375,'duis.dignissim.tempor@fringillapurus.ca','PERSONAL'),
   (554,'posuere.at.velit@antelectusconvallis.org','EMPRESARIAL'),
@@ -226,7 +226,7 @@ VALUES
   (473,'nibh.quisque@maurisut.net','PERSONAL'),
   (461,'et.euismod.et@eudolor.net','INSTITUCIONAL'),
   (217,'eget.massa@cras.net','EMPRESARIAL');
-INSERT INTO persona (id_persona,mail,tipo)
+INSERT INTO mail (id_persona,mail,tipo)
 VALUES
   (287,'pede@sit.com','EMPRESARIAL'),
   (456,'molestie.sed@pellentesqueutipsum.net','PERSONAL'),
@@ -238,7 +238,7 @@ VALUES
   (257,'elementum.sem@nequetellusimperdiet.com','EMPRESARIAL'),
   (396,'luctus.felis.purus@enim.edu','PERSONAL'),
   (315,'donec.elementum@phasellus.com','EMPRESARIAL');
-INSERT INTO persona (id_persona,mail,tipo)
+INSERT INTO mail (id_persona,mail,tipo)
 VALUES
   (354,'ut.semper@quisdiam.edu','INSTITUCIONAL'),
   (235,'orci.phasellus@proinsedturpis.co.uk','INSTITUCIONAL'),
@@ -250,7 +250,7 @@ VALUES
   (454,'facilisis.suspendisse.commodo@tinciduntnunc.ca','PERSONAL'),
   (136,'egestas.hendrerit.neque@semperrutrum.co.uk','EMPRESARIAL'),
   (283,'vestibulum.accumsan@convallisantelectus.edu','INSTITUCIONAL');
-INSERT INTO persona (id_persona,mail,tipo)
+INSERT INTO mail (id_persona,mail,tipo)
 VALUES
   (437,'neque@vivamusrhoncus.ca','EMPRESARIAL'),
   (475,'id@elit.ca','PERSONAL'),
@@ -262,7 +262,7 @@ VALUES
   (461,'mauris.blandit@lobortisultrices.org','PERSONAL'),
   (563,'in.lorem@pellentesqueseddictum.org','PERSONAL'),
   (483,'nonummy.ut@velitpellentesqueultricies.ca','INSTITUCIONAL');
-INSERT INTO persona (id_persona,mail,tipo)
+INSERT INTO mail (id_persona,mail,tipo)
 VALUES
   (519,'erat.neque.non@dolordapibus.net','PERSONAL'),
   (318,'phasellus@atiaculisquis.com','INSTITUCIONAL'),
@@ -274,7 +274,7 @@ VALUES
   (428,'dignissim.pharetra.nam@dictum.edu','EMPRESARIAL'),
   (419,'leo.elementum@posuere.net','EMPRESARIAL'),
   (351,'leo.in@sedsapiennunc.co.uk','PERSONAL');
-INSERT INTO persona (id_persona,mail,tipo)
+INSERT INTO mail (id_persona,mail,tipo)
 VALUES
   (301,'erat.etiam.vestibulum@tristiquenequevenenatis.org','INSTITUCIONAL'),
   (127,'nunc.mauris.sapien@tortor.edu','EMPRESARIAL'),
@@ -286,7 +286,7 @@ VALUES
   (267,'nulla.tincidunt.neque@accumsan.edu','INSTITUCIONAL'),
   (348,'magna.lorem@velvulputate.co.uk','EMPRESARIAL'),
   (257,'sollicitudin.adipiscing@adipiscinglacus.org','EMPRESARIAL');
-INSERT INTO persona (id_persona,mail,tipo)
+INSERT INTO mail (id_persona,mail,tipo)
 VALUES
   (424,'vitae.mauris@ornaresagittis.net','EMPRESARIAL'),
   (214,'pellentesque.habitant@felispurus.com','PERSONAL'),
@@ -298,7 +298,7 @@ VALUES
   (234,'nunc.id@felispurus.edu','INSTITUCIONAL'),
   (246,'molestie@aeneangravida.net','EMPRESARIAL'),
   (359,'non.ante@urnaconvallis.com','PERSONAL');
-INSERT INTO persona (id_persona,mail,tipo)
+INSERT INTO mail (id_persona,mail,tipo)
 VALUES
   (316,'amet.diam@est.edu','INSTITUCIONAL'),
   (570,'eu.dui.cum@lacus.net','EMPRESARIAL'),
@@ -310,7 +310,7 @@ VALUES
   (201,'risus.morbi.metus@dolorfusce.net','EMPRESARIAL'),
   (397,'pellentesque.sed@eu.co.uk','EMPRESARIAL'),
   (302,'eleifend@a.edu','PERSONAL');
-INSERT INTO persona (id_persona,mail,tipo)
+INSERT INTO mail (id_persona,mail,tipo)
 VALUES
   (284,'ridiculus.mus@ligulanullam.net','INSTITUCIONAL'),
   (197,'enim.consequat.purus@magnacras.ca','EMPRESARIAL'),
@@ -322,7 +322,7 @@ VALUES
   (450,'rhoncus.proin@duinec.edu','PERSONAL'),
   (600,'porttitor.scelerisque@mienimcondimentum.ca','EMPRESARIAL'),
   (490,'dapibus.id@posuere.ca','PERSONAL');
-INSERT INTO persona (id_persona,mail,tipo)
+INSERT INTO mail (id_persona,mail,tipo)
 VALUES
   (347,'sed.tortor.integer@cum.org','PERSONAL'),
   (365,'lorem.vehicula@et.co.uk','EMPRESARIAL'),
@@ -334,7 +334,7 @@ VALUES
   (398,'tristique.senectus@mauris.org','INSTITUCIONAL'),
   (217,'donec.elementum.lorem@justo.org','PERSONAL'),
   (303,'est@senectusetnetus.org','PERSONAL');
-INSERT INTO persona (id_persona,mail,tipo)
+INSERT INTO mail (id_persona,mail,tipo)
 VALUES
   (507,'elementum.purus.accumsan@nibh.net','EMPRESARIAL'),
   (232,'at@sedet.com','EMPRESARIAL'),
@@ -346,7 +346,7 @@ VALUES
   (427,'non.bibendum@etiamimperdietdictum.co.uk','EMPRESARIAL'),
   (135,'nulla.in@consectetueradipiscingelit.edu','INSTITUCIONAL'),
   (555,'natoque@egetmetusin.co.uk','INSTITUCIONAL');
-INSERT INTO persona (id_persona,mail,tipo)
+INSERT INTO mail (id_persona,mail,tipo)
 VALUES
   (238,'vel.quam@eget.ca','INSTITUCIONAL'),
   (223,'lorem@ataugue.org','INSTITUCIONAL'),
@@ -358,7 +358,7 @@ VALUES
   (371,'vestibulum.ante.ipsum@ac.com','PERSONAL'),
   (395,'arcu.eu@arcusedeu.ca','INSTITUCIONAL'),
   (394,'donec.consectetuer.mauris@inaliquet.net','EMPRESARIAL');
-INSERT INTO persona (id_persona,mail,tipo)
+INSERT INTO mail (id_persona,mail,tipo)
 VALUES
   (524,'enim.curabitur.massa@adipiscing.com','INSTITUCIONAL'),
   (331,'convallis@curaedonec.com','EMPRESARIAL'),
@@ -370,7 +370,7 @@ VALUES
   (567,'hymenaeos.mauris@aeneanegestashendrerit.ca','EMPRESARIAL'),
   (244,'nec.imperdiet@curabiturconsequatlectus.ca','PERSONAL'),
   (345,'sit.amet@sociisnatoque.co.uk','INSTITUCIONAL');
-INSERT INTO persona (id_persona,mail,tipo)
+INSERT INTO mail (id_persona,mail,tipo)
 VALUES
   (434,'aliquet.libero@egestasligula.net','PERSONAL'),
   (496,'vitae.diam@egetmollis.net','INSTITUCIONAL'),
@@ -382,7 +382,7 @@ VALUES
   (243,'mauris@acrisusmorbi.net','PERSONAL'),
   (332,'in.faucibus.morbi@musaenean.co.uk','INSTITUCIONAL'),
   (169,'eget.laoreet@duifusce.co.uk','PERSONAL');
-INSERT INTO persona (id_persona,mail,tipo)
+INSERT INTO mail (id_persona,mail,tipo)
 VALUES
   (270,'nunc.id@rhoncusdonec.edu','EMPRESARIAL'),
   (178,'ac.fermentum.vel@tellussuspendisse.org','PERSONAL'),
@@ -394,7 +394,7 @@ VALUES
   (267,'a.mi@classaptenttaciti.net','PERSONAL'),
   (137,'erat.vitae@eu.edu','PERSONAL'),
   (350,'nunc.laoreet.lectus@egestasligula.net','INSTITUCIONAL');
-INSERT INTO persona (id_persona,mail,tipo)
+INSERT INTO mail (id_persona,mail,tipo)
 VALUES
   (139,'lorem.eget@maurisvestibulumneque.edu','INSTITUCIONAL'),
   (349,'cursus.vestibulum@eget.com','PERSONAL'),
@@ -406,7 +406,7 @@ VALUES
   (303,'tincidunt.dui@proinnisl.org','PERSONAL'),
   (486,'felis.orci@parturient.edu','EMPRESARIAL'),
   (328,'neque.nullam@auctorullamcorpernisl.edu','INSTITUCIONAL');
-INSERT INTO persona (id_persona,mail,tipo)
+INSERT INTO mail (id_persona,mail,tipo)
 VALUES
   (204,'eros.nam@euligula.ca','EMPRESARIAL'),
   (390,'gravida.sit@semutdolor.edu','INSTITUCIONAL'),
@@ -418,7 +418,7 @@ VALUES
   (106,'pede@nullacras.ca','EMPRESARIAL'),
   (445,'fermentum.arcu.vestibulum@lacusaliquam.net','EMPRESARIAL'),
   (360,'consectetuer@enimnonnisi.ca','INSTITUCIONAL');
-INSERT INTO persona (id_persona,mail,tipo)
+INSERT INTO mail (id_persona,mail,tipo)
 VALUES
   (228,'et@dolorquam.ca','EMPRESARIAL'),
   (438,'lorem.semper@nullamvitae.com','INSTITUCIONAL'),
@@ -430,7 +430,7 @@ VALUES
   (165,'egestas.urna@egetmassa.com','EMPRESARIAL'),
   (112,'non.dui.nec@lacusquisque.com','EMPRESARIAL'),
   (348,'ornare.libero@ametrisus.com','INSTITUCIONAL');
-INSERT INTO persona (id_persona,mail,tipo)
+INSERT INTO mail (id_persona,mail,tipo)
 VALUES
   (591,'augue.ac@ametultricies.com','INSTITUCIONAL'),
   (345,'pellentesque.sed.dictum@ipsumacmi.co.uk','INSTITUCIONAL'),
@@ -442,7 +442,7 @@ VALUES
   (105,'ante.blandit@turpisnonenim.net','INSTITUCIONAL'),
   (311,'quam.pellentesque.habitant@mattissemper.org','INSTITUCIONAL'),
   (540,'pede.nonummy.ut@vitaesodales.co.uk','INSTITUCIONAL');
-INSERT INTO persona (id_persona,mail,tipo)
+INSERT INTO mail (id_persona,mail,tipo)
 VALUES
   (268,'mattis.semper@aliquamultricesiaculis.co.uk','INSTITUCIONAL'),
   (450,'vulputate.dui@suspendissetristique.net','EMPRESARIAL'),
@@ -454,7 +454,7 @@ VALUES
   (393,'donec.tincidunt@egetlacusmauris.co.uk','INSTITUCIONAL'),
   (101,'luctus.et.ultrices@eratvivamus.org','EMPRESARIAL'),
   (173,'nunc.ullamcorper@fuscefermentum.com','EMPRESARIAL');
-INSERT INTO persona (id_persona,mail,tipo)
+INSERT INTO mail (id_persona,mail,tipo)
 VALUES
   (277,'commodo.tincidunt.nibh@placeratorcilacus.net','PERSONAL'),
   (190,'mus.aenean@uttincidunt.com','PERSONAL'),
@@ -466,7 +466,7 @@ VALUES
   (481,'sagittis.nullam@egestasa.co.uk','EMPRESARIAL'),
   (473,'sed.dictum@egetdictum.org','PERSONAL'),
   (285,'vel.arcu.eu@atfringillapurus.co.uk','INSTITUCIONAL');
-INSERT INTO persona (id_persona,mail,tipo)
+INSERT INTO mail (id_persona,mail,tipo)
 VALUES
   (171,'ac.arcu.nunc@ornaresagittisfelis.co.uk','EMPRESARIAL'),
   (584,'elit@risusdonec.edu','EMPRESARIAL'),
@@ -478,7 +478,7 @@ VALUES
   (316,'et.nunc.quisque@etiamlaoreetlibero.ca','INSTITUCIONAL'),
   (296,'tincidunt.orci@tristiquepharetraquisque.ca','EMPRESARIAL'),
   (103,'sapien@necquam.org','INSTITUCIONAL');
-INSERT INTO persona (id_persona,mail,tipo)
+INSERT INTO mail (id_persona,mail,tipo)
 VALUES
   (442,'nec@dolorsitamet.co.uk','PERSONAL'),
   (539,'aliquet@velit.co.uk','INSTITUCIONAL'),
@@ -490,7 +490,7 @@ VALUES
   (114,'euismod.est.arcu@commodo.ca','EMPRESARIAL'),
   (160,'nunc.ullamcorper@sitamet.co.uk','PERSONAL'),
   (435,'nulla.integer@bibendumfermentummetus.com','PERSONAL');
-INSERT INTO persona (id_persona,mail,tipo)
+INSERT INTO mail (id_persona,mail,tipo)
 VALUES
   (265,'eget.venenatis.a@craseutellus.ca','PERSONAL'),
   (194,'nunc.in.at@enimnec.edu','PERSONAL'),
@@ -502,7 +502,7 @@ VALUES
   (446,'sem@aliquet.edu','INSTITUCIONAL'),
   (332,'eleifend.vitae@gravida.org','INSTITUCIONAL'),
   (493,'sed@viverra.edu','EMPRESARIAL');
-INSERT INTO persona (id_persona,mail,tipo)
+INSERT INTO mail (id_persona,mail,tipo)
 VALUES
   (416,'lobortis.risus@vitae.ca','INSTITUCIONAL'),
   (245,'in.molestie@lacuspedesagittis.net','EMPRESARIAL'),
@@ -514,7 +514,7 @@ VALUES
   (355,'molestie@morbivehicula.ca','PERSONAL'),
   (599,'condimentum.donec.at@etpede.com','PERSONAL'),
   (504,'suspendisse.dui@semconsequat.ca','INSTITUCIONAL');
-INSERT INTO persona (id_persona,mail,tipo)
+INSERT INTO mail (id_persona,mail,tipo)
 VALUES
   (544,'enim.curabitur@aenean.org','PERSONAL'),
   (401,'lorem@orcilacusvestibulum.org','PERSONAL'),
@@ -526,7 +526,7 @@ VALUES
   (341,'vivamus.nisi@nequetellusimperdiet.org','EMPRESARIAL'),
   (401,'luctus.felis@ligula.com','EMPRESARIAL'),
   (497,'cras.dolor@idmollis.org','EMPRESARIAL');
-INSERT INTO persona (id_persona,mail,tipo)
+INSERT INTO mail (id_persona,mail,tipo)
 VALUES
   (310,'elit.curabitur@lorem.org','PERSONAL'),
   (548,'nec@montesnascetur.edu','EMPRESARIAL'),
@@ -538,7 +538,7 @@ VALUES
   (173,'sapien@lorem.com','INSTITUCIONAL'),
   (152,'non@acmetusvitae.net','PERSONAL'),
   (143,'gravida.aliquam.tincidunt@felis.org','PERSONAL');
-INSERT INTO persona (id_persona,mail,tipo)
+INSERT INTO mail (id_persona,mail,tipo)
 VALUES
   (376,'id.blandit@felis.ca','EMPRESARIAL'),
   (324,'semper.erat@nullatincidunt.edu','EMPRESARIAL'),
@@ -550,7 +550,7 @@ VALUES
   (343,'accumsan.sed@nonquampellentesque.net','INSTITUCIONAL'),
   (122,'iaculis.odio@dolor.ca','EMPRESARIAL'),
   (305,'porttitor.interdum@nunc.net','PERSONAL');
-INSERT INTO persona (id_persona,mail,tipo)
+INSERT INTO mail (id_persona,mail,tipo)
 VALUES
   (569,'aliquet@turpisnecmauris.org','EMPRESARIAL'),
   (496,'quis.turpis.vitae@nunccommodo.co.uk','EMPRESARIAL'),
@@ -562,7 +562,7 @@ VALUES
   (281,'nunc@ipsumdolor.org','INSTITUCIONAL'),
   (289,'morbi.vehicula.pellentesque@sitamet.net','EMPRESARIAL'),
   (251,'neque.tellus@amet.org','EMPRESARIAL');
-INSERT INTO persona (id_persona,mail,tipo)
+INSERT INTO mail (id_persona,mail,tipo)
 VALUES
   (481,'auctor@maecenasornare.org','INSTITUCIONAL'),
   (555,'diam@venenatisvel.org','INSTITUCIONAL'),
@@ -574,7 +574,7 @@ VALUES
   (401,'nunc.lectus@nullainteger.ca','EMPRESARIAL'),
   (301,'orci.tincidunt@et.ca','EMPRESARIAL'),
   (404,'proin.non@pretiumaliquetmetus.ca','PERSONAL');
-INSERT INTO persona (id_persona,mail,tipo)
+INSERT INTO mail (id_persona,mail,tipo)
 VALUES
   (554,'consectetuer.cursus@amalesuada.com','INSTITUCIONAL'),
   (291,'curabitur.dictum@fuscefeugiat.com','INSTITUCIONAL'),
@@ -586,7 +586,7 @@ VALUES
   (260,'nunc@nullavulputatedui.ca','PERSONAL'),
   (532,'eget.massa@cursusvestibulummauris.net','EMPRESARIAL'),
   (206,'nec.urna@estnunclaoreet.com','INSTITUCIONAL');
-INSERT INTO persona (id_persona,mail,tipo)
+INSERT INTO mail (id_persona,mail,tipo)
 VALUES
   (396,'bibendum.donec.felis@litoratorquent.com','EMPRESARIAL'),
   (135,'nec.urna@adlitora.edu','PERSONAL'),

@@ -1,4 +1,4 @@
-INSERT INTO persona (id_persona,id_rol)
+INSERT INTO personal (id_personal,id_rol)
 VALUES
   (195,1),
   (172,9),
@@ -10,7 +10,7 @@ VALUES
   (570,3),
   (438,7),
   (274,6);
-INSERT INTO persona (id_persona,id_rol)
+INSERT INTO personal (id_personal,id_rol)
 VALUES
   (425,2),
   (416,5),
@@ -22,7 +22,7 @@ VALUES
   (536,1),
   (483,9),
   (164,3);
-INSERT INTO persona (id_persona,id_rol)
+INSERT INTO personal (id_personal,id_rol)
 VALUES
   (166,1),
   (466,2),
@@ -34,7 +34,7 @@ VALUES
   (519,5),
   (383,8),
   (233,6);
-INSERT INTO persona (id_persona,id_rol)
+INSERT INTO personal (id_personal,id_rol)
 VALUES
   (353,7),
   (153,8),
@@ -46,7 +46,7 @@ VALUES
   (257,10),
   (563,1),
   (572,2);
-INSERT INTO persona (id_persona,id_rol)
+INSERT INTO personal (id_personal,id_rol)
 VALUES
   (361,1),
   (586,1),
@@ -58,7 +58,7 @@ VALUES
   (574,9),
   (531,1),
   (478,4);
-INSERT INTO persona (id_persona,id_rol)
+INSERT INTO personal (id_personal,id_rol)
 VALUES
   (436,3),
   (288,1),
@@ -70,7 +70,7 @@ VALUES
   (473,2),
   (155,7),
   (220,7);
-INSERT INTO persona (id_persona,id_rol)
+INSERT INTO personal (id_personal,id_rol)
 VALUES
   (180,8),
   (292,2),
@@ -82,7 +82,7 @@ VALUES
   (403,0),
   (132,1),
   (235,1);
-INSERT INTO persona (id_persona,id_rol)
+INSERT INTO personal (id_personal,id_rol)
 VALUES
   (280,10),
   (101,6),
@@ -94,7 +94,7 @@ VALUES
   (160,2),
   (279,2),
   (169,9);
-INSERT INTO persona (id_persona,id_rol)
+INSERT INTO personal (id_personal,id_rol)
 VALUES
   (237,6),
   (444,5),
@@ -106,7 +106,7 @@ VALUES
   (261,8),
   (556,4),
   (464,8);
-INSERT INTO persona (id_persona,id_rol)
+INSERT INTO personal (id_personal,id_rol)
 VALUES
   (280,5),
   (337,3),
@@ -118,7 +118,7 @@ VALUES
   (284,1),
   (439,4),
   (504,6);
-INSERT INTO persona (id_persona,id_rol)
+INSERT INTO personal (id_personal,id_rol)
 VALUES
   (326,1),
   (464,7),
@@ -130,7 +130,7 @@ VALUES
   (250,2),
   (375,6),
   (511,1);
-INSERT INTO persona (id_persona,id_rol)
+INSERT INTO personal (id_personal,id_rol)
 VALUES
   (283,2),
   (292,4),
@@ -142,7 +142,7 @@ VALUES
   (367,4),
   (234,7),
   (331,9);
-INSERT INTO persona (id_persona,id_rol)
+INSERT INTO personal (id_personal,id_rol)
 VALUES
   (238,4),
   (433,2),
@@ -154,7 +154,7 @@ VALUES
   (262,5),
   (501,3),
   (273,7);
-INSERT INTO persona (id_persona,id_rol)
+INSERT INTO personal (id_personal,id_rol)
 VALUES
   (454,6),
   (221,4),
@@ -166,7 +166,7 @@ VALUES
   (308,1),
   (516,9),
   (508,5);
-INSERT INTO persona (id_persona,id_rol)
+INSERT INTO personal (id_personal,id_rol)
 VALUES
   (493,7),
   (448,8),
@@ -178,7 +178,7 @@ VALUES
   (169,4),
   (168,1),
   (213,4);
-INSERT INTO persona (id_persona,id_rol)
+INSERT INTO personal (id_personal,id_rol)
 VALUES
   (597,8),
   (278,6),
@@ -190,7 +190,7 @@ VALUES
   (228,3),
   (116,7),
   (173,7);
-INSERT INTO persona (id_persona,id_rol)
+INSERT INTO personal (id_personal,id_rol)
 VALUES
   (531,4),
   (271,3),
@@ -202,7 +202,7 @@ VALUES
   (394,7),
   (370,9),
   (482,9);
-INSERT INTO persona (id_persona,id_rol)
+INSERT INTO personal (id_personal,id_rol)
 VALUES
   (277,4),
   (200,7),
@@ -214,7 +214,7 @@ VALUES
   (249,3),
   (384,3),
   (482,7);
-INSERT INTO persona (id_persona,id_rol)
+INSERT INTO personal (id_personal,id_rol)
 VALUES
   (378,3),
   (577,8),
@@ -226,7 +226,7 @@ VALUES
   (367,2),
   (253,4),
   (194,5);
-INSERT INTO persona (id_persona,id_rol)
+INSERT INTO personal (id_personal,id_rol)
 VALUES
   (139,7),
   (368,0),
@@ -238,7 +238,7 @@ VALUES
   (135,10),
   (277,5),
   (388,9);
-INSERT INTO persona (id_persona,id_rol)
+INSERT INTO personal (id_personal,id_rol)
 VALUES
   (448,7),
   (546,2),
@@ -250,7 +250,7 @@ VALUES
   (415,3),
   (392,2),
   (594,6);
-INSERT INTO persona (id_persona,id_rol)
+INSERT INTO personal (id_personal,id_rol)
 VALUES
   (298,2),
   (373,3),
@@ -262,7 +262,7 @@ VALUES
   (143,8),
   (546,6),
   (431,4);
-INSERT INTO persona (id_persona,id_rol)
+INSERT INTO personal (id_personal,id_rol)
 VALUES
   (318,8),
   (330,10),
@@ -274,7 +274,7 @@ VALUES
   (501,3),
   (368,1),
   (168,10);
-INSERT INTO persona (id_persona,id_rol)
+INSERT INTO personal (id_personal,id_rol)
 VALUES
   (587,7),
   (455,7),
@@ -286,7 +286,7 @@ VALUES
   (525,3),
   (544,6),
   (305,6);
-INSERT INTO persona (id_persona,id_rol)
+INSERT INTO personal (id_personal,id_rol)
 VALUES
   (594,2),
   (131,6),
@@ -298,7 +298,7 @@ VALUES
   (581,8),
   (473,2),
   (364,7);
-INSERT INTO persona (id_persona,id_rol)
+INSERT INTO personal (id_personal,id_rol)
 VALUES
   (412,9),
   (137,5),
@@ -310,7 +310,7 @@ VALUES
   (241,8),
   (284,8),
   (362,10);
-INSERT INTO persona (id_persona,id_rol)
+INSERT INTO personal (id_personal,id_rol)
 VALUES
   (354,8),
   (253,9),
@@ -322,7 +322,7 @@ VALUES
   (475,3),
   (429,5),
   (493,8);
-INSERT INTO persona (id_persona,id_rol)
+INSERT INTO personal (id_personal,id_rol)
 VALUES
   (338,1),
   (268,8),
@@ -334,7 +334,7 @@ VALUES
   (139,5),
   (552,1),
   (108,8);
-INSERT INTO persona (id_persona,id_rol)
+INSERT INTO personal (id_personal,id_rol)
 VALUES
   (539,7),
   (335,5),
@@ -346,7 +346,7 @@ VALUES
   (497,4),
   (128,10),
   (452,5);
-INSERT INTO persona (id_persona,id_rol)
+INSERT INTO personal (id_personal,id_rol)
 VALUES
   (372,6),
   (355,6),
