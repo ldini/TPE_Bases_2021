@@ -44,6 +44,22 @@ JOIN lineacomprobante ON comprobante.id_comp = lineacomprobante.id_comp and comp
                                                 AND s.id_servicio IS NOT NULL))
 WHERE AGE(fecha) <= '3 year'
 
+/*d*/
+/*Indicar el nombre, apellido, tipo y número de documento de los clientes que han contratado todos los servicios periódicos cuyo intervalo se encuentra entre 5 y 10*/
+SELECT nombre,apellido,tipo,nrodoc FROM persona
+WHERE id_persona IN (
+                    SELECT id_cliente FROM comprobante
+                    WHERE id_comp IN (
+                                        SELECT id_comp FROM lineacomprobante l
+                                        WHERE EXISTS(SELECT 1 FROM servicio s
+                                                        WHERE periodico = 1
+                                                        AND intervalo BETWEEN 5 and 10
+                                                        AND l.id_servicio = s.id_servicio)));
+
+
+
+
+
 
 
 
