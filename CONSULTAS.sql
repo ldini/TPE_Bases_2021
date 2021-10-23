@@ -18,18 +18,32 @@ ORDER BY p.apellido,p.nombre;
 24 meses, según su distribución geográfica, mostrando: nombre de ciudad, id de la ciudad, nombre del barrio,
 id del barrio y cantidad de equipos.*/
 
+--Nueva consulta 23/10
+SELECT ciudad.nombre,ciudad.id_ciudad,b.nombre,b.id_barrio,count(e.id_equipo) FROM ciudad
+JOIN barrio b on ciudad.id_ciudad = b.id_ciudad
+JOIN direccion d on b.id_barrio = d.id_barrio
+JOIN persona p on d.id_persona = p.id_persona
+JOIN cliente c on p.id_persona = c.id_cliente
+JOIN equipo e on c.id_cliente = e.id_cliente
+WHERE (e.fecha_baja is NULL
+      OR (DATE_PART('year', (e.fecha_baja)::date) -
+          DATE_PART('year', CURRENT_DATE) <=2))
+GROUP BY ciudad.id_ciudad, b.id_barrio
+ORDER BY count(e.id_equipo) DESC;
+
+--Vieja consulta
 SELECT ciudad.nombre,ciudad.id_ciudad,b.nombre,b.id_barrio,count(e.id_equipo) FROM ciudad
 JOIN barrio b on ciudad.id_ciudad = b.id_ciudad
 JOIN direccion d on b.id_barrio = d.id_barrio --> apartir de aca se podria aplicar IN o EXISTS para no usar join
 JOIN persona p on d.id_persona = p.id_persona
-JOIN cliente c on p.id_persona = c.id_cliente
+JOIN cliente c on p.id_persona = c.id_cliente --¿Podria evitar este JOIN e ir directo a la tabla equipo?
 JOIN equipo e on c.id_cliente = e.id_cliente --> hasta aca!
 WHERE e.id_servicio IN (SELECT id_servicio FROM servicio
                         WHERE activo = true ) --> se considera 1 para activo y 0 para inactivo
 AND AGE(e.fecha_alta) <= '2 year' --> durante los ultimos 24 meses, mas atras no se cuentan
 /*AND to_date(e.fecha_baja,'dd,MM,yyyy') > to_date(current_date,'dd,MM,yyyy')*/ --> me aseguro que no sea haya dado de baja
 GROUP BY ciudad.id_ciudad,b.id_barrio
-ORDER BY count(e.id_equipo) DESC
+ORDER BY count(e.id_equipo) DESC;
 
 /*c)
 Visualizar el Top-3 de los lugares donde se ha realizado la mayor cantidad de servicios periódicos durante
@@ -41,7 +55,7 @@ JOIN lineacomprobante ON comprobante.id_comp = lineacomprobante.id_comp and comp
                                     WHERE EXISTS(   SELECT id_servicio FROM servicio s
                                                 WHERE periodico = true
                                                 AND l.id_servicio = s.id_servicio
-                                                AND s.id_servicio IS NOT NULL))
+                                                AND s.id_servicio IS NOT NULL));
 WHERE AGE(fecha) <= '3 year'
 
 /*d*/
@@ -55,28 +69,6 @@ WHERE id_persona IN (
                                                         WHERE periodico = 1
                                                         AND intervalo BETWEEN 5 and 10
                                                         AND l.id_servicio = s.id_servicio)));
-
-/*RESTRICCIONES*/
-/*a*/
-/*Si una persona está inactiva debe tener establecida una fecha de baja, la cual se debe controlar que sea al
-menos 18 años posterior a la de nacimiento.*/
-
-ALTER TABLE Persona
-ADD CONSTRAINT pk_persona_inactiva
-CHECK ((activo=false
-    AND fecha_baja is not null
-    AND (extract(YEAR from fecha_baja)-extract(YEAR from fecha_nacimiento))>=18 )
-    OR (activo = true)
-    );
-
-
-
-
-
-
-
-
-
 
 /*SELECT * FROM equipo
 WHERE AGE(fecha_baja) <= '2 year'

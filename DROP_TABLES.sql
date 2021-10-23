@@ -72,7 +72,7 @@ DROP TABLE LineaComprobante;
 
 DROP TABLE Mail;
 
-DROP TABLE Persona;
+DROP TABLE Persona ;
 
 DROP TABLE Personal;
 
