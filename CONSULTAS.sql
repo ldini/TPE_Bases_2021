@@ -26,8 +26,8 @@ JOIN persona p on d.id_persona = p.id_persona
 JOIN cliente c on p.id_persona = c.id_cliente
 JOIN equipo e on c.id_cliente = e.id_cliente
 WHERE (e.fecha_baja is NULL
-      OR (DATE_PART('year', (e.fecha_baja)::date) -
-          DATE_PART('year', CURRENT_DATE) <=2))
+      or (DATE_PART('year', CURRENT_DATE)-
+          DATE_PART('year',(e.fecha_baja)::date)<=2))
 GROUP BY ciudad.id_ciudad, b.id_barrio
 ORDER BY count(e.id_equipo) DESC;
 
