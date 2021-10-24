@@ -18,7 +18,7 @@ ORDER BY p.apellido,p.nombre;
 24 meses, según su distribución geográfica, mostrando: nombre de ciudad, id de la ciudad, nombre del barrio,
 id del barrio y cantidad de equipos.*/
 
---Nueva consulta 23/10
+--Nueva consulta 23/10 FUNCIONA
 SELECT ciudad.nombre,ciudad.id_ciudad,b.nombre,b.id_barrio,count(e.id_equipo) FROM ciudad
 JOIN barrio b on ciudad.id_ciudad = b.id_ciudad
 JOIN direccion d on b.id_barrio = d.id_barrio
@@ -49,24 +49,63 @@ ORDER BY count(e.id_equipo) DESC;
 Visualizar el Top-3 de los lugares donde se ha realizado la mayor cantidad de servicios periódicos durante
 los últimos 3 años.*/
 
+-- 2 maneras de encarar esta consulta:
+-- Ciudad->Barrio->Direccion[con id_persona=id_cliente]->Cliente->Equipo->Servicio
+-- Ciudad->Barrio->Direccion[con id_persona=id_cliente]->Comprobante->LineaComprobante->Servicio}
+
+--Consulta nueva 24/10
+SELECT ciudad.nombre, b.nombre --falta agregar el contador
+FROM ciudad
+    JOIN barrio b on ciudad.id_ciudad = b.id_ciudad
+    JOIN direccion d on b.id_barrio = d.id_barrio
+WHERE d.id_persona IN (
+    SELECT 1
+    FROM persona p
+        JOIN cliente c on c.id_cliente=p.id_persona
+        JOIN equipo e on c.id_cliente = e.id_cliente
+        JOIN servicio s on e.id_servicio = s.id_servicio
+    WHERE ((s.periodico=true) AND
+        (DATE_PART('year',e.fecha_baja)
+            BETWEEN date_part('year',CURRENT_DATE)
+            AND date_part('year',current_date-3))
+      )
+    ); --La consulta funciona, para no agregar datos a las tablas se prueba con periodico=false
+        --Falta reestructurar la consulta para agregar el contador de servicios periodicos
+
+--Consulta vieja
 SELECT * FROM comprobante
-JOIN lineacomprobante ON comprobante.id_comp = lineacomprobante.id_comp and comprobante.id_tcomp = lineacomprobante.id_tcomp
+    JOIN lineacomprobante ON comprobante.id_comp = lineacomprobante.id_comp
+                          AND comprobante.id_tcomp = lineacomprobante.id_tcomp
                                     SELECT id_comp,id_tcomp FROM lineacomprobante l
-                                    WHERE EXISTS(   SELECT id_servicio FROM servicio s
+                                    WHERE EXISTS(SELECT id_servicio FROM servicio s
                                                 WHERE periodico = true
                                                 AND l.id_servicio = s.id_servicio
-                                                AND s.id_servicio IS NOT NULL));
-WHERE AGE(fecha) <= '3 year'
+                                                AND s.id_servicio IS NOT NULL);
+WHERE AGE(fecha) <= '3 year';
 
 /*d*/
-/*Indicar el nombre, apellido, tipo y número de documento de los clientes que han contratado todos los servicios periódicos cuyo intervalo se encuentra entre 5 y 10*/
-SELECT nombre,apellido,tipo,nrodoc FROM persona
+/*Indicar el nombre, apellido, tipo y número de documento de los clientes que han contratado todos los
+  servicios periódicos cuyo intervalo se encuentra entre 5 y 10*/
+
+--Consulta nueva 24/10
+SELECT p.nombre, p.apellido, p.tipo, p.nrodoc
+FROM persona p
+    JOIN cliente c on p.id_persona=c.id_cliente
+    JOIN equipo e on c.id_cliente = e.id_cliente
+    JOIN servicio s on e.id_servicio = s.id_servicio
+WHERE (s.periodico=true --Se comprueba el funcionamiento poniendo este valor en false
+       AND s.intervalo BETWEEN 5 AND 10)
+GROUP BY p.nombre, p.apellido, p.tipo, p.nrodoc;
+
+--Consulta vieja
+SELECT nombre,apellido,tipo,nrodoc
+FROM persona
 WHERE id_persona IN (
                     SELECT id_cliente FROM comprobante
                     WHERE id_comp IN (
                                         SELECT id_comp FROM lineacomprobante l
-                                        WHERE EXISTS(SELECT 1 FROM servicio s
-                                                        WHERE periodico = 1
+                                        WHERE NOT EXISTS(SELECT 1 FROM servicio s
+                                                        WHERE periodico = true
                                                         AND intervalo BETWEEN 5 and 10
                                                         AND l.id_servicio = s.id_servicio)));
 
