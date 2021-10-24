@@ -9,3 +9,4 @@ CHECK ((activo=false
     AND (extract(YEAR from fecha_baja)-extract(YEAR from fecha_nacimiento))>=18 )
     OR (activo = true)
     );
+

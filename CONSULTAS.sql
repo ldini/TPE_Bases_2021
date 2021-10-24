@@ -5,12 +5,12 @@ tipo y número de documento, fecha de nacimiento) junto con la
 cantidad de equipos registrados que cada uno dispone, ordenado por apellido y nombre.*/
 
 --a)
-SELECT p.id_persona,p.nombre,p.apellido,p.tipodoc,p.nrodoc,p.fecha_nacimiento,cantidad_equipo.cantidad FROM cliente c
-    JOIN persona p
-        ON c.id_cliente = p.id_persona
-    JOIN  (SELECT id_cliente, count(id_equipo) as cantidad FROM equipo
-            GROUP BY id_cliente) as cantidad_equipo
-        ON cantidad_equipo.id_cliente = c.id_cliente
+SELECT p.id_persona,p.nombre,p.apellido,p.tipodoc,p.nrodoc,p.fecha_nacimiento,cantidad_equipo.cantidad
+FROM cliente c
+    JOIN persona p ON c.id_cliente = p.id_persona
+    JOIN  (SELECT id_cliente, count(id_equipo) as cantidad
+           FROM equipo
+           GROUP BY id_cliente) as cantidad_equipo ON cantidad_equipo.id_cliente = c.id_cliente
 ORDER BY p.apellido,p.nombre;
 
 --b)
@@ -19,12 +19,13 @@ ORDER BY p.apellido,p.nombre;
 id del barrio y cantidad de equipos.*/
 
 --Nueva consulta 23/10 FUNCIONA
-SELECT ciudad.nombre,ciudad.id_ciudad,b.nombre,b.id_barrio,count(e.id_equipo) FROM ciudad
-JOIN barrio b on ciudad.id_ciudad = b.id_ciudad
-JOIN direccion d on b.id_barrio = d.id_barrio
-JOIN persona p on d.id_persona = p.id_persona
-JOIN cliente c on p.id_persona = c.id_cliente
-JOIN equipo e on c.id_cliente = e.id_cliente
+SELECT ciudad.nombre,ciudad.id_ciudad,b.nombre,b.id_barrio,count(e.id_equipo)
+FROM ciudad
+    JOIN barrio b on ciudad.id_ciudad = b.id_ciudad
+    JOIN direccion d on b.id_barrio = d.id_barrio
+    JOIN persona p on d.id_persona = p.id_persona
+    JOIN cliente c on p.id_persona = c.id_cliente
+    JOIN equipo e on c.id_cliente = e.id_cliente
 WHERE (e.fecha_baja is NULL
       or (DATE_PART('year', CURRENT_DATE)-
           DATE_PART('year',(e.fecha_baja)::date)<=2))
@@ -73,6 +74,7 @@ WHERE d.id_persona IN (
         --Falta reestructurar la consulta para agregar el contador de servicios periodicos
 
 --Consulta vieja
+/*
 SELECT * FROM comprobante
     JOIN lineacomprobante ON comprobante.id_comp = lineacomprobante.id_comp
                           AND comprobante.id_tcomp = lineacomprobante.id_tcomp
@@ -82,6 +84,7 @@ SELECT * FROM comprobante
                                                 AND l.id_servicio = s.id_servicio
                                                 AND s.id_servicio IS NOT NULL);
 WHERE AGE(fecha) <= '3 year';
+*/
 
 /*d*/
 /*Indicar el nombre, apellido, tipo y número de documento de los clientes que han contratado todos los
