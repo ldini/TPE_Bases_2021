@@ -38,7 +38,7 @@ BEGIN
                                     WHERE c.id_comp=l.id_comp
                                             AND c.id_tcomp=l.id_tcomp)
        )) THEN
-        RAISE EXCEPTION 'El importe de un comprobante debe coincidir con la suma de los importes de sus líneas'
+        RAISE EXCEPTION 'El importe de un comprobante debe coincidir con la suma de los importes de sus líneas';
     END IF;
     return new;
 END; $$
@@ -63,7 +63,7 @@ BEGIN
                                             AND c.id_tcomp=l.id_tcomp)
                 AND (new.id_comp = c.id_comp AND new.id_tcomp = c.id_tcomp)
        )) THEN
-        RAISE EXCEPTION 'El importe de un comprobante debe coincidir con la suma de los importes de sus líneas'
+        RAISE EXCEPTION 'El importe de un comprobante debe coincidir con la suma de los importes de sus líneas';
     END IF;
     return new;
 END; $$
@@ -78,14 +78,81 @@ create trigger update_comprobante_sumaimportes
     for each row execute procedure tr_update_comprobante_sumaimportes();
 
 
+--PARA PROBAR LAS RESTRICCIONES
+INSERT INTO comprobante (id_comp, id_tcomp, fecha, comentario, estado, fecha_vencimiento, id_turno, importe, id_cliente)  values
+                        (01,100,'Jan 01, 2010','comentario',null,'Jan 01, 2015',80,200,3);
+INSERT INTO lineacomprobante (nro_linea, id_comp, id_tcomp, descripcion, cantidad, importe, id_servicio) values
+                                (400134,01,100,'descripcion',2,200,301);
+
+UPDATE lineacomprobante set importe = 321 where id_comp = 01;
+UPDATE comprobante set importe = 90 where id_comp = 01;
+
+DELETE FROM lineacomprobante where id_comp = 01 and id_tcomp = 100; --¿Deberia existir un trigger para delete?
+DELETE FROM comprobante where id_comp = 01 and id_tcomp = 100;
 
 
 
-delete from comprobante where id_comp = 1 and id_tcomp = 100;
+--**d**
+-- Las IPs asignadas a los equipos no pueden ser compartidas entre clientes.
 
-insert into comprobante (id_comp, id_tcomp, fecha, comentario, estado, fecha_vencimiento, id_turno, importe, id_cliente)  values
-                        (1,100,'Jan 01, 2010','comentario',null,'Jan 01, 2015',80,200,3);
+--Forma declarativa
+/*ALTER TABLE equipo CHECK(
+    NOT EXISTS( SELECT 1
+                FROM equipo e
+                JOIN equipo e2 on e.ip = e2.ip
+                WHERE e.id_cliente <> e2.id_cliente
+    )*/
 
-insert into lineacomprobante (nro_linea, id_comp, id_tcomp, descripcion, cantidad, importe, id_servicio) values
-                                (400134,01,100,'descripcion',2,2000,301);
+--Insert
+CREATE OR REPLACE FUNCTION tr_insert_equipo_IPs() RETURNS trigger AS $$
+BEGIN
+    IF (EXISTS (SELECT 1
+                FROM equipo e
+                JOIN equipo e2 on e.ip = e2.ip
+                WHERE e.id_cliente <> e2.id_cliente
+       )) THEN
+        RAISE EXCEPTION 'La IP pertenece a otro cliente';
+    END IF;
+    RETURN new;
+END; $$
+LANGUAGE 'plpgsql';
+
+CREATE TRIGGER insert_equipo_IPs
+    AFTER INSERT ON equipo
+    FOR EACH ROW EXECUTE PROCEDURE tr_insert_equipo_IPs();
+
+
+--Update
+CREATE OR REPLACE FUNCTION tr_update_equipo_IPs() RETURNS trigger AS $$
+BEGIN
+    IF (EXISTS (SELECT 1
+                FROM equipo e
+                JOIN equipo e2 on e.ip = e2.ip
+                WHERE e.id_cliente <> e2.id_cliente
+                    AND new.id_equipo = e.id_equipo
+       )) THEN
+        RAISE EXCEPTION 'La IP pertenece a otro cliente';
+    END IF;
+    RETURN new;
+END; $$
+LANGUAGE 'plpgsql';
+
+CREATE TRIGGER update_equipo_IPs
+    AFTER UPDATE of ip, id_cliente ON equipo
+    FOR EACH ROW EXECUTE PROCEDURE tr_update_equipo_IPs();
+
+
+--PARA PROBAR LAS RESTRICCIONES
+DELETE FROM equipo where id_equipo = 111;
+
+INSERT INTO equipo (id_equipo, nombre, mac, ip, ap, id_servicio, id_cliente, fecha_alta, fecha_baja, tipo_conexion, tipo_asignacion)
+VALUES(101,'Equipo1','0101','1.1','2.1',301,1,'Jan 01, 2010',NULL,'Cable','A');
+
+INSERT INTO equipo (id_equipo, nombre, mac, ip, ap, id_servicio, id_cliente, fecha_alta, fecha_baja, tipo_conexion, tipo_asignacion)
+            VALUES (111,'Equipo111','0101','1.2','2.1',301,2,'Jan 01, 2010',NULL,'Cable','A');
+
+UPDATE equipo SET ip = '1.3' WHERE id_equipo = 101;
+
+
+
 
