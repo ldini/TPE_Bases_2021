@@ -1,3 +1,4 @@
+--***********************************************************************************************************************************************
 --** a **
 /*Si una persona está inactiva debe tener establecida una fecha de baja, la cual se debe controlar que sea al
 menos 18 años posterior a la de nacimiento.*/
@@ -10,10 +11,10 @@ CHECK ((activo=false
     OR (activo = true)
     );
 
+
+--***********************************************************************************************************************************************
 /** b **
 El importe de un comprobante debe coincidir con la suma de los importes de sus líneas (si las tuviera).*/
-
---Esta reestriccion es entre tablas, por lo tanto no se puede resolver de forma declarativa.
 
 --Forma declarativa(lo pide el enunciado):
 /*
@@ -90,8 +91,15 @@ UPDATE comprobante set importe = 90 where id_comp = 01;
 DELETE FROM lineacomprobante where id_comp = 01 and id_tcomp = 100; --¿Deberia existir un trigger para delete?
 DELETE FROM comprobante where id_comp = 01 and id_tcomp = 100;*/
 
+--***********************************************************************************************************************************************
+--** c **
 
 
+
+
+
+
+--***********************************************************************************************************************************************
 --** d **
 -- Las IPs asignadas a los equipos no pueden ser compartidas entre clientes.
 
@@ -133,13 +141,17 @@ BEGIN
        )) THEN
         RAISE EXCEPTION 'La IP pertenece a otro cliente';
     END IF;
+    SELECT d.id_barrio
+    FROM direccion d
+    WHERE d.id_persona in (SELECT 1
+                           FROM equipo
+                           WHERE equipo.id_cliente=d.id_persona)
+
+    GROUP BY d.id_barrio;
     RETURN new;
 END; $$
 LANGUAGE 'plpgsql';
 
-CREATE TRIGGER update_equipo_IPs
-    AFTER UPDATE of ip, id_cliente ON equipo
-    FOR EACH ROW EXECUTE PROCEDURE tr_update_equipo_IPs();
 
 
 --PARA PROBAR LAS RESTRICCIONES
@@ -153,20 +165,27 @@ INSERT INTO equipo (id_equipo, nombre, mac, ip, ap, id_servicio, id_cliente, fec
 
 UPDATE equipo SET ip = '1.3' WHERE id_equipo = 101;*/
 
+
+--***********************************************************************************************************************************************
 --** e **
 --No se pueden instalar más de 25 equipos por Barrio.
 
 --Forma declarativa
-/*ALTER TABLE direccion CHECK(
+/*
+ALTER TABLE direccion CHECK (
     NOT EXISTS( SELECT 1
                 FROM direccion d
-                JOIN (SELECT e.id_cliente,count(*) cant_equipos_por_persona         --NO FUNCIONA.
-                        FROM equipo e
-                        GROUP BY e.id_cliente) x on d.id_persona = x.id_cliente
-
+                    JOIN equipo e on d.id_persona=e.id_cliente
                 GROUP BY d.id_barrio
-                HAVING count(*) < 5;
-    )*/
+                HAVING count(e.id_equipo)<25
+              )
+    );
+*/
+
+CREATE TRIGGER update_equipo_IPs
+    AFTER UPDATE of ip, id_cliente ON equipo
+    FOR EACH ROW EXECUTE PROCEDURE tr_update_equipo_IPs();
+
 
 --Insert
 CREATE OR REPLACE FUNCTION tr_insert_cant_equipos_por_barrio() RETURNS trigger AS $$

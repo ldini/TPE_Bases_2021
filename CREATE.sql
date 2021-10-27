@@ -3,12 +3,7 @@
 
 -- tables
 -- Table: Barrio
-CREATE TABLE Barrio (
-    id_barrio int  NOT NULL,
-    nombre varchar(20)  NOT NULL,
-    id_ciudad int  NOT NULL,
-    CONSTRAINT Barrio_pk PRIMARY KEY (id_barrio)
-);
+}
 
 
 -- Table: Categoria
