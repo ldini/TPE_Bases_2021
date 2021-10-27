@@ -191,7 +191,28 @@ CREATE TRIGGER insert_cant_equipos_por_barrio
     AFTER INSERT ON equipo
     FOR EACH ROW EXECUTE PROCEDURE tr_insert_cant_equipos_por_barrio();
 
+--Update
+CREATE OR REPLACE FUNCTION tr_update_cant_equipos_por_barrio() RETURNS trigger AS $$
+BEGIN
+    IF (EXISTS (SELECT d.id_barrio
+                FROM direccion d
+                JOIN (SELECT e.id_cliente,count(*) cant_equipos_por_persona
+                        FROM equipo e
+                        GROUP BY e.id_cliente) x on d.id_persona = x.id_cliente
 
+                GROUP BY d.id_barrio
+                HAVING count(*) > 25
+
+       )) THEN
+        RAISE EXCEPTION 'No se pueden instalar más de 25 equipos por Barrio.';
+    END IF;
+    RETURN new;
+END; $$
+LANGUAGE 'plpgsql';
+
+CREATE TRIGGER update_cant_equipos_por_barrio
+    AFTER UPDATE OF id_barrio ON direccion
+    FOR EACH ROW EXECUTE PROCEDURE tr_update_cant_equipos_por_barrio();
 
 
 INSERT INTO barrio(id_barrio, nombre, id_ciudad) VALUES (1, 'Los Nogales', 1);
