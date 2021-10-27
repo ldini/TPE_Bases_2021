@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="PostgreSQL - Ing21@dbases.exa.unicen.edu.ar" uuid="c139992f-45e9-450b-9a4e-a55f2864f506">
+    <data-source source="LOCAL" name="Eugenio" uuid="abf431fd-8387-4b14-842f-4f11e74fd97a">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
-      <remarks>TPE_Bases_2021</remarks>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://dbases.exa.unicen.edu.ar:6432/Ing21</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>

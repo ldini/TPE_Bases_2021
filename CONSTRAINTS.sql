@@ -1,4 +1,4 @@
-/*a*/
+--** a **
 /*Si una persona está inactiva debe tener establecida una fecha de baja, la cual se debe controlar que sea al
 menos 18 años posterior a la de nacimiento.*/
 
@@ -10,7 +10,7 @@ CHECK ((activo=false
     OR (activo = true)
     );
 
-/***B***
+/** b **
 El importe de un comprobante debe coincidir con la suma de los importes de sus líneas (si las tuviera).*/
 
 --Esta reestriccion es entre tablas, por lo tanto no se puede resolver de forma declarativa.
@@ -79,7 +79,7 @@ create trigger update_comprobante_sumaimportes
 
 
 --PARA PROBAR LAS RESTRICCIONES
-INSERT INTO comprobante (id_comp, id_tcomp, fecha, comentario, estado, fecha_vencimiento, id_turno, importe, id_cliente)  values
+/*INSERT INTO comprobante (id_comp, id_tcomp, fecha, comentario, estado, fecha_vencimiento, id_turno, importe, id_cliente)  values
                         (01,100,'Jan 01, 2010','comentario',null,'Jan 01, 2015',80,200,3);
 INSERT INTO lineacomprobante (nro_linea, id_comp, id_tcomp, descripcion, cantidad, importe, id_servicio) values
                                 (400134,01,100,'descripcion',2,200,301);
@@ -88,11 +88,11 @@ UPDATE lineacomprobante set importe = 321 where id_comp = 01;
 UPDATE comprobante set importe = 90 where id_comp = 01;
 
 DELETE FROM lineacomprobante where id_comp = 01 and id_tcomp = 100; --¿Deberia existir un trigger para delete?
-DELETE FROM comprobante where id_comp = 01 and id_tcomp = 100;
+DELETE FROM comprobante where id_comp = 01 and id_tcomp = 100;*/
 
 
 
---**d**
+--** d **
 -- Las IPs asignadas a los equipos no pueden ser compartidas entre clientes.
 
 --Forma declarativa
@@ -143,15 +143,81 @@ CREATE TRIGGER update_equipo_IPs
 
 
 --PARA PROBAR LAS RESTRICCIONES
-DELETE FROM equipo where id_equipo = 111;
+/*DELETE FROM equipo where id_equipo = 111;
 
 INSERT INTO equipo (id_equipo, nombre, mac, ip, ap, id_servicio, id_cliente, fecha_alta, fecha_baja, tipo_conexion, tipo_asignacion)
 VALUES(101,'Equipo1','0101','1.1','2.1',301,1,'Jan 01, 2010',NULL,'Cable','A');
 
 INSERT INTO equipo (id_equipo, nombre, mac, ip, ap, id_servicio, id_cliente, fecha_alta, fecha_baja, tipo_conexion, tipo_asignacion)
-            VALUES (111,'Equipo111','0101','1.2','2.1',301,2,'Jan 01, 2010',NULL,'Cable','A');
+            VALUES (113,'Equipo111','0101','1.4','2.1',301,4,'Jan 01, 2010',NULL,'Cable','A');
 
-UPDATE equipo SET ip = '1.3' WHERE id_equipo = 101;
+UPDATE equipo SET ip = '1.3' WHERE id_equipo = 101;*/
+
+--** e **
+--No se pueden instalar más de 25 equipos por Barrio.
+
+--Forma declarativa
+/*ALTER TABLE direccion CHECK(
+    NOT EXISTS( SELECT 1
+                FROM direccion d
+                JOIN (SELECT e.id_cliente,count(*) cant_equipos_por_persona         --NO FUNCIONA
+                        FROM equipo e
+                        GROUP BY e.id_cliente) x on d.id_persona = x.id_cliente
+
+                GROUP BY d.id_barrio
+                HAVING count(*) < 5;
+    )*/
+
+--Insert
+CREATE OR REPLACE FUNCTION tr_insert_cant_equipos_por_barrio() RETURNS trigger AS $$
+BEGIN
+    IF (EXISTS (SELECT d.id_barrio
+                FROM direccion d
+                JOIN (SELECT e.id_cliente,count(*) cant_equipos_por_persona
+                        FROM equipo e
+                        GROUP BY e.id_cliente) x on d.id_persona = x.id_cliente
+
+                GROUP BY d.id_barrio
+                HAVING count(*) > 25
+
+       )) THEN
+        RAISE EXCEPTION 'No se pueden instalar más de 25 equipos por Barrio.';
+    END IF;
+    RETURN new;
+END; $$
+LANGUAGE 'plpgsql';
+
+CREATE TRIGGER insert_cant_equipos_por_barrio
+    AFTER INSERT ON equipo
+    FOR EACH ROW EXECUTE PROCEDURE tr_insert_cant_equipos_por_barrio();
+
+
+
+
+INSERT INTO barrio(id_barrio, nombre, id_ciudad) VALUES (1, 'Los Nogales', 1);
+INSERT INTO barrio(id_barrio, nombre, id_ciudad) VALUES (2, 'Centro', 2);
+
+INSERT INTO direccion(id_direccion, id_persona, calle, numero, piso, depto, id_barrio) VALUES (1,1,'Belgrano', 679, NULL, NULL, 1);
+INSERT INTO direccion(id_direccion, id_persona, calle, numero, piso, depto, id_barrio) VALUES (2,2,'Sarmiento', 179, NULL, NULL, 1);
+INSERT INTO direccion(id_direccion, id_persona, calle, numero, piso, depto, id_barrio) VALUES (3,3,'Peron', 659, NULL, NULL, 1);
+INSERT INTO direccion(id_direccion, id_persona, calle, numero, piso, depto, id_barrio) VALUES (4,4,'Alsina', 379, NULL, NULL, 1);
+INSERT INTO direccion(id_direccion, id_persona, calle, numero, piso, depto, id_barrio) VALUES (5,4,'Colon', 2379, NULL, NULL, 2);
+DELETE FROM direccion WHERE id_direccion IN (SELECT DISTINCT id_direccion FROM direccion);
+
+INSERT INTO equipo (id_equipo, nombre, mac, ip, ap, id_servicio, id_cliente, fecha_alta, fecha_baja, tipo_conexion, tipo_asignacion)
+            VALUES (114,'Equipo111','0101','1.5','2.1',301,1,'Jan 01, 2010',NULL,'Cable','A');
+INSERT INTO equipo (id_equipo, nombre, mac, ip, ap, id_servicio, id_cliente, fecha_alta, fecha_baja, tipo_conexion, tipo_asignacion)
+            VALUES (115,'Equipo111','0101','1.6','2.1',301,1,'Jan 01, 2010',NULL,'Cable','A');
+INSERT INTO equipo (id_equipo, nombre, mac, ip, ap, id_servicio, id_cliente, fecha_alta, fecha_baja, tipo_conexion, tipo_asignacion)
+            VALUES (116,'Equipo111','0101','1.7','2.1',301,1,'Jan 01, 2010',NULL,'Cable','A');
+INSERT INTO equipo (id_equipo, nombre, mac, ip, ap, id_servicio, id_cliente, fecha_alta, fecha_baja, tipo_conexion, tipo_asignacion)
+            VALUES (117,'Equipo111','0101','1.8','2.1',301,1,'Jan 01, 2010',NULL,'Cable','A');
+INSERT INTO equipo (id_equipo, nombre, mac, ip, ap, id_servicio, id_cliente, fecha_alta, fecha_baja, tipo_conexion, tipo_asignacion)
+            VALUES (118,'Equipo111','0101','1.9','2.1',301,1,'Jan 01, 2010',NULL,'Cable','A');
+INSERT INTO equipo (id_equipo, nombre, mac, ip, ap, id_servicio, id_cliente, fecha_alta, fecha_baja, tipo_conexion, tipo_asignacion)
+            VALUES (121,'Equipo111','0101','1.12','2.1',301,4,'Jan 01, 2010',NULL,'Cable','A');
+
+DELETE FROM equipo WHERE id_equipo IN (SELECT DISTINCT id_equipo FROM equipo);
 
 
 
