@@ -160,7 +160,7 @@ UPDATE equipo SET ip = '1.3' WHERE id_equipo = 101;*/
 /*ALTER TABLE direccion CHECK(
     NOT EXISTS( SELECT 1
                 FROM direccion d
-                JOIN (SELECT e.id_cliente,count(*) cant_equipos_por_persona         --NO FUNCIONA
+                JOIN (SELECT e.id_cliente,count(*) cant_equipos_por_persona         --NO FUNCIONA.
                         FROM equipo e
                         GROUP BY e.id_cliente) x on d.id_persona = x.id_cliente
 
