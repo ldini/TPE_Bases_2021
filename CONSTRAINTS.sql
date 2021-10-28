@@ -13,6 +13,7 @@ CHECK ((activo=false
 
 
 --***********************************************************************************************************************************************
+
 /** b **
 El importe de un comprobante debe coincidir con la suma de los importes de sus líneas (si las tuviera).*/
 
@@ -91,12 +92,69 @@ UPDATE comprobante set importe = 90 where id_comp = 01;
 DELETE FROM lineacomprobante where id_comp = 01 and id_tcomp = 100; --¿Deberia existir un trigger para delete?
 DELETE FROM comprobante where id_comp = 01 and id_tcomp = 100;*/
 
+
+
 --***********************************************************************************************************************************************
+
 --** c **
+--La idea es que no haya 2 ips para clientes distintos.
+--Cliente1 <> Cliente2 y que Cliente1.equipo.ip == Cliente2.equipo.ip
 
+--Forma declarativa
+/*
+ALTER TABLE comprobante CHECK(
+    NOT EXISTS( SELECT *
+                FROM cliente c
+                    JOIN equipo e on c.id_cliente = e.id_cliente
+                WHERE e.ip in ( SELECT e2.ip
+                                FROM cliente c2
+                                    JOIN equipo e2 on c2.id_cliente = e2.id_cliente
+                                WHERE c.id_cliente <> c2.id_cliente AND e.ip=e2.ip
+                              );
+            )
+    )*/
 
+CREATE OR REPLACE function tr_insert_IPAsignmentsShared() RETURNS trigger AS $$
+BEGIN
+    IF (EXISTS (SELECT 1
+                FROM cliente c
+                    JOIN equipo e on c.id_cliente=e.id_cliente
+                WHERE e.ip in ( SELECT e2.ip
+                                FROM cliente c2
+                                    JOIN equipo e2 on c2.id_cliente = e2.id_cliente
+                                WHERE c.id_cliente <> c2.id_cliente AND e.ip=e2.ip
+                              )
+                )) THEN
+        RAISE EXCEPTION 'La IP ingresada ya la tiene otro cliente.';
+    END IF;
+    return new;
+END; $$
+language 'plpgsql';
 
+create trigger insert_equipo_IPAsignmentsShared
+    after insert on equipo
+    for each row execute procedure tr_insert_IPAsignmentsShared();
 
+CREATE OR REPLACE function tr_update_IPAsignmentsShared() RETURNS trigger AS $$
+BEGIN
+    IF (EXISTS (SELECT 1
+                FROM cliente c
+                    JOIN equipo e on c.id_cliente=e.id_cliente
+                WHERE e.ip in ( SELECT e2.ip
+                                FROM cliente c2
+                                    JOIN equipo e2 on c2.id_cliente = e2.id_cliente
+                                WHERE c.id_cliente <> c2.id_cliente AND e.ip=e2.ip
+                              ) --FALTA LA PARTE DONDE SE COMPRUEBA EL New vs OLD
+                )) THEN
+        RAISE EXCEPTION 'La IP ingresada ya la tiene otro cliente.';
+    END IF;
+    return new;
+END; $$
+language 'plpgsql';
+
+create trigger update_equipo_IPAsignmentsShared
+    after update of ip,id_cliente on equipo --esta bien que se comprueba el cliente?
+    for each row execute procedure tr_update_IPAsignmentsShared();
 
 
 --***********************************************************************************************************************************************

@@ -1494,7 +1494,7 @@ true posix/WET
 false posix/Zulu
 true posixrules
 </TimeZones>
-      <IntrospectionStateNumber>2999540</IntrospectionStateNumber>
+      <IntrospectionStateNumber>3004945</IntrospectionStateNumber>
       <StartupTime>1634377031</StartupTime>
     </root>
     <database id="2" parent="1" name="Ing20">
@@ -1555,7 +1555,7 @@ true posixrules
 3539737||10|U|G
 3539737||16808|U|G</Grants>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>2999541</IntrospectionStateNumber>
+      <IntrospectionStateNumber>3004946</IntrospectionStateNumber>
       <Current>1</Current>
       <Relations>sequence|table|3749102|3749104|1
 sequence|table|3768694|3768696|1
@@ -5694,7 +5694,7 @@ sequence|table|3773732|3773734|1
       <Comment>Barraza G. Maximiliano</Comment>
       <StateNumber>2957568</StateNumber>
       <Owner>unc_248909</Owner>
-      <IntrospectionStateNumber>2999541</IntrospectionStateNumber>
+      <IntrospectionStateNumber>3004946</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <schema id="612" parent="3" name="unc_248924">
@@ -6297,28 +6297,38 @@ sequence|table|3773732|3773734|1
       <LanguageName>plpgsql</LanguageName>
       <Rows>0.0</Rows>
     </routine>
-    <column id="719" parent="701" name="id_barrio">
+    <routine id="719" parent="611" name="tr_insert_ipasignmentsshared">
+      <ObjectId>3789631</ObjectId>
+      <Owner>unc_248909</Owner>
+      <SourceTextLength>544</SourceTextLength>
+      <StateNumber>3004943</StateNumber>
+      <PgRoutineKind>pg-trigger</PgRoutineKind>
+      <ResultsDefinition>trigger</ResultsDefinition>
+      <LanguageName>plpgsql</LanguageName>
+      <Rows>0.0</Rows>
+    </routine>
+    <column id="720" parent="701" name="id_barrio">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2987252</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="720" parent="701" name="nombre">
+    <column id="721" parent="701" name="nombre">
       <Position>2</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2987252</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="721" parent="701" name="id_ciudad">
+    <column id="722" parent="701" name="id_ciudad">
       <Position>3</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2987252</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <index id="722" parent="701" name="barrio_pk">
+    <index id="723" parent="701" name="barrio_pk">
       <ObjectId>3782491</ObjectId>
       <StateNumber>2987252</StateNumber>
       <ColNames>id_barrio</ColNames>
@@ -6328,14 +6338,14 @@ sequence|table|3773732|3773734|1
       <ClassIds>1978</ClassIds>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="723" parent="701" name="barrio_pk">
+    <key id="724" parent="701" name="barrio_pk">
       <ObjectId>3782492</ObjectId>
       <StateNumber>2987252</StateNumber>
       <ColNames>id_barrio</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>barrio_pk</UnderlyingIndexName>
     </key>
-    <foreign-key id="724" parent="701" name="fk_barrio_ciudad">
+    <foreign-key id="725" parent="701" name="fk_barrio_ciudad">
       <ObjectId>3782578</ObjectId>
       <StateNumber>2987269</StateNumber>
       <ColNames>id_ciudad</ColNames>
@@ -6345,21 +6355,21 @@ sequence|table|3773732|3773734|1
       <RefKeyName>ciudad_pk</RefKeyName>
       <RefColNames>id_ciudad</RefColNames>
     </foreign-key>
-    <column id="725" parent="702" name="id_cat">
+    <column id="726" parent="702" name="id_cat">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2987253</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="726" parent="702" name="nombre">
+    <column id="727" parent="702" name="nombre">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2987253</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="727" parent="702" name="categoria_pk">
+    <index id="728" parent="702" name="categoria_pk">
       <ObjectId>3782496</ObjectId>
       <StateNumber>2987253</StateNumber>
       <ColNames>id_cat</ColNames>
@@ -6369,28 +6379,28 @@ sequence|table|3773732|3773734|1
       <ClassIds>1978</ClassIds>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="728" parent="702" name="categoria_pk">
+    <key id="729" parent="702" name="categoria_pk">
       <ObjectId>3782497</ObjectId>
       <StateNumber>2987253</StateNumber>
       <ColNames>id_cat</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>categoria_pk</UnderlyingIndexName>
     </key>
-    <column id="729" parent="703" name="id_ciudad">
+    <column id="730" parent="703" name="id_ciudad">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2987254</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="730" parent="703" name="nombre">
+    <column id="731" parent="703" name="nombre">
       <Position>2</Position>
       <DataType>varchar(80)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2987254</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="731" parent="703" name="ciudad_pk">
+    <index id="732" parent="703" name="ciudad_pk">
       <ObjectId>3782501</ObjectId>
       <StateNumber>2987254</StateNumber>
       <ColNames>id_ciudad</ColNames>
@@ -6400,27 +6410,27 @@ sequence|table|3773732|3773734|1
       <ClassIds>1978</ClassIds>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="732" parent="703" name="ciudad_pk">
+    <key id="733" parent="703" name="ciudad_pk">
       <ObjectId>3782502</ObjectId>
       <StateNumber>2987254</StateNumber>
       <ColNames>id_ciudad</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>ciudad_pk</UnderlyingIndexName>
     </key>
-    <column id="733" parent="704" name="id_cliente">
+    <column id="734" parent="704" name="id_cliente">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2987255</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="734" parent="704" name="saldo">
+    <column id="735" parent="704" name="saldo">
       <Position>2</Position>
       <DataType>numeric(18,3 digit)|0s</DataType>
       <StateNumber>2987255</StateNumber>
       <TypeId>1700</TypeId>
     </column>
-    <index id="735" parent="704" name="cliente_pk">
+    <index id="736" parent="704" name="cliente_pk">
       <ObjectId>3782506</ObjectId>
       <StateNumber>2987255</StateNumber>
       <ColNames>id_cliente</ColNames>
@@ -6430,73 +6440,73 @@ sequence|table|3773732|3773734|1
       <ClassIds>1978</ClassIds>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="736" parent="704" name="cliente_pk">
+    <key id="737" parent="704" name="cliente_pk">
       <ObjectId>3782507</ObjectId>
       <StateNumber>2987255</StateNumber>
       <ColNames>id_cliente</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>cliente_pk</UnderlyingIndexName>
     </key>
-    <column id="737" parent="705" name="id_comp">
+    <column id="738" parent="705" name="id_comp">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2987256</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="738" parent="705" name="id_tcomp">
+    <column id="739" parent="705" name="id_tcomp">
       <Position>2</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2987256</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="739" parent="705" name="fecha">
+    <column id="740" parent="705" name="fecha">
       <Position>3</Position>
       <DataType>timestamp|0s</DataType>
       <StateNumber>2987256</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="740" parent="705" name="comentario">
+    <column id="741" parent="705" name="comentario">
       <Position>4</Position>
       <DataType>varchar(2048)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2987256</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="741" parent="705" name="estado">
+    <column id="742" parent="705" name="estado">
       <Position>5</Position>
       <DataType>varchar(20)|0s</DataType>
       <StateNumber>2987256</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="742" parent="705" name="fecha_vencimiento">
+    <column id="743" parent="705" name="fecha_vencimiento">
       <Position>6</Position>
       <DataType>timestamp|0s</DataType>
       <StateNumber>2987256</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="743" parent="705" name="id_turno">
+    <column id="744" parent="705" name="id_turno">
       <Position>7</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>2987256</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="744" parent="705" name="importe">
+    <column id="745" parent="705" name="importe">
       <Position>8</Position>
       <DataType>numeric(18,5 digit)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2987256</StateNumber>
       <TypeId>1700</TypeId>
     </column>
-    <column id="745" parent="705" name="id_cliente">
+    <column id="746" parent="705" name="id_cliente">
       <Position>9</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2987256</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <index id="746" parent="705" name="pk_comprobante">
+    <index id="747" parent="705" name="pk_comprobante">
       <ObjectId>3782514</ObjectId>
       <StateNumber>2987256</StateNumber>
       <ColNames>id_comp
@@ -6507,7 +6517,7 @@ id_tcomp</ColNames>
       <ClassIds>3124,1978</ClassIds>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="747" parent="705" name="pk_comprobante">
+    <key id="748" parent="705" name="pk_comprobante">
       <ObjectId>3782515</ObjectId>
       <StateNumber>2987256</StateNumber>
       <ColNames>id_comp
@@ -6515,7 +6525,7 @@ id_tcomp</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>pk_comprobante</UnderlyingIndexName>
     </key>
-    <foreign-key id="748" parent="705" name="fk_comprobante_tipocomprobante">
+    <foreign-key id="749" parent="705" name="fk_comprobante_tipocomprobante">
       <ObjectId>3782593</ObjectId>
       <StateNumber>2987272</StateNumber>
       <ColNames>id_tcomp</ColNames>
@@ -6525,7 +6535,7 @@ id_tcomp</ColNames>
       <RefKeyName>pk_tipo_comprobante</RefKeyName>
       <RefColNames>id_tcomp</RefColNames>
     </foreign-key>
-    <foreign-key id="749" parent="705" name="fk_comprobante_turno">
+    <foreign-key id="750" parent="705" name="fk_comprobante_turno">
       <ObjectId>3782598</ObjectId>
       <StateNumber>2987273</StateNumber>
       <ColNames>id_turno</ColNames>
@@ -6535,7 +6545,7 @@ id_tcomp</ColNames>
       <RefKeyName>turno_pk</RefKeyName>
       <RefColNames>id_turno</RefColNames>
     </foreign-key>
-    <foreign-key id="750" parent="705" name="fk_comprobante_cliente">
+    <foreign-key id="751" parent="705" name="fk_comprobante_cliente">
       <ObjectId>3782588</ObjectId>
       <StateNumber>2987271</StateNumber>
       <ColNames>id_cliente</ColNames>
@@ -6545,60 +6555,60 @@ id_tcomp</ColNames>
       <RefKeyName>cliente_pk</RefKeyName>
       <RefColNames>id_cliente</RefColNames>
     </foreign-key>
-    <column id="751" parent="706" name="c1">
+    <column id="752" parent="706" name="c1">
       <Position>1</Position>
       <DataType>text|0s</DataType>
       <StateNumber>2986959</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="752" parent="707" name="id_direccion">
+    <column id="753" parent="707" name="id_direccion">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2987257</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="753" parent="707" name="id_persona">
+    <column id="754" parent="707" name="id_persona">
       <Position>2</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2987257</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="754" parent="707" name="calle">
+    <column id="755" parent="707" name="calle">
       <Position>3</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2987257</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="755" parent="707" name="numero">
+    <column id="756" parent="707" name="numero">
       <Position>4</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2987257</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="756" parent="707" name="piso">
+    <column id="757" parent="707" name="piso">
       <Position>5</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>2987257</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="757" parent="707" name="depto">
+    <column id="758" parent="707" name="depto">
       <Position>6</Position>
       <DataType>varchar(50)|0s</DataType>
       <StateNumber>2987257</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="758" parent="707" name="id_barrio">
+    <column id="759" parent="707" name="id_barrio">
       <Position>7</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2987257</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <index id="759" parent="707" name="direccion_pk">
+    <index id="760" parent="707" name="direccion_pk">
       <ObjectId>3782519</ObjectId>
       <StateNumber>2987257</StateNumber>
       <ColNames>id_direccion
@@ -6609,7 +6619,7 @@ id_persona</ColNames>
       <ClassIds>1978,1978</ClassIds>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="760" parent="707" name="direccion_pk">
+    <key id="761" parent="707" name="direccion_pk">
       <ObjectId>3782520</ObjectId>
       <StateNumber>2987257</StateNumber>
       <ColNames>id_direccion
@@ -6617,7 +6627,7 @@ id_persona</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>direccion_pk</UnderlyingIndexName>
     </key>
-    <foreign-key id="761" parent="707" name="fk_direccion_barrio">
+    <foreign-key id="762" parent="707" name="fk_direccion_barrio">
       <ObjectId>3782608</ObjectId>
       <StateNumber>2987275</StateNumber>
       <ColNames>id_barrio</ColNames>
@@ -6627,80 +6637,80 @@ id_persona</ColNames>
       <RefKeyName>barrio_pk</RefKeyName>
       <RefColNames>id_barrio</RefColNames>
     </foreign-key>
-    <column id="762" parent="708" name="id_equipo">
+    <column id="763" parent="708" name="id_equipo">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2987258</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="763" parent="708" name="nombre">
+    <column id="764" parent="708" name="nombre">
       <Position>2</Position>
       <DataType>varchar(80)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2987258</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="764" parent="708" name="mac">
+    <column id="765" parent="708" name="mac">
       <Position>3</Position>
       <DataType>varchar(20)|0s</DataType>
       <StateNumber>2987258</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="765" parent="708" name="ip">
+    <column id="766" parent="708" name="ip">
       <Position>4</Position>
       <DataType>varchar(20)|0s</DataType>
       <StateNumber>2987258</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="766" parent="708" name="ap">
+    <column id="767" parent="708" name="ap">
       <Position>5</Position>
       <DataType>varchar(20)|0s</DataType>
       <StateNumber>2987258</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="767" parent="708" name="id_servicio">
+    <column id="768" parent="708" name="id_servicio">
       <Position>6</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2987258</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="768" parent="708" name="id_cliente">
+    <column id="769" parent="708" name="id_cliente">
       <Position>7</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2987258</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="769" parent="708" name="fecha_alta">
+    <column id="770" parent="708" name="fecha_alta">
       <Position>8</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2987258</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="770" parent="708" name="fecha_baja">
+    <column id="771" parent="708" name="fecha_baja">
       <Position>9</Position>
       <DataType>timestamp|0s</DataType>
       <StateNumber>2987258</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="771" parent="708" name="tipo_conexion">
+    <column id="772" parent="708" name="tipo_conexion">
       <Position>10</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2987258</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="772" parent="708" name="tipo_asignacion">
+    <column id="773" parent="708" name="tipo_asignacion">
       <Position>11</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2987258</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="773" parent="708" name="equipo_pk">
+    <index id="774" parent="708" name="equipo_pk">
       <ObjectId>3782524</ObjectId>
       <StateNumber>2987258</StateNumber>
       <ColNames>id_equipo</ColNames>
@@ -6710,14 +6720,14 @@ id_persona</ColNames>
       <ClassIds>1978</ClassIds>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="774" parent="708" name="equipo_pk">
+    <key id="775" parent="708" name="equipo_pk">
       <ObjectId>3782525</ObjectId>
       <StateNumber>2987258</StateNumber>
       <ColNames>id_equipo</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>equipo_pk</UnderlyingIndexName>
     </key>
-    <foreign-key id="775" parent="708" name="fk_equipo_servicio">
+    <foreign-key id="776" parent="708" name="fk_equipo_servicio">
       <ObjectId>3782618</ObjectId>
       <StateNumber>2987277</StateNumber>
       <ColNames>id_servicio</ColNames>
@@ -6727,7 +6737,7 @@ id_persona</ColNames>
       <RefKeyName>pk_servicio</RefKeyName>
       <RefColNames>id_servicio</RefColNames>
     </foreign-key>
-    <foreign-key id="776" parent="708" name="fk_equipo_cliente">
+    <foreign-key id="777" parent="708" name="fk_equipo_cliente">
       <ObjectId>3782613</ObjectId>
       <StateNumber>2987276</StateNumber>
       <ColNames>id_cliente</ColNames>
@@ -6737,55 +6747,55 @@ id_persona</ColNames>
       <RefKeyName>cliente_pk</RefKeyName>
       <RefColNames>id_cliente</RefColNames>
     </foreign-key>
-    <column id="777" parent="709" name="nro_linea">
+    <column id="778" parent="709" name="nro_linea">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2987259</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="778" parent="709" name="id_comp">
+    <column id="779" parent="709" name="id_comp">
       <Position>2</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2987259</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="779" parent="709" name="id_tcomp">
+    <column id="780" parent="709" name="id_tcomp">
       <Position>3</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2987259</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="780" parent="709" name="descripcion">
+    <column id="781" parent="709" name="descripcion">
       <Position>4</Position>
       <DataType>varchar(80)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2987259</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="781" parent="709" name="cantidad">
+    <column id="782" parent="709" name="cantidad">
       <Position>5</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2987259</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="782" parent="709" name="importe">
+    <column id="783" parent="709" name="importe">
       <Position>6</Position>
       <DataType>numeric(18,5 digit)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2987259</StateNumber>
       <TypeId>1700</TypeId>
     </column>
-    <column id="783" parent="709" name="id_servicio">
+    <column id="784" parent="709" name="id_servicio">
       <Position>7</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>2987259</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <index id="784" parent="709" name="pk_lineacomp">
+    <index id="785" parent="709" name="pk_lineacomp">
       <ObjectId>3782529</ObjectId>
       <StateNumber>2987259</StateNumber>
       <ColNames>nro_linea
@@ -6797,7 +6807,7 @@ id_tcomp</ColNames>
       <ClassIds>1978,3124,1978</ClassIds>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="785" parent="709" name="pk_lineacomp">
+    <key id="786" parent="709" name="pk_lineacomp">
       <ObjectId>3782530</ObjectId>
       <StateNumber>2987259</StateNumber>
       <ColNames>nro_linea
@@ -6806,7 +6816,7 @@ id_tcomp</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>pk_lineacomp</UnderlyingIndexName>
     </key>
-    <foreign-key id="786" parent="709" name="fk_lineacomprobante_comprobante">
+    <foreign-key id="787" parent="709" name="fk_lineacomprobante_comprobante">
       <ObjectId>3782623</ObjectId>
       <StateNumber>2987278</StateNumber>
       <ColNames>id_comp
@@ -6818,7 +6828,7 @@ id_tcomp</ColNames>
       <RefColNames>id_comp
 id_tcomp</RefColNames>
     </foreign-key>
-    <foreign-key id="787" parent="709" name="lineacomprobante_servicio">
+    <foreign-key id="788" parent="709" name="lineacomprobante_servicio">
       <ObjectId>3782573</ObjectId>
       <StateNumber>2987268</StateNumber>
       <ColNames>id_servicio</ColNames>
@@ -6828,28 +6838,28 @@ id_tcomp</RefColNames>
       <RefKeyName>pk_servicio</RefKeyName>
       <RefColNames>id_servicio</RefColNames>
     </foreign-key>
-    <column id="788" parent="710" name="id_persona">
+    <column id="789" parent="710" name="id_persona">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2987260</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="789" parent="710" name="mail">
+    <column id="790" parent="710" name="mail">
       <Position>2</Position>
       <DataType>varchar(120)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2987260</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="790" parent="710" name="tipo">
+    <column id="791" parent="710" name="tipo">
       <Position>3</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2987260</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="791" parent="710" name="mail_pk">
+    <index id="792" parent="710" name="mail_pk">
       <ObjectId>3782534</ObjectId>
       <StateNumber>2987260</StateNumber>
       <ColNames>id_persona
@@ -6862,7 +6872,7 @@ default</CollationNames>
       <ClassIds>1978,3126</ClassIds>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="792" parent="710" name="mail_pk">
+    <key id="793" parent="710" name="mail_pk">
       <ObjectId>3782535</ObjectId>
       <StateNumber>2987260</StateNumber>
       <ColNames>id_persona
@@ -6870,75 +6880,75 @@ mail</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>mail_pk</UnderlyingIndexName>
     </key>
-    <column id="793" parent="711" name="id_persona">
+    <column id="794" parent="711" name="id_persona">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2992464</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="794" parent="711" name="tipo">
+    <column id="795" parent="711" name="tipo">
       <Position>2</Position>
       <DataType>varchar(10)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2992464</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="795" parent="711" name="tipodoc">
+    <column id="796" parent="711" name="tipodoc">
       <Position>3</Position>
       <DataType>varchar(10)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2992464</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="796" parent="711" name="nrodoc">
+    <column id="797" parent="711" name="nrodoc">
       <Position>4</Position>
       <DataType>varchar(10)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2992464</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="797" parent="711" name="nombre">
+    <column id="798" parent="711" name="nombre">
       <Position>5</Position>
       <DataType>varchar(40)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2992464</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="798" parent="711" name="apellido">
+    <column id="799" parent="711" name="apellido">
       <Position>6</Position>
       <DataType>varchar(40)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2992464</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="799" parent="711" name="fecha_nacimiento">
+    <column id="800" parent="711" name="fecha_nacimiento">
       <Position>7</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2992464</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="800" parent="711" name="fecha_baja">
+    <column id="801" parent="711" name="fecha_baja">
       <Position>8</Position>
       <DataType>timestamp|0s</DataType>
       <StateNumber>2992464</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="801" parent="711" name="cuit">
+    <column id="802" parent="711" name="cuit">
       <Position>9</Position>
       <DataType>varchar(20)|0s</DataType>
       <StateNumber>2992464</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="802" parent="711" name="activo">
+    <column id="803" parent="711" name="activo">
       <Position>10</Position>
       <DataType>boolean|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2992464</StateNumber>
       <TypeId>16</TypeId>
     </column>
-    <index id="803" parent="711" name="pk_persona">
+    <index id="804" parent="711" name="pk_persona">
       <ObjectId>3786637</ObjectId>
       <StateNumber>2992464</StateNumber>
       <ColNames>id_persona</ColNames>
@@ -6948,28 +6958,28 @@ mail</ColNames>
       <ClassIds>1978</ClassIds>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="804" parent="711" name="pk_persona">
+    <key id="805" parent="711" name="pk_persona">
       <ObjectId>3786638</ObjectId>
       <StateNumber>2992464</StateNumber>
       <ColNames>id_persona</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>pk_persona</UnderlyingIndexName>
     </key>
-    <column id="805" parent="712" name="id_personal">
+    <column id="806" parent="712" name="id_personal">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2987262</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="806" parent="712" name="id_rol">
+    <column id="807" parent="712" name="id_rol">
       <Position>2</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2987262</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <index id="807" parent="712" name="personal_pk">
+    <index id="808" parent="712" name="personal_pk">
       <ObjectId>3782544</ObjectId>
       <StateNumber>2987262</StateNumber>
       <ColNames>id_personal</ColNames>
@@ -6979,14 +6989,14 @@ mail</ColNames>
       <ClassIds>1978</ClassIds>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="808" parent="712" name="personal_pk">
+    <key id="809" parent="712" name="personal_pk">
       <ObjectId>3782545</ObjectId>
       <StateNumber>2987262</StateNumber>
       <ColNames>id_personal</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>personal_pk</UnderlyingIndexName>
     </key>
-    <foreign-key id="809" parent="712" name="fk_personal_rol">
+    <foreign-key id="810" parent="712" name="fk_personal_rol">
       <ObjectId>3782638</ObjectId>
       <StateNumber>2987281</StateNumber>
       <ColNames>id_rol</ColNames>
@@ -6996,21 +7006,21 @@ mail</ColNames>
       <RefKeyName>rol_pk</RefKeyName>
       <RefColNames>id_rol</RefColNames>
     </foreign-key>
-    <column id="810" parent="713" name="id_rol">
+    <column id="811" parent="713" name="id_rol">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2987263</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="811" parent="713" name="nombre">
+    <column id="812" parent="713" name="nombre">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2987263</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="812" parent="713" name="rol_pk">
+    <index id="813" parent="713" name="rol_pk">
       <ObjectId>3782549</ObjectId>
       <StateNumber>2987263</StateNumber>
       <ColNames>id_rol</ColNames>
@@ -7020,54 +7030,54 @@ mail</ColNames>
       <ClassIds>1978</ClassIds>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="813" parent="713" name="rol_pk">
+    <key id="814" parent="713" name="rol_pk">
       <ObjectId>3782550</ObjectId>
       <StateNumber>2987263</StateNumber>
       <ColNames>id_rol</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>rol_pk</UnderlyingIndexName>
     </key>
-    <column id="814" parent="714" name="id_servicio">
+    <column id="815" parent="714" name="id_servicio">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2987264</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="815" parent="714" name="nombre">
+    <column id="816" parent="714" name="nombre">
       <Position>2</Position>
       <DataType>varchar(80)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2987264</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="816" parent="714" name="periodico">
+    <column id="817" parent="714" name="periodico">
       <Position>3</Position>
       <DataType>boolean|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2987264</StateNumber>
       <TypeId>16</TypeId>
     </column>
-    <column id="817" parent="714" name="costo">
+    <column id="818" parent="714" name="costo">
       <Position>4</Position>
       <DataType>numeric(18,3 digit)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2987264</StateNumber>
       <TypeId>1700</TypeId>
     </column>
-    <column id="818" parent="714" name="intervalo">
+    <column id="819" parent="714" name="intervalo">
       <Position>5</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>2987264</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="819" parent="714" name="tipo_intervalo">
+    <column id="820" parent="714" name="tipo_intervalo">
       <Position>6</Position>
       <DataType>varchar(20)|0s</DataType>
       <StateNumber>2987264</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="820" parent="714" name="activo">
+    <column id="821" parent="714" name="activo">
       <Position>7</Position>
       <DataType>boolean|0s</DataType>
       <NotNull>1</NotNull>
@@ -7075,14 +7085,14 @@ mail</ColNames>
       <DefaultExpression>true</DefaultExpression>
       <TypeId>16</TypeId>
     </column>
-    <column id="821" parent="714" name="id_cat">
+    <column id="822" parent="714" name="id_cat">
       <Position>8</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2987264</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <index id="822" parent="714" name="pk_servicio">
+    <index id="823" parent="714" name="pk_servicio">
       <ObjectId>3782556</ObjectId>
       <StateNumber>2987264</StateNumber>
       <ColNames>id_servicio</ColNames>
@@ -7092,14 +7102,14 @@ mail</ColNames>
       <ClassIds>1978</ClassIds>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="823" parent="714" name="pk_servicio">
+    <key id="824" parent="714" name="pk_servicio">
       <ObjectId>3782557</ObjectId>
       <StateNumber>2987264</StateNumber>
       <ColNames>id_servicio</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>pk_servicio</UnderlyingIndexName>
     </key>
-    <foreign-key id="824" parent="714" name="fk_servicio_categoria">
+    <foreign-key id="825" parent="714" name="fk_servicio_categoria">
       <ObjectId>3782648</ObjectId>
       <StateNumber>2987283</StateNumber>
       <ColNames>id_cat</ColNames>
@@ -7109,34 +7119,34 @@ mail</ColNames>
       <RefKeyName>categoria_pk</RefKeyName>
       <RefColNames>id_cat</RefColNames>
     </foreign-key>
-    <check id="825" parent="714" name="check_0">
+    <check id="826" parent="714" name="check_0">
       <ObjectId>3782555</ObjectId>
       <StateNumber>2987264</StateNumber>
       <ColNames>tipo_intervalo</ColNames>
       <Predicate>(tipo_intervalo)::text = ANY ((ARRAY[&apos;semana&apos;::character varying, &apos;quincena&apos;::character varying, &apos;mes&apos;::character varying, &apos;bimestre&apos;::character varying])::text[])</Predicate>
     </check>
-    <column id="826" parent="715" name="id_persona">
+    <column id="827" parent="715" name="id_persona">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2987265</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="827" parent="715" name="carac">
+    <column id="828" parent="715" name="carac">
       <Position>2</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2987265</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="828" parent="715" name="numero">
+    <column id="829" parent="715" name="numero">
       <Position>3</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2987265</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <index id="829" parent="715" name="telefono_pk">
+    <index id="830" parent="715" name="telefono_pk">
       <ObjectId>3782561</ObjectId>
       <StateNumber>2987265</StateNumber>
       <ColNames>id_persona
@@ -7148,7 +7158,7 @@ numero</ColNames>
       <ClassIds>1978,1978,1978</ClassIds>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="830" parent="715" name="telefono_pk">
+    <key id="831" parent="715" name="telefono_pk">
       <ObjectId>3782562</ObjectId>
       <StateNumber>2987265</StateNumber>
       <ColNames>id_persona
@@ -7157,28 +7167,28 @@ numero</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>telefono_pk</UnderlyingIndexName>
     </key>
-    <column id="831" parent="716" name="id_tcomp">
+    <column id="832" parent="716" name="id_tcomp">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2987266</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="832" parent="716" name="nombre">
+    <column id="833" parent="716" name="nombre">
       <Position>2</Position>
       <DataType>varchar(30)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2987266</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="833" parent="716" name="tipo">
+    <column id="834" parent="716" name="tipo">
       <Position>3</Position>
       <DataType>varchar(80)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2987266</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="834" parent="716" name="pk_tipo_comprobante">
+    <index id="835" parent="716" name="pk_tipo_comprobante">
       <ObjectId>3782566</ObjectId>
       <StateNumber>2987266</StateNumber>
       <ColNames>id_tcomp</ColNames>
@@ -7188,54 +7198,54 @@ numero</ColNames>
       <ClassIds>1978</ClassIds>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="835" parent="716" name="pk_tipo_comprobante">
+    <key id="836" parent="716" name="pk_tipo_comprobante">
       <ObjectId>3782567</ObjectId>
       <StateNumber>2987266</StateNumber>
       <ColNames>id_tcomp</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>pk_tipo_comprobante</UnderlyingIndexName>
     </key>
-    <column id="836" parent="717" name="id_turno">
+    <column id="837" parent="717" name="id_turno">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2987267</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="837" parent="717" name="desde">
+    <column id="838" parent="717" name="desde">
       <Position>2</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2987267</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="838" parent="717" name="hasta">
+    <column id="839" parent="717" name="hasta">
       <Position>3</Position>
       <DataType>timestamp|0s</DataType>
       <StateNumber>2987267</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="839" parent="717" name="dinero_inicio">
+    <column id="840" parent="717" name="dinero_inicio">
       <Position>4</Position>
       <DataType>numeric(18,3 digit)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2987267</StateNumber>
       <TypeId>1700</TypeId>
     </column>
-    <column id="840" parent="717" name="dinero_fin">
+    <column id="841" parent="717" name="dinero_fin">
       <Position>5</Position>
       <DataType>numeric(18,3 digit)|0s</DataType>
       <StateNumber>2987267</StateNumber>
       <TypeId>1700</TypeId>
     </column>
-    <column id="841" parent="717" name="id_personal">
+    <column id="842" parent="717" name="id_personal">
       <Position>6</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2987267</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <index id="842" parent="717" name="turno_pk">
+    <index id="843" parent="717" name="turno_pk">
       <ObjectId>3782571</ObjectId>
       <StateNumber>2987267</StateNumber>
       <ColNames>id_turno</ColNames>
@@ -7245,14 +7255,14 @@ numero</ColNames>
       <ClassIds>1978</ClassIds>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="843" parent="717" name="turno_pk">
+    <key id="844" parent="717" name="turno_pk">
       <ObjectId>3782572</ObjectId>
       <StateNumber>2987267</StateNumber>
       <ColNames>id_turno</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>turno_pk</UnderlyingIndexName>
     </key>
-    <foreign-key id="844" parent="717" name="fk_personal_turno">
+    <foreign-key id="845" parent="717" name="fk_personal_turno">
       <ObjectId>3782643</ObjectId>
       <StateNumber>2987282</StateNumber>
       <ColNames>id_personal</ColNames>
@@ -7262,7 +7272,11 @@ numero</ColNames>
       <RefKeyName>personal_pk</RefKeyName>
       <RefColNames>id_personal</RefColNames>
     </foreign-key>
-    <argument id="845" parent="718">
+    <argument id="846" parent="718">
+      <ArgumentDirection>R</ArgumentDirection>
+      <DataType>trigger|0s</DataType>
+    </argument>
+    <argument id="847" parent="719">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>trigger|0s</DataType>
     </argument>
