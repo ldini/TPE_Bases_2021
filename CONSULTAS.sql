@@ -90,7 +90,7 @@ WHERE AGE(fecha) <= '3 year';
 /*Indicar el nombre, apellido, tipo y número de documento de los clientes que han contratado todos los
   servicios periódicos cuyo intervalo se encuentra entre 5 y 10*/
 
---Consulta nueva 24/10
+--Consulta nueva 24/10    ------//Creo que deberia mostrar solamente los que contrataron todos los servicios periodicos//
 SELECT p.nombre, p.apellido, p.tipo, p.nrodoc
 FROM persona p
     JOIN cliente c on p.id_persona=c.id_cliente

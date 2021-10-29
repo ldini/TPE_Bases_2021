@@ -1,3 +1,132 @@
+--CIUDAD
+INSERT INTO ciudad (id_ciudad, nombre) VALUES (1, 'Tandil');
+INSERT INTO ciudad (id_ciudad, nombre) VALUES (2, 'Las Flores');
+INSERT INTO ciudad (id_ciudad, nombre) VALUES (3, 'Necochea');
+INSERT INTO ciudad (id_ciudad, nombre) VALUES (4, 'Mar Del Plata');
+
+
+--BARRIO
+INSERT INTO barrio(id_barrio, nombre, id_ciudad) VALUES (1, 'Los Nogales', 2);
+INSERT INTO barrio(id_barrio, nombre, id_ciudad) VALUES (2, 'Centro', 1);
+INSERT INTO barrio(id_barrio, nombre, id_ciudad) VALUES (3, 'Solidaridad', 2);
+INSERT INTO barrio(id_barrio, nombre, id_ciudad) VALUES (4, 'Evita', 2);
+INSERT INTO barrio(id_barrio, nombre, id_ciudad) VALUES (5, '25 De Mayo', 3);
+
+
+--PERSONA
+INSERT INTO persona (id_persona,tipo,tipodoc,nrodoc,nombre,apellido,fecha_nacimiento,fecha_baja,CUIT,activo)
+VALUES
+  (1,'Mujer','LC',1149410,'Courtney','Rocha','Feb 19, 1932','Feb 6, 1988',17760648,'0'),
+  (2,'Hombre','DNI',26770950,'Signe','Owen','Sep 4, 1966',NULL,14957847,'1'),
+  (3,'Hombre','DNI',25769634,'Penelope','Booker','Jan 5, 1961','Nov 24, 1997',34078935,'0'),
+  (4,'Hombre','DNI',4088310,'Duncan','Delacruz','Mar 6, 2002',NULL,30479948,'1'),
+  (5,'Hombre','DNI',9981733,'Bryar','Jennings','Aug 17, 1999','Oct 18, 1987',25735237,'0'),
+  (6,'Hombre','LC',30056554,'Dean','Stein','Jun 7, 2000',NULL,15257777,'1'),
+  (7,'Hombre','DNI',22293453,'Jena','Byrd','Dec 2, 1972','Sep 25, 1994',3313092,'0'),
+  (8,'Hombre','DNI',1287866,'Harper','Stout','Nov 17, 1991',NULL,25161612,'1'),
+  (9,'Hombre','DNI',17597284,'Kim','Hodge','Dec 24, 1979',NULL,10614747,'1'),
+  (10,'Hombre','DNI',6581333,'Scarlett','Sparks','Jul 24, 2000','Mar 11, 2007',13779420,'0');
+
+
+--DIRECCION
+INSERT INTO direccion(id_direccion, id_persona, calle, numero, piso, depto, id_barrio) VALUES (1,1,'Belgrano', 679, NULL, NULL, 1);
+INSERT INTO direccion(id_direccion, id_persona, calle, numero, piso, depto, id_barrio) VALUES (2,2,'Sarmiento', 179, NULL, NULL, 1);
+INSERT INTO direccion(id_direccion, id_persona, calle, numero, piso, depto, id_barrio) VALUES (3,3,'Peron', 659, NULL, NULL, 1);
+INSERT INTO direccion(id_direccion, id_persona, calle, numero, piso, depto, id_barrio) VALUES (4,4,'Alsina', 379, NULL, NULL, 1);
+INSERT INTO direccion(id_direccion, id_persona, calle, numero, piso, depto, id_barrio) VALUES (5,5,'Colon', 2379, NULL, NULL, 2);
+INSERT INTO direccion(id_direccion, id_persona, calle, numero, piso, depto, id_barrio) VALUES (6,6,'Carmen', 2379, NULL, NULL, 2);
+INSERT INTO direccion(id_direccion, id_persona, calle, numero, piso, depto, id_barrio) VALUES (7,7,'Roca', 2379, NULL, NULL, 2);
+INSERT INTO direccion(id_direccion, id_persona, calle, numero, piso, depto, id_barrio) VALUES (8,8,'Roca', 2379, NULL, NULL, 1);
+
+
+--CLIENTE
+INSERT INTO cliente (id_cliente, saldo) VALUES  (1, 1000);
+INSERT INTO cliente (id_cliente, saldo) VALUES  (2, 2000);
+INSERT INTO cliente (id_cliente, saldo) VALUES  (3, 3000);
+INSERT INTO cliente (id_cliente, saldo) VALUES  (4, 4000);
+INSERT INTO cliente (id_cliente, saldo) VALUES  (5, 5000);
+INSERT INTO cliente (id_cliente, saldo) VALUES  (6, 6000);
+
+
+--EQUIPO
+INSERT INTO equipo (id_equipo, nombre, mac, ip, ap, id_servicio, id_cliente, fecha_alta, fecha_baja, tipo_conexion, tipo_asignacion)
+            VALUES (100,'Equipo100','0101','1.5','2.1',301,1,'Jan 01, 2010',NULL,'Cable','A');
+INSERT INTO equipo (id_equipo, nombre, mac, ip, ap, id_servicio, id_cliente, fecha_alta, fecha_baja, tipo_conexion, tipo_asignacion)
+            VALUES (101,'Equipo101','0101','1.6','2.1',301,2,'Jan 01, 2010',NULL,'Cable','A');
+INSERT INTO equipo (id_equipo, nombre, mac, ip, ap, id_servicio, id_cliente, fecha_alta, fecha_baja, tipo_conexion, tipo_asignacion)
+            VALUES (102,'Equipo102','0101','1.7','2.1',303,1,'Jan 01, 2010','Jan 01, 2021','Cable','A');
+INSERT INTO equipo (id_equipo, nombre, mac, ip, ap, id_servicio, id_cliente, fecha_alta, fecha_baja, tipo_conexion, tipo_asignacion)
+            VALUES (103,'Equipo103','0101','1.8','2.1',303,6,'Jan 01, 2010',NULL,'Cable','A');
+INSERT INTO equipo (id_equipo, nombre, mac, ip, ap, id_servicio, id_cliente, fecha_alta, fecha_baja, tipo_conexion, tipo_asignacion)
+            VALUES (104,'Equipo104','0101','1.9','2.1',302,4,'Jan 01, 2010','Jan 01, 2015','Cable','A');
+INSERT INTO equipo (id_equipo, nombre, mac, ip, ap, id_servicio, id_cliente, fecha_alta, fecha_baja, tipo_conexion, tipo_asignacion)
+            VALUES (105,'Equipo105','0101','1.12','2.1',301,5,'Jan 01, 2010',NULL,'Cable','A');
+
+--MAIL
+INSERT INTO mail (id_persona,mail,tipo)
+VALUES
+  (1,'diam.dictum.sapien@nisl.co.uk','EMPRESARIAL'),
+  (2,'magna.sed@massalobortis.edu','EMPRESARIAL'),
+  (3,'convallis@natoquepenatibus.org','PERSONAL'),
+  (4,'dictum.phasellus@varius.co.uk','INSTITUCIONAL'),
+  (5,'nec@portaelit.org','EMPRESARIAL'),
+  (6,'suspendisse@est.edu','PERSONAL'),
+  (7,'commodo@tincidunt.co.uk','INSTITUCIONAL'),
+  (8,'mus.proin@donectempor.org','INSTITUCIONAL'),
+  (9,'velit@non.com','PERSONAL'),
+  (10,'at.libero@vulputatedui.org','INSTITUCIONAL');
+
+--TELEFONO
+INSERT INTO telefono (id_persona,carac,numero)
+VALUES
+  (1,40,32233232),
+  (2,49,32233239),
+  (3,15,32233246),
+  (4,59,32233253),
+  (5,58,32233260),
+  (6,25,32233267),
+  (7,20,32233274),
+  (8,14,32233281),
+  (9,19,32233288),
+  (10,14,32233295);
+
+--CATEGORIA
+INSERT INTO categoria (id_cat, nombre) VALUES (1,'Cat1');
+INSERT INTO categoria (id_cat, nombre) VALUES (2,'Cat2');
+INSERT INTO categoria (id_cat, nombre) VALUES (3,'Cat3');
+
+--SERVICIO
+INSERT INTO servicio (id_servicio, nombre, periodico, costo, intervalo, tipo_intervalo, activo, id_cat)
+VALUES(301,'Serv1','0',100,5,'mes','0',1);
+
+INSERT INTO servicio (id_servicio, nombre, periodico, costo, intervalo, tipo_intervalo, activo, id_cat)
+VALUES(302,'Serv2','1',200,5,'mes','1',2);
+
+INSERT INTO servicio (id_servicio, nombre, periodico, costo, intervalo, tipo_intervalo, activo, id_cat)
+VALUES(303,'Serv3','1',300,8,'mes','1',2);
+
+--ROL
+
+--PERSONAL
+
+--TURNO
+
+--COMPROBANTE
+
+--TIPOCOMPROBANTE
+
+--LINEACOMPROBANTE
+
+
+
+
+
+
+
+
+-----------------------------------------------*********************************************************---------------------------------------------
+
+
 --Inserciones necessarias para comprobar la consulta 1.a)
 
 --El id_persona es del rango 0 en adelante

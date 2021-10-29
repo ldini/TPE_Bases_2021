@@ -97,6 +97,8 @@ DELETE FROM comprobante where id_comp = 01 and id_tcomp = 100;*/
 --***********************************************************************************************************************************************
 
 --** c **
+--Un equipo puede tener asignada un IP, y en este caso, la MAC resulta requerida.
+
 --La idea es que no haya 2 ips para clientes distintos.
 --Cliente1 <> Cliente2 y que Cliente1.equipo.ip == Cliente2.equipo.ip
 
@@ -210,7 +212,9 @@ BEGIN
 END; $$
 LANGUAGE 'plpgsql';
 
-
+CREATE TRIGGER update_equipo_IPs
+    AFTER UPDATE of ip, id_cliente ON equipo
+    FOR EACH ROW EXECUTE PROCEDURE tr_update_equipo_IPs();
 
 --PARA PROBAR LAS RESTRICCIONES
 /*DELETE FROM equipo where id_equipo = 111;
@@ -235,27 +239,19 @@ ALTER TABLE direccion CHECK (
                 FROM direccion d
                     JOIN equipo e on d.id_persona=e.id_cliente
                 GROUP BY d.id_barrio
-                HAVING count(e.id_equipo)<25
+                HAVING count(e.id_equipo)>25
               )
     );
 */
 
-CREATE TRIGGER update_equipo_IPs
-    AFTER UPDATE of ip, id_cliente ON equipo
-    FOR EACH ROW EXECUTE PROCEDURE tr_update_equipo_IPs();
-
-
 --Insert
 CREATE OR REPLACE FUNCTION tr_insert_cant_equipos_por_barrio() RETURNS trigger AS $$
 BEGIN
-    IF (EXISTS (SELECT d.id_barrio
+    IF (EXISTS (SELECT 1
                 FROM direccion d
-                JOIN (SELECT e.id_cliente,count(*) cant_equipos_por_persona
-                        FROM equipo e
-                        GROUP BY e.id_cliente) x on d.id_persona = x.id_cliente
-
+                    JOIN equipo e on d.id_persona=e.id_cliente
                 GROUP BY d.id_barrio
-                HAVING count(*) > 25
+                HAVING count(e.id_equipo)>25
 
        )) THEN
         RAISE EXCEPTION 'No se pueden instalar más de 25 equipos por Barrio.';
@@ -271,14 +267,12 @@ CREATE TRIGGER insert_cant_equipos_por_barrio
 --Update
 CREATE OR REPLACE FUNCTION tr_update_cant_equipos_por_barrio() RETURNS trigger AS $$
 BEGIN
-    IF (EXISTS (SELECT d.id_barrio
+    IF (EXISTS (SELECT 1
                 FROM direccion d
-                JOIN (SELECT e.id_cliente,count(*) cant_equipos_por_persona
-                        FROM equipo e
-                        GROUP BY e.id_cliente) x on d.id_persona = x.id_cliente
-
+                    JOIN equipo e on d.id_persona=e.id_cliente
+                WHERE new.id_cliente = e.id_cliente
                 GROUP BY d.id_barrio
-                HAVING count(*) > 25
+                HAVING count(e.id_equipo)>25
 
        )) THEN
         RAISE EXCEPTION 'No se pueden instalar más de 25 equipos por Barrio.';
@@ -287,35 +281,11 @@ BEGIN
 END; $$
 LANGUAGE 'plpgsql';
 
-CREATE TRIGGER update_cant_equipos_por_barrio
-    AFTER UPDATE OF id_barrio ON direccion
+
+CREATE TRIGGER update_cantidad_equipos_por_barrio
+    AFTER UPDATE OF id_cliente ON equipo
     FOR EACH ROW EXECUTE PROCEDURE tr_update_cant_equipos_por_barrio();
 
-
-INSERT INTO barrio(id_barrio, nombre, id_ciudad) VALUES (1, 'Los Nogales', 1);
-INSERT INTO barrio(id_barrio, nombre, id_ciudad) VALUES (2, 'Centro', 2);
-
-INSERT INTO direccion(id_direccion, id_persona, calle, numero, piso, depto, id_barrio) VALUES (1,1,'Belgrano', 679, NULL, NULL, 1);
-INSERT INTO direccion(id_direccion, id_persona, calle, numero, piso, depto, id_barrio) VALUES (2,2,'Sarmiento', 179, NULL, NULL, 1);
-INSERT INTO direccion(id_direccion, id_persona, calle, numero, piso, depto, id_barrio) VALUES (3,3,'Peron', 659, NULL, NULL, 1);
-INSERT INTO direccion(id_direccion, id_persona, calle, numero, piso, depto, id_barrio) VALUES (4,4,'Alsina', 379, NULL, NULL, 1);
-INSERT INTO direccion(id_direccion, id_persona, calle, numero, piso, depto, id_barrio) VALUES (5,4,'Colon', 2379, NULL, NULL, 2);
-DELETE FROM direccion WHERE id_direccion IN (SELECT DISTINCT id_direccion FROM direccion);
-
-INSERT INTO equipo (id_equipo, nombre, mac, ip, ap, id_servicio, id_cliente, fecha_alta, fecha_baja, tipo_conexion, tipo_asignacion)
-            VALUES (114,'Equipo111','0101','1.5','2.1',301,1,'Jan 01, 2010',NULL,'Cable','A');
-INSERT INTO equipo (id_equipo, nombre, mac, ip, ap, id_servicio, id_cliente, fecha_alta, fecha_baja, tipo_conexion, tipo_asignacion)
-            VALUES (115,'Equipo111','0101','1.6','2.1',301,1,'Jan 01, 2010',NULL,'Cable','A');
-INSERT INTO equipo (id_equipo, nombre, mac, ip, ap, id_servicio, id_cliente, fecha_alta, fecha_baja, tipo_conexion, tipo_asignacion)
-            VALUES (116,'Equipo111','0101','1.7','2.1',301,1,'Jan 01, 2010',NULL,'Cable','A');
-INSERT INTO equipo (id_equipo, nombre, mac, ip, ap, id_servicio, id_cliente, fecha_alta, fecha_baja, tipo_conexion, tipo_asignacion)
-            VALUES (117,'Equipo111','0101','1.8','2.1',301,1,'Jan 01, 2010',NULL,'Cable','A');
-INSERT INTO equipo (id_equipo, nombre, mac, ip, ap, id_servicio, id_cliente, fecha_alta, fecha_baja, tipo_conexion, tipo_asignacion)
-            VALUES (118,'Equipo111','0101','1.9','2.1',301,1,'Jan 01, 2010',NULL,'Cable','A');
-INSERT INTO equipo (id_equipo, nombre, mac, ip, ap, id_servicio, id_cliente, fecha_alta, fecha_baja, tipo_conexion, tipo_asignacion)
-            VALUES (121,'Equipo111','0101','1.12','2.1',301,4,'Jan 01, 2010',NULL,'Cable','A');
-
-DELETE FROM equipo WHERE id_equipo IN (SELECT DISTINCT id_equipo FROM equipo);
 
 
 
