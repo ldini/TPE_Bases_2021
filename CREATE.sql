@@ -3,7 +3,6 @@
 
 -- tables
 -- Table: Barrio
-}
 
 
 -- Table: Categoria
@@ -271,6 +270,7 @@ ALTER TABLE Personal ADD CONSTRAINT fk_personal_rol
     NOT DEFERRABLE
     INITIALLY IMMEDIATE
 ;
+
 
 -- Reference: fk_personal_turno (table: Turno)
 ALTER TABLE Turno ADD CONSTRAINT fk_personal_turno

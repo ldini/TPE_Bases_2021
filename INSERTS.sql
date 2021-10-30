@@ -4,14 +4,12 @@ INSERT INTO ciudad (id_ciudad, nombre) VALUES (2, 'Las Flores');
 INSERT INTO ciudad (id_ciudad, nombre) VALUES (3, 'Necochea');
 INSERT INTO ciudad (id_ciudad, nombre) VALUES (4, 'Mar Del Plata');
 
-
 --BARRIO
 INSERT INTO barrio(id_barrio, nombre, id_ciudad) VALUES (1, 'Los Nogales', 2);
 INSERT INTO barrio(id_barrio, nombre, id_ciudad) VALUES (2, 'Centro', 1);
 INSERT INTO barrio(id_barrio, nombre, id_ciudad) VALUES (3, 'Solidaridad', 2);
 INSERT INTO barrio(id_barrio, nombre, id_ciudad) VALUES (4, 'Evita', 2);
 INSERT INTO barrio(id_barrio, nombre, id_ciudad) VALUES (5, '25 De Mayo', 3);
-
 
 --PERSONA
 INSERT INTO persona (id_persona,tipo,tipodoc,nrodoc,nombre,apellido,fecha_nacimiento,fecha_baja,CUIT,activo)
@@ -20,13 +18,12 @@ VALUES
   (2,'Hombre','DNI',26770950,'Signe','Owen','Sep 4, 1966',NULL,14957847,'1'),
   (3,'Hombre','DNI',25769634,'Penelope','Booker','Jan 5, 1961','Nov 24, 1997',34078935,'0'),
   (4,'Hombre','DNI',4088310,'Duncan','Delacruz','Mar 6, 2002',NULL,30479948,'1'),
-  (5,'Hombre','DNI',9981733,'Bryar','Jennings','Aug 17, 1999','Oct 18, 1987',25735237,'0'),
+  (5,'Hombre','DNI',9981733,'Bryar','Jennings','Aug 17, 1999','Oct 18, 2020',25735237,'0'),
   (6,'Hombre','LC',30056554,'Dean','Stein','Jun 7, 2000',NULL,15257777,'1'),
   (7,'Hombre','DNI',22293453,'Jena','Byrd','Dec 2, 1972','Sep 25, 1994',3313092,'0'),
   (8,'Hombre','DNI',1287866,'Harper','Stout','Nov 17, 1991',NULL,25161612,'1'),
   (9,'Hombre','DNI',17597284,'Kim','Hodge','Dec 24, 1979',NULL,10614747,'1'),
-  (10,'Hombre','DNI',6581333,'Scarlett','Sparks','Jul 24, 2000','Mar 11, 2007',13779420,'0');
-
+  (10,'Hombre','DNI',6581333,'Scarlett','Sparks','Jul 24, 2000','Mar 11, 2021',13779420,'0');
 
 --DIRECCION
 INSERT INTO direccion(id_direccion, id_persona, calle, numero, piso, depto, id_barrio) VALUES (1,1,'Belgrano', 679, NULL, NULL, 1);
@@ -38,7 +35,6 @@ INSERT INTO direccion(id_direccion, id_persona, calle, numero, piso, depto, id_b
 INSERT INTO direccion(id_direccion, id_persona, calle, numero, piso, depto, id_barrio) VALUES (7,7,'Roca', 2379, NULL, NULL, 2);
 INSERT INTO direccion(id_direccion, id_persona, calle, numero, piso, depto, id_barrio) VALUES (8,8,'Roca', 2379, NULL, NULL, 1);
 
-
 --CLIENTE
 INSERT INTO cliente (id_cliente, saldo) VALUES  (1, 1000);
 INSERT INTO cliente (id_cliente, saldo) VALUES  (2, 2000);
@@ -47,20 +43,38 @@ INSERT INTO cliente (id_cliente, saldo) VALUES  (4, 4000);
 INSERT INTO cliente (id_cliente, saldo) VALUES  (5, 5000);
 INSERT INTO cliente (id_cliente, saldo) VALUES  (6, 6000);
 
+--CATEGORIA
+INSERT INTO categoria (id_cat, nombre) VALUES (1,'Cat1');
+INSERT INTO categoria (id_cat, nombre) VALUES (2,'Cat2');
+INSERT INTO categoria (id_cat, nombre) VALUES (3,'Cat3');
+
+--SERVICIO
+INSERT INTO servicio (id_servicio, nombre, periodico, costo, intervalo, tipo_intervalo, activo, id_cat)
+VALUES(301,'Serv1','0',100,5,'mes','0',1);
+
+INSERT INTO servicio (id_servicio, nombre, periodico, costo, intervalo, tipo_intervalo, activo, id_cat)
+VALUES(302,'Serv2','1',200,5,'mes','1',2);
+
+INSERT INTO servicio (id_servicio, nombre, periodico, costo, intervalo, tipo_intervalo, activo, id_cat)
+VALUES(303,'Serv3','1',300,2,'unico','1',2);
 
 --EQUIPO
 INSERT INTO equipo (id_equipo, nombre, mac, ip, ap, id_servicio, id_cliente, fecha_alta, fecha_baja, tipo_conexion, tipo_asignacion)
-            VALUES (100,'Equipo100','0101','1.5','2.1',301,1,'Jan 01, 2010',NULL,'Cable','A');
+            VALUES (100,'Equipo100','0101','1.5','2.1',301,1,'Jan 01, 2010',NULL,'PPTP','DHCP');
 INSERT INTO equipo (id_equipo, nombre, mac, ip, ap, id_servicio, id_cliente, fecha_alta, fecha_baja, tipo_conexion, tipo_asignacion)
-            VALUES (101,'Equipo101','0101','1.6','2.1',301,2,'Jan 01, 2010',NULL,'Cable','A');
+            VALUES (101,'Equipo101','0101','1.6','2.1',301,2,'Jan 01, 2010',NULL,'PPPoE','DHCP');
 INSERT INTO equipo (id_equipo, nombre, mac, ip, ap, id_servicio, id_cliente, fecha_alta, fecha_baja, tipo_conexion, tipo_asignacion)
-            VALUES (102,'Equipo102','0101','1.7','2.1',303,1,'Jan 01, 2010','Jan 01, 2021','Cable','A');
+            VALUES (102,'Equipo102','0101','1.7','2.1',303,1,'Jan 01, 2010','Jan 01, 2021','PPTP','DHCP');
 INSERT INTO equipo (id_equipo, nombre, mac, ip, ap, id_servicio, id_cliente, fecha_alta, fecha_baja, tipo_conexion, tipo_asignacion)
-            VALUES (103,'Equipo103','0101','1.8','2.1',303,6,'Jan 01, 2010',NULL,'Cable','A');
+            VALUES (103,'Equipo103','0101','1.8','2.1',303,6,'Jan 01, 2010',NULL,'PPPoE','DHCP');
 INSERT INTO equipo (id_equipo, nombre, mac, ip, ap, id_servicio, id_cliente, fecha_alta, fecha_baja, tipo_conexion, tipo_asignacion)
-            VALUES (104,'Equipo104','0101','1.9','2.1',302,4,'Jan 01, 2010','Jan 01, 2015','Cable','A');
+            VALUES (104,'Equipo104','0101','1.9','2.1',302,4,'Jan 01, 2010','Jan 01, 2015','PPPoE','IP FIJA');
 INSERT INTO equipo (id_equipo, nombre, mac, ip, ap, id_servicio, id_cliente, fecha_alta, fecha_baja, tipo_conexion, tipo_asignacion)
-            VALUES (105,'Equipo105','0101','1.12','2.1',301,5,'Jan 01, 2010',NULL,'Cable','A');
+            VALUES (105,'Equipo105','0101','1.12','2.1',301,5,'Jan 01, 2010',NULL,'PPPoE','IP FIJA');
+INSERT INTO equipo (id_equipo, nombre, mac, ip, ap, id_servicio, id_cliente, fecha_alta, fecha_baja, tipo_conexion, tipo_asignacion)
+            VALUES (106,'Equipo106','0101','1.10','2.1',302,4,'Jan 01, 2011','Jan 01, 2015','PPPoE','IP FIJA');
+INSERT INTO equipo (id_equipo, nombre, mac, ip, ap, id_servicio, id_cliente, fecha_alta, fecha_baja, tipo_conexion, tipo_asignacion)
+            VALUES (107,'Equipo107','0101','1.11','2.1',303,4,'Jan 01, 2011','Jan 01, 2015','PPPoE','IP FIJA');
 
 --MAIL
 INSERT INTO mail (id_persona,mail,tipo)
@@ -90,33 +104,71 @@ VALUES
   (9,19,32233288),
   (10,14,32233295);
 
---CATEGORIA
-INSERT INTO categoria (id_cat, nombre) VALUES (1,'Cat1');
-INSERT INTO categoria (id_cat, nombre) VALUES (2,'Cat2');
-INSERT INTO categoria (id_cat, nombre) VALUES (3,'Cat3');
-
---SERVICIO
-INSERT INTO servicio (id_servicio, nombre, periodico, costo, intervalo, tipo_intervalo, activo, id_cat)
-VALUES(301,'Serv1','0',100,5,'mes','0',1);
-
-INSERT INTO servicio (id_servicio, nombre, periodico, costo, intervalo, tipo_intervalo, activo, id_cat)
-VALUES(302,'Serv2','1',200,5,'mes','1',2);
-
-INSERT INTO servicio (id_servicio, nombre, periodico, costo, intervalo, tipo_intervalo, activo, id_cat)
-VALUES(303,'Serv3','1',300,8,'mes','1',2);
-
 --ROL
+INSERT INTO rol (id_rol,nombre)
+VALUES
+  (1,'RECURSOS HUMANOS'),
+  (2,'MANTENIMIENTO'),
+  (3,'INSTALADOR'),
+  (4,'LIMPIEZA'),
+  (5,'PRESIDENTE'),
+  (6,'COBRADOR'),
+  (7,'GERENTE'),
+  (8,'SUPERVISOR'),
+  (9,'TECNICO'),
+  (10,'INGENIERO');
 
 --PERSONAL
+INSERT INTO personal (id_personal,id_rol)
+VALUES
+  (8,1),
+  (10,7),
+  (2,4),
+  (1,10),
+  (3,3),
+  (5,3),
+  (4,2),
+  (6,1),
+  (9,9),
+  (7,9);
 
 --TURNO
-
---COMPROBANTE
+INSERT INTO turno (id_turno, desde, hasta, dinero_inicio, dinero_fin, id_personal)
+VALUES
+  (10,'Feb 01, 2010',NULL,500,NULL,1),
+  (20,'Feb 01, 2010','March 01, 2010',550,NULL,2),
+  (30,'Feb 01, 2010','Feb 01, 2011',2000,NULL,3),
+  (40,'Feb 01, 2010',NULL,800,NULL,4),
+  (50,'Feb 01, 2010',NULL,400,NULL,1),
+  (60,'Feb 01, 2010',NULL,450,NULL,2),
+  (70,'Feb 01, 2010',NULL,400,NULL,1),
+  (80,'Feb 01, 2010','Dec 01, 2010',700,NULL,1),
+  (90,'Feb 01, 2010',NULL,500,NULL,1),
+  (100,'Feb 01, 2010',NULL,500,NULL,6);
 
 --TIPOCOMPROBANTE
+INSERT INTO tipocomprobante (id_tcomp, nombre, tipo)
+VALUES
+    (1, 'Nombre', 'Factura'),
+    (2, 'Nombre', 'Recibo'),
+    (3, 'Nombre', 'Remito');
+
+--COMPROBANTE
+INSERT INTO comprobante (id_comp, id_tcomp, fecha, comentario, estado, fecha_vencimiento, id_turno, importe, id_cliente)
+values
+    (01,1,'Jan 20, 2015','Comentario',NULL,NULL,10,200,3),
+    (02,1,'Mar 29, 2016','Comentario',NULL,NULL,80,500,3),
+    (03,2,'Jan 01, 2010','Comentario',NULL,NULL,20,600,1),
+    (04,3,'Jul 02, 2012','Comentario',NULL,NULL,10,200,5),
+    (05,3,'Apr 01, 2013','Comentario',NULL,NULL,60,300,6);
 
 --LINEACOMPROBANTE
-
+INSERT INTO lineacomprobante (nro_linea, id_comp, id_tcomp, descripcion, cantidad, importe, id_servicio)
+VALUES
+    (999,01,1,'Descripcion',2,100,301),
+    (1000,01,1,'Descripcion',2,100,301),
+    (279,02,1,'Descripcion',1,500,303),
+    (450,05,3,'Descripcion',1,300,303);
 
 
 
@@ -126,7 +178,7 @@ VALUES(303,'Serv3','1',300,8,'mes','1',2);
 
 -----------------------------------------------*********************************************************---------------------------------------------
 
-
+/*
 --Inserciones necessarias para comprobar la consulta 1.a)
 
 --El id_persona es del rango 0 en adelante
@@ -203,3 +255,4 @@ VALUES (603,3,'Av.Kelly',750,NULL,NULL,501);
 INSERT INTO equipo (id_equipo, nombre, mac, ip, ap, id_servicio, id_cliente, fecha_alta, fecha_baja, tipo_conexion, tipo_asignacion)
 VALUES(107,'Equipo7','0107','1.7','2.7',301,2,'Jan 01, 2020','Jan 01,2021','ADSL','B') ;
 
+*/
