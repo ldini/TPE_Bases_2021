@@ -201,13 +201,7 @@ BEGIN
        )) THEN
         RAISE EXCEPTION 'La IP pertenece a otro cliente';
     END IF;
-    SELECT d.id_barrio
-    FROM direccion d
-    WHERE d.id_persona in (SELECT 1
-                           FROM equipo
-                           WHERE equipo.id_cliente=d.id_persona)
 
-    GROUP BY d.id_barrio;
     RETURN new;
 END; $$
 LANGUAGE 'plpgsql';
@@ -226,6 +220,7 @@ INSERT INTO equipo (id_equipo, nombre, mac, ip, ap, id_servicio, id_cliente, fec
             VALUES (113,'Equipo111','0101','1.4','2.1',301,4,'Jan 01, 2010',NULL,'Cable','A');
 
 UPDATE equipo SET ip = '1.3' WHERE id_equipo = 101;*/
+
 
 
 --***********************************************************************************************************************************************

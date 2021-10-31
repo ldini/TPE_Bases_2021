@@ -27,7 +27,9 @@ INSERT INTO V_Saldo_ciudad (id_cliente, saldo) VALUES  (7, 7000); --Cumple la co
 INSERT INTO V_Saldo_ciudad (id_cliente, saldo) VALUES  (8, 1500); --Viola la condicion del check option, no se inserta.
 
 
+
 --***********************************************************************************************************************************************
+
 --** 3.b **
 -- Realice una vista con la lista de servicios activos que posee cada cliente junto con el costo del mismo al momento de consultar la vista.
 
@@ -42,25 +44,30 @@ CREATE OR REPLACE VIEW V_Servicios_activos_por_cliente AS
 
 -- // La vista no es actualizable debido al uso de JOIN y DISTINCT//
 
+-- // Para poder realizar un INSERT en la vista, esta debe tener en el SELECT al menos todos los atributos NOT NULL de las tablas referenciadas.//
+-- // No se puede realizar un UPDATE en el atributo "activo" porque no se encuentra en el SELECT de la vista.//
 
---INSERT
-CREATE OR REPLACE FUNCTION Insert_V_Servicios_activos_por_cliente() RETURNS TRIGGER AS $$
+
+
+/* PARA PROBAR QUE NO SE PUEDE HACER UPDATE
+--UPDATE
+CREATE OR REPLACE FUNCTION UPDATE_V_Servicios_activos_por_cliente() RETURNS TRIGGER AS $$
 BEGIN
-
-  INSERT INTO servicio (id_servicio, nombre, periodico, costo, intervalo, tipo_intervalo, activo, id_cat)
-  VALUES (new.id_servicio, new.nombre, new.periodico, new.costo, new.intervalo, new.tipo_intervalo, new.activo, new.id_cat);
-
-  INSERT INTO Cliente (id_cliente, saldo)
-  VALUES (new.id_cliente, new.saldo);
-
+    UPDATE servicio SET activo = new.activo WHERE id_servicio = new.id_servicio;
   RETURN NEW;
 
 END
 $$ LANGUAGE plpgsql;
 
-CREATE TRIGGER  tr_Insert_V_Servicios_activos_por_cliente
-INSTEAD OF INSERT ON V_Servicios_activos_por_cliente
-FOR EACH ROW EXECUTE PROCEDURE Insert_V_Servicios_activos_por_cliente();
+CREATE TRIGGER  tr_UPDATE_V_Servicios_activos_por_cliente
+INSTEAD OF UPDATE ON V_Servicios_activos_por_cliente
+FOR EACH ROW EXECUTE PROCEDURE UPDATE_V_Servicios_activos_por_cliente();
 
-INSERT INTO V_Servicios_activos_por_cliente (id_cliente, id_servicio, costo)
-VALUES (id_servicio, costo, id_cliente);
+UPDATE V_Servicios_activos_por_cliente SET activo = '0' WHERE id_servicio = 303;*/
+
+
+--***********************************************************************************************************************************************
+
+--** 3.c **
+-- Realice una vista que contenga, por cada uno de los servicios periódicos registrados, el monto facturado mensualmente
+-- durante los últimos 5 años ordenado por servicio, año, mes y monto.
