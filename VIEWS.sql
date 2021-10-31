@@ -46,7 +46,7 @@ CREATE OR REPLACE VIEW V_Servicios_activos_por_cliente AS
 
 -- // Para poder realizar un INSERT en la vista, esta debe tener en el SELECT al menos todos los atributos NOT NULL de las tablas referenciadas.//
 -- // No se puede realizar un UPDATE en el atributo "activo" porque no se encuentra en el SELECT de la vista.//
-
+--
 
 
 /* PARA PROBAR QUE NO SE PUEDE HACER UPDATE
