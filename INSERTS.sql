@@ -156,10 +156,14 @@ VALUES
 --COMPROBANTE
 INSERT INTO comprobante (id_comp, id_tcomp, fecha, comentario, estado, fecha_vencimiento, id_turno, importe, id_cliente)
 values
-    (01,1,'Jan 20, 2015','Comentario',NULL,NULL,10,200,3),
-    (02,1,'Mar 29, 2016','Comentario',NULL,NULL,80,500,3),
+    (01,1,'Jan 20, 2021','Comentario',NULL,NULL,10,200,3),
+    (02,1,'Mar 29, 2017','Comentario',NULL,NULL,80,500,3),
     (03,2,'Jan 01, 2010','Comentario',NULL,NULL,20,600,1),
     (04,3,'Jul 02, 2012','Comentario',NULL,NULL,10,200,5),
+    (05,1,'Jul 02, 2018','Comentario',NULL,NULL,10,200,5),
+    (06,1,'Jul 25, 2019','Comentario',NULL,NULL,10,200,2),
+    (07,1,'Jul 30, 2012','Comentario',NULL,NULL,10,200,5),
+    (08,1,'Jul 30, 2018','Comentario',NULL,NULL,10,650,1),
     (05,3,'Apr 01, 2013','Comentario',NULL,NULL,60,300,6);
 
 --LINEACOMPROBANTE
@@ -168,6 +172,8 @@ VALUES
     (999,01,1,'Descripcion',2,100,301),
     (1000,01,1,'Descripcion',2,100,301),
     (279,02,1,'Descripcion',1,500,303),
+    (277,08,1,'Descripcion',1,350,303),
+    (274,08,1,'Descripcion',1,300,303),
     (450,05,3,'Descripcion',1,300,303);
 
 

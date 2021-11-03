@@ -71,3 +71,18 @@ UPDATE V_Servicios_activos_por_cliente SET activo = '0' WHERE id_servicio = 303;
 --** 3.c **
 -- Realice una vista que contenga, por cada uno de los servicios periódicos registrados, el monto facturado mensualmente
 -- durante los últimos 5 años ordenado por servicio, año, mes y monto.
+
+CREATE OR REPLACE VIEW V_Monto_mensual_serviciosPeriodicos AS
+SELECT s.id_servicio, EXTRACT (MONTH FROM c.fecha) AS mes,EXTRACT (YEAR FROM c.fecha) AS año, SUM(l.importe)
+FROM comprobante c
+    JOIN lineacomprobante l on c.id_comp = l.id_comp and c.id_tcomp = l.id_tcomp
+    JOIN servicio s on l.id_servicio = s.id_servicio
+WHERE EXTRACT (YEAR FROM c.fecha) > EXTRACT (YEAR FROM CURRENT_DATE)-5 AND s.periodico = '1'
+GROUP BY s.id_servicio, año, mes
+ORDER BY año;
+
+--SELECT * FROM V_Monto_mensual_serviciosPeriodicos;
+
+--*********************************************** REVISAR *********************************************************
+-- // Para poder realizar un INSERT en la vista, esta debe tener en el SELECT al menos todos los atributos NOT NULL de las tablas referenciadas y sus PK completas//
+-- // No se puede realizar un UPDATE. //
