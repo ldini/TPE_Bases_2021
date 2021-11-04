@@ -1,9 +1,14 @@
 -- Created by Vertabelo (http://vertabelo.com)
--- Last modification date: 2021-09-22 21:31:45.549
+-- Last modification date: 2021-10-19 20:51:15.611
 
 -- tables
 -- Table: Barrio
-
+CREATE TABLE Barrio (
+    id_barrio int  NOT NULL,
+    nombre varchar(20)  NOT NULL,
+    id_ciudad int  NOT NULL,
+    CONSTRAINT Barrio_pk PRIMARY KEY (id_barrio)
+);
 
 -- Table: Categoria
 CREATE TABLE Categoria (
@@ -271,7 +276,6 @@ ALTER TABLE Personal ADD CONSTRAINT fk_personal_rol
     INITIALLY IMMEDIATE
 ;
 
-
 -- Reference: fk_personal_turno (table: Turno)
 ALTER TABLE Turno ADD CONSTRAINT fk_personal_turno
     FOREIGN KEY (id_personal)
@@ -295,4 +299,6 @@ ALTER TABLE Telefono ADD CONSTRAINT fk_telefono
     NOT DEFERRABLE
     INITIALLY IMMEDIATE
 ;
+
 -- End of file.
+
