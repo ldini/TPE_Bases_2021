@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5fb7496b-465b-490d-9366-2063fae9efcf" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/abf431fd-8387-4b14-842f-4f11e74fd97a.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/abf431fd-8387-4b14-842f-4f11e74fd97a.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/abf431fd-8387-4b14-842f-4f11e74fd97a/storage_v2/_src_/database/Ing21.gT04BA/schema/unc_248909.ASPGgA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/abf431fd-8387-4b14-842f-4f11e74fd97a/storage_v2/_src_/database/Ing21.gT04BA/schema/unc_248909.ASPGgA.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/abf431fd-8387-4b14-842f-4f11e74fd97a/storage_v2/_src_/database/Ing21.gT04BA/schema/unc_248909.ASPGgA.zip" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/abf431fd-8387-4b14-842f-4f11e74fd97a/storage_v2/_src_/database/Ing21.gT04BA/schema/unc_248909.ASPGgA.zip" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CONSULTAS.sql" beforeDir="false" afterPath="$PROJECT_DIR$/CONSULTAS.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CREATE.sql" beforeDir="false" afterPath="$PROJECT_DIR$/CREATE.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CONSTRAINTS.sql" beforeDir="false" afterPath="$PROJECT_DIR$/CONSTRAINTS.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

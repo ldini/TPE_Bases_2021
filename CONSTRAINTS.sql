@@ -78,85 +78,51 @@ create trigger update_comprobante_sumaimportes
 create trigger update_comprobante_sumaimportes
     after update of importe on lineacomprobante
     for each row execute procedure tr_update_comprobante_sumaimportes();
-
-
---PARA PROBAR LAS RESTRICCIONES
-/*INSERT INTO comprobante (id_comp, id_tcomp, fecha, comentario, estado, fecha_vencimiento, id_turno, importe, id_cliente)  values
-                        (01,100,'Jan 01, 2010','comentario',null,'Jan 01, 2015',80,200,3);
-INSERT INTO lineacomprobante (nro_linea, id_comp, id_tcomp, descripcion, cantidad, importe, id_servicio) values
-                                (400134,01,100,'descripcion',2,200,301);
-
-UPDATE lineacomprobante set importe = 321 where id_comp = 01;
-UPDATE comprobante set importe = 90 where id_comp = 01;
-
-DELETE FROM lineacomprobante where id_comp = 01 and id_tcomp = 100; --¿Deberia existir un trigger para delete?
-DELETE FROM comprobante where id_comp = 01 and id_tcomp = 100;*/
-
-
-
 --***********************************************************************************************************************************************
-
 --** c **
 --Un equipo puede tener asignada un IP, y en este caso, la MAC resulta requerida.
 
---La idea es que no haya 2 ips para clientes distintos.
---Cliente1 <> Cliente2 y que Cliente1.equipo.ip == Cliente2.equipo.ip
-
 --Forma declarativa
 /*
-ALTER TABLE comprobante CHECK(
-    NOT EXISTS( SELECT *
-                FROM cliente c
-                    JOIN equipo e on c.id_cliente = e.id_cliente
-                WHERE e.ip in ( SELECT e2.ip
-                                FROM cliente c2
-                                    JOIN equipo e2 on c2.id_cliente = e2.id_cliente
-                                WHERE c.id_cliente <> c2.id_cliente AND e.ip=e2.ip
-                              );
+CREATE ASSERTION ass_check_MACRequerida CHECK(
+    NOT EXISTS( SELECT 1
+                FROM equipo e
+                WHERE (e.IP is not null) AND
+                      (e.MAC is null)
             )
     )*/
 
-CREATE OR REPLACE function tr_insert_IPAsignmentsShared() RETURNS trigger AS $$
+CREATE OR REPLACE function tr_insert_MACRequired() RETURNS trigger AS $$
 BEGIN
     IF (EXISTS (SELECT 1
-                FROM cliente c
-                    JOIN equipo e on c.id_cliente=e.id_cliente
-                WHERE e.ip in ( SELECT e2.ip
-                                FROM cliente c2
-                                    JOIN equipo e2 on c2.id_cliente = e2.id_cliente
-                                WHERE c.id_cliente <> c2.id_cliente AND e.ip=e2.ip
-                              )
+                FROM equipo e
+                WHERE (e.ip is not null) AND (e.mac is null)
                 )) THEN
-        RAISE EXCEPTION 'La IP ingresada ya la tiene otro cliente.';
+        RAISE EXCEPTION 'Si se ingreso un IP es obligatorio ingresar una MAC';
     END IF;
     return new;
 END; $$
 language 'plpgsql';
 
-create trigger insert_equipo_IPAsignmentsShared
+create trigger insert_equipo_MACRequired
     after insert on equipo
-    for each row execute procedure tr_insert_IPAsignmentsShared();
+    for each row execute procedure tr_insert_MACRequired();
 
-CREATE OR REPLACE function tr_update_IPAsignmentsShared() RETURNS trigger AS $$
+CREATE OR REPLACE function tr_update_MACRequired() RETURNS trigger AS $$
 BEGIN
     IF (EXISTS (SELECT 1
-                FROM cliente c
-                    JOIN equipo e on c.id_cliente=e.id_cliente
-                WHERE e.ip in ( SELECT e2.ip
-                                FROM cliente c2
-                                    JOIN equipo e2 on c2.id_cliente = e2.id_cliente
-                                WHERE c.id_cliente <> c2.id_cliente AND e.ip=e2.ip
-                              ) --FALTA LA PARTE DONDE SE COMPRUEBA EL New vs OLD
+                FROM equipo e
+                WHERE (e.ip<>new.ip) AND (new.mac is null)
                 )) THEN
-        RAISE EXCEPTION 'La IP ingresada ya la tiene otro cliente.';
+        RAISE EXCEPTION 'La nueva IP necesita que se declare una MAC.';
     END IF;
     return new;
 END; $$
 language 'plpgsql';
 
-create trigger update_equipo_IPAsignmentsShared
+create trigger update_equipo_MACRequired
     after update of ip,id_cliente on equipo --esta bien que se comprueba el cliente?
-    for each row execute procedure tr_update_IPAsignmentsShared();
+    for each row execute procedure tr_update_MACRequired();
 
 
 --***********************************************************************************************************************************************
@@ -164,7 +130,7 @@ create trigger update_equipo_IPAsignmentsShared
 -- Las IPs asignadas a los equipos no pueden ser compartidas entre clientes.
 
 --Forma declarativa
-/*ALTER TABLE equipo CHECK(
+/*CREATE ASSERTION ass_ipCompartida CHECK(
     NOT EXISTS( SELECT 1
                 FROM equipo e
                 JOIN equipo e2 on e.ip = e2.ip
@@ -210,18 +176,6 @@ CREATE TRIGGER update_equipo_IPs
     AFTER UPDATE of ip, id_cliente ON equipo
     FOR EACH ROW EXECUTE PROCEDURE tr_update_equipo_IPs();
 
---PARA PROBAR LAS RESTRICCIONES
-/*DELETE FROM equipo where id_equipo = 111;
-
-INSERT INTO equipo (id_equipo, nombre, mac, ip, ap, id_servicio, id_cliente, fecha_alta, fecha_baja, tipo_conexion, tipo_asignacion)
-VALUES(101,'Equipo1','0101','1.1','2.1',301,1,'Jan 01, 2010',NULL,'Cable','A');
-
-INSERT INTO equipo (id_equipo, nombre, mac, ip, ap, id_servicio, id_cliente, fecha_alta, fecha_baja, tipo_conexion, tipo_asignacion)
-            VALUES (113,'Equipo111','0101','1.4','2.1',301,4,'Jan 01, 2010',NULL,'Cable','A');
-
-UPDATE equipo SET ip = '1.3' WHERE id_equipo = 101;*/
-
-
 
 --***********************************************************************************************************************************************
 --** e **
@@ -229,7 +183,7 @@ UPDATE equipo SET ip = '1.3' WHERE id_equipo = 101;*/
 
 --Forma declarativa
 /*
-ALTER TABLE direccion CHECK (
+CREATE ASSERTION ass_limiteEquiposXBarrio CHECK (
     NOT EXISTS( SELECT 1
                 FROM direccion d
                     JOIN equipo e on d.id_persona=e.id_cliente
