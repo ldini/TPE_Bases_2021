@@ -9,7 +9,6 @@ WHERE id_cliente IN (SELECT d.id_persona
                     JOIN barrio b on c.id_ciudad = b.id_ciudad
                     JOIN direccion d on b.id_barrio = d.id_barrio
                     WHERE c.nombre like 'Tandil')
-
 WITH LOCAL CHECK OPTION;
 
 --DROP VIEW V_Saldo_ciudad;
@@ -25,13 +24,10 @@ INSERT INTO V_Saldo_ciudad (id_cliente, saldo) VALUES  (8, 1500); --Se produce m
 --CON LOCAL CHECK OPTION
 INSERT INTO V_Saldo_ciudad (id_cliente, saldo) VALUES  (7, 7000); --Cumple la condicion del WHERE, se inserta en la tabla cliente y se refleja en la vista.
 INSERT INTO V_Saldo_ciudad (id_cliente, saldo) VALUES  (8, 1500); --Viola la condicion del check option, no se inserta.
-
-
-
 --***********************************************************************************************************************************************
-
 --** 3.b **
--- Realice una vista con la lista de servicios activos que posee cada cliente junto con el costo del mismo al momento de consultar la vista.
+-- Realice una vista con la lista de servicios activos que posee cada cliente junto con el
+-- costo del mismo al momento de consultar la vista.
 
 CREATE OR REPLACE VIEW V_Servicios_activos_por_cliente AS
     SELECT DISTINCT e.id_cliente, s.id_servicio, s.costo
@@ -39,10 +35,67 @@ CREATE OR REPLACE VIEW V_Servicios_activos_por_cliente AS
         JOIN equipo e on s.id_servicio = e.id_servicio
     WHERE s.activo = '1'
     ORDER BY e.id_cliente;
+-- // La vista no es actualizable debido al uso de JOIN y DISTINCT//
+/*
+¿Que eventos activan el trigger?
+ALTA/BAJA en la tabla Servicio.
+MODIFICACION en la tabla Servicio en los atributos:
+            Servicio.costo : Para sumar o restar si se modifica
+            Servicio.activo : Para restar o sumar los que se activan o se desactivan
+MODIFICACION en la tabla Equipo el atributo:
+            Equipo.id_servicio
+ */
+
+CREATE OR REPLACE FUNCTION tr_instead_insert_servicio_ServiciosCliente() returns trigger as
+    $$
+        BEGIN
+            IF (EXISTS( SELECT 1
+                        FROM Servicio s
+                        WHERE (s.id_servicio=new.id_servicio) OR (new.activo=false)))
+                THEN
+                    RAISE EXCEPTION 'El servicio a insertar ya existe o no esta activo';
+            end if;
+            IF(new.id_cat NOT IN(   SELECT id_cat
+                                    FROM categoria))
+                THEN
+                    RAISE EXCEPTION 'La categoria ingresada no existe';
+            end if;
+            INSERT INTO servicio (id_servicio, nombre, periodico, costo, activo, id_cat)
+                                values (new.id_servicio,new.nombre,new.periodico,new.costo,true,new.id_cat);
+            return new;
+        end;
+    $$ language 'plpgsql';
+
+CREATE TRIGGER instead_insert_servicio_ServiciosCliente
+    INSTEAD OF INSERT ON V_Servicios_activos_por_cliente
+    FOR EACH ROW EXECUTE PROCEDURE tr_instead_insert_servicio_ServiciosCliente();
+
+CREATE OR REPLACE FUNCTION tr_instead_delete_servicio_ServiciosCliente() returns trigger as
+    $$
+        BEGIN
+
+        end;
+    $$ language 'plplgsql';
+
+CREATE TRIGGER instead_delete_servicio_ServiciosCliente
+    INSTEAD OF DELETE ON V_Servicios_activos_por_cliente
+    FOR EACH ROW EXECUTE PROCEDURE tr_instead_delete_servicio_ServiciosCliente();
+
+CREATE OR REPLACE FUNCTION tr_instead_update_servicio_ServiciosCliente() returns trigger as
+    $$
+        BEGIN
+
+        end;
+    $$ language 'plplgsql';
+
+CREATE TRIGGER instead_delete_servicio_ServiciosCliente
+    INSTEAD OF UPDATE ON V_Servicios_activos_por_cliente
+    FOR EACH ROW EXECUTE PROCEDURE tr_instead_update_servicio_ServiciosCliente();
+
+
 
 --SELECT * FROM V_Servicios_activos_por_cliente;
 
--- // La vista no es actualizable debido al uso de JOIN y DISTINCT//
 
 -- // Para poder realizar un INSERT en la vista, esta debe tener en el SELECT al menos todos los atributos NOT NULL de las tablas referenciadas.//
 -- // No se puede realizar un UPDATE en el atributo "activo" porque no se encuentra en el SELECT de la vista.//
