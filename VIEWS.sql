@@ -46,29 +46,32 @@ MODIFICACION en la tabla Equipo el atributo:
             Equipo.id_servicio
  */
 
+alter table servicio alter column id_cat set default 1;
+alter table servicio alter column activo set default 'true';
+alter table servicio alter column nombre set default 'Servicio por defecto';
+alter table servicio alter column periodico set default 'false';
+
+
 CREATE OR REPLACE FUNCTION tr_instead_insert_servicio_ServiciosCliente() returns trigger as
     $$
         BEGIN
-            IF (EXISTS( SELECT 1
-                        FROM Servicio s
-                        WHERE (s.id_servicio=new.id_servicio) OR (new.activo=false)))
-                THEN
-                    RAISE EXCEPTION 'El servicio a insertar ya existe o no esta activo';
-            end if;
-            IF(new.id_cat NOT IN(   SELECT id_cat
-                                    FROM categoria))
-                THEN
-                    RAISE EXCEPTION 'La categoria ingresada no existe';
-            end if;
-            INSERT INTO servicio (id_servicio, nombre, periodico, costo, activo, id_cat)
-                                values (new.id_servicio,new.nombre,new.periodico,new.costo,true,new.id_cat);
+            IF (tg_op = 'INSERT') THEN
+                RAISE EXCEPTION 'No se puede insertar en la vista';
+            ELSE
+               UPDATE servicio SET costo = new.costo where id_servicio = new.id_servicio;
+            END IF;
             return new;
         end;
     $$ language 'plpgsql';
 
 CREATE TRIGGER instead_insert_servicio_ServiciosCliente
-    INSTEAD OF INSERT ON V_Servicios_activos_por_cliente
+    INSTEAD OF INSERT OR UPDATE ON V_Servicios_activos_por_cliente
     FOR EACH ROW EXECUTE PROCEDURE tr_instead_insert_servicio_ServiciosCliente();
+
+Drop trigger instead_insert_servicio_ServiciosCliente ON V_Servicios_activos_por_cliente;
+
+INSERT INTO V_Servicios_activos_por_cliente (id_servicio, costo) VALUES (301, 121);
+UPDATE V_Servicios_activos_por_cliente SET costo = 100 WHERE id_servicio = 303 AND id_cliente = 1;
 
 CREATE OR REPLACE FUNCTION tr_instead_delete_servicio_ServiciosCliente() returns trigger as
     $$
@@ -139,3 +142,20 @@ ORDER BY año;
 --*********************************************** REVISAR *********************************************************
 -- // Para poder realizar un INSERT en la vista, esta debe tener en el SELECT al menos todos los atributos NOT NULL de las tablas referenciadas y sus PK completas//
 -- // No se puede realizar un UPDATE. //
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

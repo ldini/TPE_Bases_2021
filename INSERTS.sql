@@ -56,7 +56,7 @@ INSERT INTO servicio (id_servicio, nombre, periodico, costo, intervalo, tipo_int
 VALUES(302,'Serv2','1',200,5,'mes','1',2);
 
 INSERT INTO servicio (id_servicio, nombre, periodico, costo, intervalo, tipo_intervalo, activo, id_cat)
-VALUES(303,'Serv3','1',300,2,'unico','1',2);
+VALUES(303,'Serv3','1',300,2,'mes','1',2);
 
 --EQUIPO
 INSERT INTO equipo (id_equipo, nombre, mac, ip, ap, id_servicio, id_cliente, fecha_alta, fecha_baja, tipo_conexion, tipo_asignacion)
