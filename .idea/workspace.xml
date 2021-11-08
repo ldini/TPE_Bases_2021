@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5fb7496b-465b-490d-9366-2063fae9efcf" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/abf431fd-8387-4b14-842f-4f11e74fd97a.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/abf431fd-8387-4b14-842f-4f11e74fd97a.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/abf431fd-8387-4b14-842f-4f11e74fd97a/storage_v2/_src_/database/Ing21.gT04BA/schema/unc_248909.ASPGgA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/abf431fd-8387-4b14-842f-4f11e74fd97a/storage_v2/_src_/database/Ing21.gT04BA/schema/unc_248909.ASPGgA.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/abf431fd-8387-4b14-842f-4f11e74fd97a/storage_v2/_src_/database/Ing21.gT04BA/schema/unc_248909.ASPGgA.zip" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/abf431fd-8387-4b14-842f-4f11e74fd97a/storage_v2/_src_/database/Ing21.gT04BA/schema/unc_248909.ASPGgA.zip" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SERVICES.sql" beforeDir="false" afterPath="$PROJECT_DIR$/SERVICES.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VIEWS.sql" beforeDir="false" afterPath="$PROJECT_DIR$/VIEWS.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -33,7 +35,7 @@
     <property name="RunOnceActivity.OpenDatabaseViewOnStart" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
 </project>

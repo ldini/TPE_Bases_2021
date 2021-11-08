@@ -35,6 +35,10 @@ CREATE OR REPLACE VIEW V_Servicios_activos_por_cliente AS
         JOIN equipo e on s.id_servicio = e.id_servicio
     WHERE s.activo = '1'
     ORDER BY e.id_cliente;
+
+
+select * from V_Servicios_activos_por_cliente;
+
 -- // La vista no es actualizable debido al uso de JOIN y DISTINCT//
 /*
 ¿Que eventos activan el trigger?
@@ -58,8 +62,14 @@ CREATE OR REPLACE FUNCTION tr_instead_insert_servicio_ServiciosCliente() returns
             IF (tg_op = 'INSERT') THEN
                 RAISE EXCEPTION 'No se puede insertar en la vista';
             ELSE
-               UPDATE servicio SET costo = new.costo where id_servicio = new.id_servicio;
-            END IF;
+                IF(new.id_servicio in (select id_servicio
+                                        FROM servicio))
+                    THEN
+                        UPDATE servicio SET costo = new.costo where id_servicio = new.id_servicio;
+                ELSE
+                    RAISE EXCEPTION 'El servicio ingresado no existe.';
+                END IF;
+             END IF;
             return new;
         end;
     $$ language 'plpgsql';
@@ -76,26 +86,14 @@ UPDATE V_Servicios_activos_por_cliente SET costo = 100 WHERE id_servicio = 303 A
 CREATE OR REPLACE FUNCTION tr_instead_delete_servicio_ServiciosCliente() returns trigger as
     $$
         BEGIN
-
+            DELETE FROM servicio WHERE servicio.id_servicio=old.id_servicio;
+            return old;
         end;
     $$ language 'plplgsql';
 
 CREATE TRIGGER instead_delete_servicio_ServiciosCliente
     INSTEAD OF DELETE ON V_Servicios_activos_por_cliente
     FOR EACH ROW EXECUTE PROCEDURE tr_instead_delete_servicio_ServiciosCliente();
-
-CREATE OR REPLACE FUNCTION tr_instead_update_servicio_ServiciosCliente() returns trigger as
-    $$
-        BEGIN
-
-        end;
-    $$ language 'plplgsql';
-
-CREATE TRIGGER instead_delete_servicio_ServiciosCliente
-    INSTEAD OF UPDATE ON V_Servicios_activos_por_cliente
-    FOR EACH ROW EXECUTE PROCEDURE tr_instead_update_servicio_ServiciosCliente();
-
-
 
 --SELECT * FROM V_Servicios_activos_por_cliente;
 
@@ -137,7 +135,7 @@ WHERE EXTRACT (YEAR FROM c.fecha) > EXTRACT (YEAR FROM CURRENT_DATE)-5 AND s.per
 GROUP BY s.id_servicio, año, mes
 ORDER BY año;
 
---SELECT * FROM V_Monto_mensual_serviciosPeriodicos;
+SELECT * FROM V_Monto_mensual_serviciosPeriodicos;
 
 --*********************************************** REVISAR *********************************************************
 -- // Para poder realizar un INSERT en la vista, esta debe tener en el SELECT al menos todos los atributos NOT NULL de las tablas referenciadas y sus PK completas//
