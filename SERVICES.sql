@@ -1,36 +1,80 @@
 -- a. Proveer el mecanismo que crea más adecuado para que al ser invocado (una vez por mes), tome todos los servicios
 -- que son periódicos y genere la/s factura/s correspondiente/s. Indicar si se deben proveer parámetros adicionales para su generación. Explicar además cómo resolvería el tema de la invocación mensual (pero no lo implemente).
 
-SELECT e.id_cliente,s.id_servicio,s.costo
-    FROM equipo e
-    JOIN ( SELECT id_servicio,costo
-            FROM servicio
-            WHERE periodico='1') s on e.id_servicio = s.id_servicio;
+--drop procedure generar_facturacion();
+CREATE OR REPLACE PROCEDURE generar_facturacion() AS $$
+    DECLARE
+        var_cliente int;
+    BEGIN
+        FOR var_cliente IN (SELECT DISTINCT e.id_cliente
+                            FROM equipo e) --Por todos los clientes activos(que tienen equipo), genero la factura.
+        LOOP
+            call generar_facturaPorCliente(var_cliente);
+        END LOOP;
+    END;
+$$ language 'plpgsql';
 
-CREATE OR REPLACE VIEW servicios_ClientesActivos AS
-    SELECT e.id_cliente, s.id_servicio, s.costo, s.nombre
-    FROM equipo e
-        JOIN (select id_servicio,costo,nombre from servicio where periodico='1' AND activo='1')
-            s on e.id_servicio = s.id_servicio;
+call generar_facturacion();
 
-SELECT * FROM servicios_ClientesActivos;
+--drop procedure generar_facturaPorCliente;
+CREATE OR REPLACE PROCEDURE generar_facturaPorCliente(param_idCliente int) AS $$
+    DECLARE
+        var_comp comprobante;
+        rec_service record;
+        var_nroLinea int = 0;
+    BEGIN
+        var_comp.id_comp = (SELECT max(c.id_comp)
+                            FROM comprobante c
+                            LIMIT 1) +1;
+        var_comp.id_tcomp = 1; --1 equivale a tipo factura
+        var_comp.fecha = current_timestamp;
+        var_comp.comentario = 'Facturacion mensual';
+        var_comp.estado = null;
+        var_comp.fecha_vencimiento = null; -- Podria ponerle la fecha de vencimiento con (current_timestamp + interval '1 month')::timestamp;
+        var_comp.id_turno = null;
+        var_comp.importe = 0;
+        var_comp.id_cliente = param_idCliente;
+        INSERT INTO comprobante(id_comp, id_tcomp, fecha, comentario, estado, fecha_vencimiento, id_turno, importe, id_cliente)
+                VALUES (var_comp.id_comp,var_comp.id_tcomp, var_comp.fecha, var_comp.comentario, var_comp.estado,
+                        var_comp.fecha_vencimiento, var_comp.id_turno,var_comp.importe,var_comp.id_cliente);
 
-CREATE OR REPLACE FUNCTION facturacionPorCliente(id_cliente int)
-    returns comprobante as
-    $$
-        DECLARE
-            factura comprobante;
-            lineas lineacomprobante;
-            rec record;
-        BEGIN
-                for rec in (SELECT * FROM servicios_ClientesActivos) loop
-                    
-                end loop;
+        FOR rec_service IN (SELECT s.id_servicio, s.costo, s.nombre FROM servicio s
+                            WHERE s.id_servicio IN (SELECT e.id_servicio FROM equipo e
+                                                    WHERE e.id_cliente = var_comp.id_cliente))
+        LOOP
+            call generar_lineasFactura(var_comp,rec_service, var_nroLinea);
+            var_nroLinea = var_nroLinea+1;
+        END LOOP;
+    END;
+$$language plpgsql;
 
-            return factura;
-        end;
-    $$ language 'plpgsql';
+--drop procedure generar_lineasfactura;
+CREATE OR REPLACE PROCEDURE generar_lineasFactura(param_comprobante comprobante, param_recServicio record, param_nroLinea int) AS $$
+    DECLARE
+        linea lineacomprobante;
+    BEGIN
+        linea.nro_linea = param_nroLinea;
+        linea.id_comp = param_comprobante.id_comp;
+        linea.id_tcomp = param_comprobante.id_tcomp;
+        linea.descripcion = param_recServicio.nombre;
+        linea.cantidad = 1;
+        linea.importe = param_recServicio.costo;
+        linea.id_servicio= param_recServicio.id_servicio;
+        param_comprobante.importe = param_comprobante.importe + linea.importe;
 
+        UPDATE comprobante SET importe = param_comprobante.importe
+                WHERE comprobante.id_tcomp = param_comprobante.id_tcomp
+                                            AND comprobante.id_comp = param_comprobante.id_comp;
+
+        INSERT INTO lineacomprobante(nro_linea, id_comp, id_tcomp, descripcion, cantidad, importe, id_servicio)
+                VALUES(linea.nro_linea, linea.id_comp, linea.id_tcomp,linea.descripcion,linea.cantidad,
+                       linea.importe,linea.id_servicio);
+    END;
+$$language plpgsql;
+
+call generar_facturacion();
+
+-----------------------------------------------------------------------------------------------------------------------
 
 --4.b)
 CREATE OR REPLACE VIEW inventario_consolidado_equipo as
