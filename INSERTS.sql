@@ -60,11 +60,11 @@ VALUES(303,'Serv3','1',300,2,'mes','1',2);
 
 --EQUIPO
 INSERT INTO equipo (id_equipo, nombre, mac, ip, ap, id_servicio, id_cliente, fecha_alta, fecha_baja, tipo_conexion, tipo_asignacion)
-            VALUES (100,'Equipo100','0101','1.5','2.1',301,1,'Jan 01, 2010',NULL,'PPTP','DHCP');
+            VALUES (100,'HUAWEI','0101','1.5','2.1',301,1,'Jan 01, 2010',NULL,'PPTP','DHCP');
 INSERT INTO equipo (id_equipo, nombre, mac, ip, ap, id_servicio, id_cliente, fecha_alta, fecha_baja, tipo_conexion, tipo_asignacion)
             VALUES (101,'Equipo101','0101','1.6','2.1',301,2,'Jan 01, 2010',NULL,'PPPoE','DHCP');
 INSERT INTO equipo (id_equipo, nombre, mac, ip, ap, id_servicio, id_cliente, fecha_alta, fecha_baja, tipo_conexion, tipo_asignacion)
-            VALUES (102,'Equipo102','0101','1.7','2.1',303,1,'Jan 01, 2010','Jan 01, 2021','PPTP','DHCP');
+            VALUES (102,'HUAWEI','0101','1.7','2.1',303,5,'Jan 01, 2010',NULL,'PPTP','DHCP');
 INSERT INTO equipo (id_equipo, nombre, mac, ip, ap, id_servicio, id_cliente, fecha_alta, fecha_baja, tipo_conexion, tipo_asignacion)
             VALUES (103,'Equipo103','0101','1.8','2.1',303,6,'Jan 01, 2010',NULL,'PPPoE','DHCP');
 INSERT INTO equipo (id_equipo, nombre, mac, ip, ap, id_servicio, id_cliente, fecha_alta, fecha_baja, tipo_conexion, tipo_asignacion)
@@ -109,7 +109,7 @@ INSERT INTO rol (id_rol,nombre)
 VALUES
   (1,'RECURSOS HUMANOS'),
   (2,'MANTENIMIENTO'),
-  (3,'INSTALADOR'),
+  (3,'Empleado'),
   (4,'LIMPIEZA'),
   (5,'PRESIDENTE'),
   (6,'COBRADOR'),
@@ -129,20 +129,20 @@ VALUES
   (5,3),
   (4,2),
   (6,1),
-  (9,9),
-  (7,9);
+  (9,3),
+  (7,3);
 
 --TURNO
 INSERT INTO turno (id_turno, desde, hasta, dinero_inicio, dinero_fin, id_personal)
 VALUES
   (10,'Feb 01, 2010',NULL,500,NULL,1),
   (20,'Feb 01, 2010','March 01, 2010',550,NULL,2),
-  (30,'Feb 01, 2010','Feb 01, 2011',2000,NULL,3),
-  (40,'Feb 01, 2010',NULL,800,NULL,4),
+  (30,'Feb 01, 2010','Feb 02, 2010',2000,NULL,3),
+  (40,'Feb 01, 2010','Feb 05, 2010',800,NULL,3),
   (50,'Feb 01, 2010',NULL,400,NULL,1),
   (60,'Feb 01, 2010',NULL,450,NULL,2),
   (70,'Feb 01, 2010',NULL,400,NULL,1),
-  (80,'Feb 01, 2010','Dec 01, 2010',700,NULL,1),
+  (80,'Feb 01, 2010','Dec 01, 2011',700,NULL,5),
   (90,'Feb 01, 2010',NULL,500,NULL,1),
   (100,'Feb 01, 2010',NULL,500,NULL,6);
 
@@ -160,11 +160,11 @@ values
     (02,1,'Mar 29, 2017','Comentario',NULL,NULL,80,500,3),
     (03,2,'Jan 01, 2010','Comentario',NULL,NULL,20,600,1),
     (04,3,'Jul 02, 2012','Comentario',NULL,NULL,10,200,5),
-    (05,1,'Jul 02, 2018','Comentario',NULL,NULL,10,200,5),
+    (05,3,'OCT 02, 2021','Comentario',NULL,NULL,10,200,5),
     (06,1,'Jul 25, 2019','Comentario',NULL,NULL,10,200,2),
-    (07,1,'Jul 30, 2012','Comentario',NULL,NULL,10,200,5),
-    (08,1,'Jul 30, 2018','Comentario',NULL,NULL,10,650,1),
-    (05,3,'Apr 01, 2013','Comentario',NULL,NULL,60,300,6);
+    (07,3,'OCT 30, 2021','Comentario',NULL,NULL,10,200,5),
+    (08,1,'OCT 30, 2021','Comentario',NULL,NULL,10,650,1),
+    (09,3,'Apr 01, 2013','Comentario',NULL,NULL,60,300,6);
 
 --LINEACOMPROBANTE
 INSERT INTO lineacomprobante (nro_linea, id_comp, id_tcomp, descripcion, cantidad, importe, id_servicio)
@@ -174,7 +174,8 @@ VALUES
     (279,02,1,'Descripcion',1,500,303),
     (277,08,1,'Descripcion',1,350,303),
     (274,08,1,'Descripcion',1,300,303),
-    (450,05,3,'Descripcion',1,300,303);
+    (450,05,3,'Descripcion',1,200,303),
+    (400,07,3,'Descripcion',1,200,303);
 
 
 
