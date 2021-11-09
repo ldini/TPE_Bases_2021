@@ -40,3 +40,31 @@ CREATE OR REPLACE VIEW inventario_consolidado_equipo as
     group by e.tipo_conexion, e.tipo_asignacion,e.nombre;
 
 select * from inventario_consolidado_equipo;
+
+--4.c)
+DROP FUNCTION informe_empleados_BTWDates;
+CREATE OR REPLACE FUNCTION informe_empleados_BTWDates(fecha_inicio timestamp, fecha_fin timestamp)
+    RETURNS table(id_personal int,id_ciudad int, cantidad bigint, promedioHs double precision, max double precision) as
+    $$
+        BEGIN
+            return query
+                SELECT p.id_personal, b.id_ciudad,count(turno.id_turno)cantidadTurnosResueltos,
+                        AVG(EXTRACT(epoch from(turno.hasta - turno.desde))/3600),MAX(EXTRACT(epoch from(turno.hasta-turno.desde)))
+                FROM (  select personal.id_personal
+                        from personal
+                        where personal.id_personal='1') p --se entiende que el id_rol='1' es el rol de empleado
+                    JOIN(   SELECT t.id_personal,t.id_turno,t.hasta,t.desde
+                            FROM turno t
+                            WHERE (t.hasta is not null AND (fecha_inicio <= t.desde
+                                                        AND fecha_fin <= t.hasta))
+                        ) turno on p.id_personal = turno.id_personal
+                    JOIN (  SELECT c.id_turno, c.id_cliente
+                            FROM comprobante c
+                         ) comprobante on turno.id_turno=comprobante.id_turno
+                    JOIN direccion d on comprobante.id_cliente=d.id_persona
+                    JOIN barrio b on d.id_barrio = b.id_barrio
+                    GROUP BY p.id_personal,b.id_ciudad;
+        END;
+    $$language plpgsql;
+
+select * from informe_empleados_BTWDates((to_timestamp('2010-01-01','YYYY-dd-mm')::timestamp),to_timestamp('2012-01-01','YYYY-dd-mm')::timestamp);
